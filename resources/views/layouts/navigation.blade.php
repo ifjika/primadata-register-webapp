@@ -46,7 +46,7 @@
                         </x-slot>
                     </x-dropdown>
                     <x-nav-link :href="route('contact')" :active="request()->routeIs('contact')">
-                        {{ __('Contact Us') }}
+                        {{ __('Hubungi Kami') }}
                     </x-nav-link>
                 </div>
             </div>
