@@ -30,11 +30,12 @@
         @endif
 
         <!-- Page Content -->
-        @include('components.footer')
         <main>
             @yield('content')
         </main>
     </div>
 </body>
+<!-- Footer Content -->
+@include('components.footer')
 
 </html>

@@ -5,7 +5,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
 
 // Route::get('/home', function () {
@@ -53,7 +53,7 @@ Route::get('/contact', function () {
 })->name('contact');
 
 Route::get('/class-1', function () {
-    return view('class1-');
+    return view('class-1');
 })->name('class-1');
 
 Route::get('/class-2', function () {
