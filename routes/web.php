@@ -8,14 +8,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
+// Route::get('/home', function () {
+//     return view('dashboard');
+// })->name('home');
+
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
+Route::get('/home', function () {
     if (auth()->check() && auth()->user()->role === 'admin') {
         return view('admin.dashboard');
     } elseif (auth()->check() && auth()->user()->role === 'user') {
         return view('user.dashboard');
     }
     return redirect('/'); // Redirect if the user does not have a valid role
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['auth'])->name('home');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -31,5 +39,25 @@ Route::get('/check-role', function (UserController $userController) {
     }
     return response()->json(['role' => 'guest']);
 })->middleware(['auth']);
+
+Route::get('/instructor', function () {
+    return view('instructor');
+})->name('instructor');
+
+Route::get('/activity', function () {
+    return view('activity');
+})->name('activity');
+
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+
+Route::get('/class-1', function () {
+    return view('class1-');
+})->name('class-1');
+
+Route::get('/class-2', function () {
+    return view('class-2');
+})->name('class-2');
 
 require __DIR__ . '/auth.php';

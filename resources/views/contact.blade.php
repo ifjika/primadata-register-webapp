@@ -1,0 +1,8 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <h1>Contact Us</h1>
+    <p>Contact information will go here.</p>
+</div>
+@endsection
