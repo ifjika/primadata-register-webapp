@@ -52,6 +52,11 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
+Route::get('/courses', function () {
+    return view('courses');
+})->name('courses');
+
+
 Route::get('/class-1', function () {
     return view('class-1');
 })->name('class-1');

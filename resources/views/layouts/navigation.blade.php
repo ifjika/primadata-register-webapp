@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('about')" :active="request()->routeIs('about')">
                         {{ __('Tentang Kami') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('courses')" :active="request()->routeIs('coures')">
+                        {{ __('Paket Kursus') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('instructor')" :active="request()->routeIs('instructor')">
                         {{ __('Instruktur') }}
                     </x-nav-link>
