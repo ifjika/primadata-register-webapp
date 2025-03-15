@@ -107,7 +107,7 @@
 
                     <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="200">
                         <div class="member-img">
-                            <img src="assets/img/team/team-2.png" class="img-fluid" alt="">
+                            <img src="assets/img/trainers/trainer-7.jpeg" class="img-fluid" alt="">
                             <div class="social">
                                 <a href="#"><i class="bi bi-twitter-x"></i></a>
                                 <a href="#"><i class="bi bi-facebook"></i></a>
@@ -118,7 +118,7 @@
                         <div class="member-info text-center">
                             <h4>Fitri Guswanti</h4>
                             <span>Wakil Pimpinan</span>
-                            <p>Pengurusan bidang kejuruan sekaligus bendahara</p>
+                            <p>Pengurusan bidang kejuruan dan mengatur keuangan</p>
                         </div>
                     </div><!-- End Team Member -->
 
@@ -158,7 +158,7 @@
 
                     <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="500">
                         <div class="member-img">
-                            <img src="assets/img/team/team-5.jpg" class="img-fluid" alt="">
+                            <img src="assets/img/trainers/trainer-4.jpeg" class="img-fluid" alt="">
                             <div class="social">
                                 <a href="#"><i class="bi bi-twitter-x"></i></a>
                                 <a href="#"><i class="bi bi-facebook"></i></a>
@@ -175,7 +175,7 @@
 
                     <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="600">
                         <div class="member-img">
-                            <img src="assets/img/team/team-6.jpg" class="img-fluid" alt="">
+                            <img src="assets/img/trainers/trainer-6.jpg" class="img-fluid" alt="">
                             <div class="social">
                                 <a href="#"><i class="bi bi-twitter-x"></i></a>
                                 <a href="#"><i class="bi bi-facebook"></i></a>
@@ -192,7 +192,7 @@
 
                     <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="200">
                         <div class="member-img">
-                            <img src="assets/img/team/team-2.png" class="img-fluid" alt="">
+                            <img src="assets/img/trainers/trainer-5.jpeg" class="img-fluid" alt="">
                             <div class="social">
                                 <a href="#"><i class="bi bi-twitter-x"></i></a>
                                 <a href="#"><i class="bi bi-facebook"></i></a>
@@ -209,7 +209,7 @@
 
                     <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="200">
                         <div class="member-img">
-                            <img src="assets/img/team/team-2.png" class="img-fluid" alt="">
+                            <img src="assets/img/team/team-8.png" class="img-fluid" alt="">
                             <div class="social">
                                 <a href="#"><i class="bi bi-twitter-x"></i></a>
                                 <a href="#"><i class="bi bi-facebook"></i></a>
@@ -226,7 +226,7 @@
 
                     <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="200">
                         <div class="member-img">
-                            <img src="assets/img/team/team-2.png" class="img-fluid" alt="">
+                            <img src="assets/img/team/team-9.jpg" class="img-fluid" alt="">
                             <div class="social">
                                 <a href="#"><i class="bi bi-twitter-x"></i></a>
                                 <a href="#"><i class="bi bi-facebook"></i></a>
@@ -244,6 +244,77 @@
         </section><!-- /Trainers Section -->
 
     </main>
+
+    <footer id="footer" class="footer position-relative light-background">
+
+        <div class="container footer-top">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6 footer-about">
+                    <a href="index.html" class="logo d-flex align-items-center">
+                        <span class="sitename">Hubungi Admin</span>
+                    </a>
+                    <div class="footer-contact pt-3">
+                        <p>LKP Prima Data</p>
+                        <p>Padang, Indonesia</p>
+                        <p class="mt-3"><strong>WhatsApp :</strong> <span>+62 813 6374 7467</span></p>
+                        <p><strong>Email :</strong> <span>primadata.kursus@gmail.com</span></p>
+                    </div>
+                    <div class="social-links d-flex mt-4">
+                        <a href=""><i class="bi bi-twitter-x"></i></a>
+                        <a href=""><i class="bi bi-facebook"></i></a>
+                        <a href=""><i class="bi bi-instagram"></i></a>
+                        <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-3 footer-links">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Terms of service</a></li>
+                        <li><a href="#">Privacy policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-md-3 footer-links">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="#">Web Design</a></li>
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">Product Management</a></li>
+                        <li><a href="#">Marketing</a></li>
+                        <li><a href="#">Graphic Design</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-12 footer-newsletter">
+                    <h4>Alamat</h4>
+                    <p>Jl. S.Parman No. 189, Ulak Karang, Padang, Sumatera Barat</p>
+                    <form action="forms/newsletter.php" method="post" class="php-email-form">
+                        <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
+                        <div class="loading">Loading</div>
+                        <div class="error-message"></div>
+                        <div class="sent-message">Your subscription request has been sent. Thank you!</div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container copyright text-center mt-4">
+            <p>© <span>Copyright</span> <strong class="px-1 sitename">Prima Data Kursus</strong> <span>All Rights Reserved</span></p>
+            <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you've purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a href=“https://themewagon.com>ThemeWagon
+            </div>
+        </div>
+
+    </footer>
 
     <!-- Scroll Top -->
     <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

@@ -1,23 +1,33 @@
 @extends('layouts.app')
 @section('content')
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Index - Prima Data Kursus</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/aos/aos.css" rel="stylesheet') }}">
-    <link href="{{ asset('assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
     <!-- Main CSS File -->
-    <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-
+    <link href="assets/css/main.css" rel="stylesheet">
 
     <!-- =======================================================
   * Template Name: Mentor
@@ -29,12 +39,71 @@
 </head>
 
 <body class="index-page">
+
+    <header id="header" class="header d-flex align-items-center sticky-top">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+            <a href="index.html" class="logo d-flex align-items-center me-auto">
+                <!-- Uncomment the line below if you also wish to use an image logo -->
+                <!-- <img src="assets/img/logo.png" alt=""> -->
+                <h1 class="sitename">LKP Prima Data</h1>
+            </a>
+
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="index.html" class="active">Home<br></a></li>
+                    <li><a href="about.html">Tentang Kami</a></li>
+                    <li><a href="trainers.html">Instruktur</a></li>
+                    <li><a href="events.html">Kegiatan</a></li>
+                    <li><a href="pricing.html">Promo</a></li>
+                    <li class="dropdown"><a href="#"><span>Paket Kursus</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                        <ul>
+                            <li class="dropdown"><a href="#"><span>Reguler</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                <ul>
+                                    <li><a href="#">Administrasi Perkantoran</a></li>
+                                    <li><a href="#">Desain Grafis</a></li>
+                                    <li><a href="#">Digital Marketing</a></li>
+                                    <li><a href="#">Web Programming</a></li>
+                                    <li><a href="#">AutoCAD</a></li>
+                                    <li><a href="#">Sketchup</a></li>
+                                    <li><a href="#">Video Editing</a></li>
+                                    <li><a href="#">Akuntansi</a></li>
+                                    <li><a href="#">Teknisi Jaringan</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a href="#"><span>Paket 3 Bulan</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                <ul>
+                                    <li><a href="#">APDIGI</a></li>
+                                    <li><a href="#">APDIVI</a></li>
+                                    <li><a href="#">DIVIDI</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a href="#"><span>Paket 6 Bulan</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                <ul>
+                                    <li><a href="#">Administrasi Bisnis</a></li>
+                                    <li><a href="#">Teknik Sipil</a></li>
+                                    <li><a href="#">Teknik Elektro dan Komputer</a></li>
+                                    <li><a href="#">Sistem Informasi dan Programming</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+
+            <a class="btn-getstarted" href="courses.html">Daftar Sekarang</a>
+
+        </div>
+    </header>
+
     <main class="main">
 
         <!-- Hero Section -->
         <section id="hero" class="hero section dark-background">
 
-            <img src="{{ asset('assets/img/hero-bg.jpg') }}" alt="" data-aos="fade-in">
+            <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
 
             <div class="container">
                 <h2 data-aos="fade-up" data-aos-delay="100">Kursus Komputer<br>Bersertifikasi BNSP dan LSK-TIK</h2>
@@ -54,7 +123,7 @@
                 <div class="row gy-4">
 
                     <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
-                        <img src="{{ asset('assets/img/about.jpg') }}" class="img-fluid" alt="">
+                        <img src="assets/img/about.jpg" class="img-fluid" alt="">
                     </div>
 
                     <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
@@ -85,14 +154,14 @@
 
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-item text-center w-100 h-100">
-                            <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1" class="purecounter"></span>
+                            <span data-purecounter-start="0" data-purecounter-end="2652" data-purecounter-duration="1" class="purecounter"></span>
                             <p>Peserta Kursus</p>
                         </div>
                     </div><!-- End Stats Item -->
 
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-item text-center w-100 h-100">
-                            <span data-purecounter-start="0" data-purecounter-end="64" data-purecounter-duration="1" class="purecounter"></span>
+                            <span data-purecounter-start="0" data-purecounter-end="16" data-purecounter-duration="1" class="purecounter"></span>
                             <p>Lulusan</p>
                         </div>
                     </div><!-- End Stats Item -->
@@ -106,7 +175,7 @@
 
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-item text-center w-100 h-100">
-                            <span data-purecounter-start="0" data-purecounter-end="24" data-purecounter-duration="1" class="purecounter"></span>
+                            <span data-purecounter-start="0" data-purecounter-end="9" data-purecounter-duration="1" class="purecounter"></span>
                             <p>Instruktur</p>
                         </div>
                     </div><!-- End Stats Item -->
@@ -144,24 +213,24 @@
                             <div class="col-xl-4">
                                 <div class="icon-box d-flex flex-column justify-content-center align-items-center">
                                     <i class="bi bi-clipboard-data"></i>
-                                    <h4>Corporis voluptates officia eiusmod</h4>
-                                    <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                                    <h4>Terakreditasi</h4>
+                                    <p>Akreditasi B dari BAN PNF dan LA LPK</p>
                                 </div>
                             </div><!-- End Icon Box -->
 
                             <div class="col-xl-4" data-aos="fade-up" data-aos-delay="300">
                                 <div class="icon-box d-flex flex-column justify-content-center align-items-center">
                                     <i class="bi bi-gem"></i>
-                                    <h4>Ullamco laboris ladore pan</h4>
-                                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                                    <h4>VIN Kemnaker</h4>
+                                    <p>Memiliki VIN dari Kemnaker dan izin dari Kemnaker. Memiliki izin dari Kemdikbudristek RI</p>
                                 </div>
                             </div><!-- End Icon Box -->
 
                             <div class="col-xl-4" data-aos="fade-up" data-aos-delay="400">
                                 <div class="icon-box d-flex flex-column justify-content-center align-items-center">
                                     <i class="bi bi-inboxes"></i>
-                                    <h4>Labore consequatur incidid dolore</h4>
-                                    <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+                                    <h4>TUK-TIK</h4>
+                                    <p>Memiliki TUK-TIK (Tempat Uji Kompetensi Teknologi Informasi dan Komunikasi) dari LSK</p>
                                 </div>
                             </div><!-- End Icon Box -->
 
@@ -175,6 +244,9 @@
         </section><!-- /Why Us Section -->
 
         <!-- Features Section -->
+        <h1>
+            <center>Mitra Kerja Sama</center>
+        </h1>
         <section id="features" class="features section">
 
             <div class="container">
@@ -184,84 +256,84 @@
                     <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="100">
                         <div class="features-item">
                             <i class="bi bi-eye" style="color: #ffbb2c;"></i>
-                            <h3><a href="" class="stretched-link">Lorem Ipsum</a></h3>
+                            <h3><a href="" class="stretched-link">PT. Kunango Jantan</a></h3>
                         </div>
                     </div><!-- End Feature Item -->
 
                     <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="200">
                         <div class="features-item">
                             <i class="bi bi-infinity" style="color: #5578ff;"></i>
-                            <h3><a href="" class="stretched-link">Dolor Sitema</a></h3>
+                            <h3><a href="" class="stretched-link">PT. Tjahaja Baru Agri</a></h3>
                         </div>
                     </div><!-- End Feature Item -->
 
                     <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="300">
                         <div class="features-item">
                             <i class="bi bi-mortarboard" style="color: #e80368;"></i>
-                            <h3><a href="" class="stretched-link">Sed perspiciatis</a></h3>
+                            <h3><a href="" class="stretched-link"></a>Politeknik Negeri Padang</h3>
                         </div>
                     </div><!-- End Feature Item -->
 
                     <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="400">
                         <div class="features-item">
                             <i class="bi bi-nut" style="color: #e361ff;"></i>
-                            <h3><a href="" class="stretched-link">Magni Dolores</a></h3>
+                            <h3><a href="" class="stretched-link">PT. Surya Persada Erasindo</a></h3>
                         </div>
                     </div><!-- End Feature Item -->
 
                     <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="500">
                         <div class="features-item">
                             <i class="bi bi-shuffle" style="color: #47aeff;"></i>
-                            <h3><a href="" class="stretched-link">Nemo Enim</a></h3>
+                            <h3><a href="" class="stretched-link">PT. Sentral Theta Jaya</a></h3>
                         </div>
                     </div><!-- End Feature Item -->
 
                     <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="600">
                         <div class="features-item">
                             <i class="bi bi-star" style="color: #ffa76e;"></i>
-                            <h3><a href="" class="stretched-link">Eiusmod Tempor</a></h3>
+                            <h3><a href="" class="stretched-link">RCM Print</a></h3>
                         </div>
                     </div><!-- End Feature Item -->
 
                     <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="700">
                         <div class="features-item">
                             <i class="bi bi-x-diamond" style="color: #11dbcf;"></i>
-                            <h3><a href="" class="stretched-link">Midela Teren</a></h3>
+                            <h3><a href="" class="stretched-link">Sate Manangkabau</a></h3>
                         </div>
                     </div><!-- End Feature Item -->
 
                     <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="800">
                         <div class="features-item">
                             <i class="bi bi-camera-video" style="color: #4233ff;"></i>
-                            <h3><a href="" class="stretched-link">Pira Neve</a></h3>
+                            <h3><a href="" class="stretched-link">J-Bross Computer</a></h3>
                         </div>
                     </div><!-- End Feature Item -->
 
                     <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="900">
                         <div class="features-item">
                             <i class="bi bi-command" style="color: #b2904f;"></i>
-                            <h3><a href="" class="stretched-link">Dirada Pack</a></h3>
+                            <h3><a href="" class="stretched-link">Politeknik LP3i</a></h3>
                         </div>
                     </div><!-- End Feature Item -->
 
                     <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="1000">
                         <div class="features-item">
                             <i class="bi bi-dribbble" style="color: #b20969;"></i>
-                            <h3><a href="" class="stretched-link">Moton Ideal</a></h3>
+                            <h3><a href="" class="stretched-link">CV. Mediatamaweb Indonesia</a></h3>
                         </div>
                     </div><!-- End Feature Item -->
 
                     <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="1100">
                         <div class="features-item">
                             <i class="bi bi-activity" style="color: #ff5828;"></i>
-                            <h3><a href="" class="stretched-link">Verdo Park</a></h3>
+                            <h3><a href="" class="stretched-link">Universitas Muhammadaiyah Sumatera Barat</a></h3>
                         </div>
                     </div><!-- End Feature Item -->
 
                     <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="1200">
                         <div class="features-item">
                             <i class="bi bi-brightness-high" style="color: #29cc61;"></i>
-                            <h3><a href="" class="stretched-link">Flavor Nivelanda</a></h3>
+                            <h3><a href="" class="stretched-link">Otoritas Bandar Udara Minangkabau</a></h3>
                         </div>
                     </div><!-- End Feature Item -->
 
@@ -286,7 +358,7 @@
 
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                         <div class="course-item">
-                            <img src="{{ asset('assets/img/course-1.jpg') }}" class="img-fluid" alt="...">
+                            <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
                             <div class="course-content">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <p class="category">Administrasi Perkantoran</p>
@@ -298,13 +370,8 @@
                                     Mahir dalam bidang Perkantoran pembuatan surat, menguasai rumus excel, kreasi persentase menarik</p>
                                 <div class="trainer d-flex justify-content-between align-items-center">
                                     <div class="trainer-profile d-flex align-items-center">
-                                        <img src="{{ asset('assets/img/trainers/trainer-3.png') }}" class="img-fluid" alt="">
+                                        <img src="assets/img/trainers/trainer-3.png" class="img-fluid" alt="">
                                         <a href="" class="trainer-link">Belin Heyo Fathia</a>
-                                    </div>
-                                    <div class="trainer-rank d-flex align-items-center">
-                                        <i class="bi bi-person user-icon"></i>&nbsp;50
-                                        &nbsp;&nbsp;
-                                        <i class="bi bi-heart heart-icon"></i>&nbsp;65
                                     </div>
                                 </div>
                             </div>
@@ -313,7 +380,7 @@
 
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
                         <div class="course-item">
-                            <img src="{{ asset('assets/img/course-2.jpg') }}" class="img-fluid" alt="...">
+                            <img src="assets/img/course-2.jpg" class="img-fluid" alt="...">
                             <div class="course-content">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <p class="category">Desain</p>
@@ -325,13 +392,8 @@
                                     Desain menggunakan CorelDraw fokus dibidang percetakan dan platfom sosial media.</p>
                                 <div class="trainer d-flex justify-content-between align-items-center">
                                     <div class="trainer-profile d-flex align-items-center">
-                                        <img src="{{ asset('assets/img/trainers/trainer-2.png') }}" class="img-fluid" alt="">
+                                        <img src="assets/img/trainers/trainer-2.png" class="img-fluid" alt="">
                                         <a href="" class="trainer-link">Lora Nining Purwanti</a>
-                                    </div>
-                                    <div class="trainer-rank d-flex align-items-center">
-                                        <i class="bi bi-person user-icon"></i>&nbsp;35
-                                        &nbsp;&nbsp;
-                                        <i class="bi bi-heart heart-icon"></i>&nbsp;42
                                     </div>
                                 </div>
                             </div>
@@ -340,7 +402,7 @@
 
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
                         <div class="course-item">
-                            <img src="{{ asset('assets/img/course-3.jpg') }}" class="img-fluid" alt="...">
+                            <img src="assets/img/course-3.jpg" class="img-fluid" alt="...">
                             <div class="course-content">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <p class="category">AutoCAD</p>
@@ -352,13 +414,8 @@
                                     Fokus dalam teknik pembuatan gambar desain bangunan, mesin, peta, elektro, utilitas, dan instalasi</p>
                                 <div class="trainer d-flex justify-content-between align-items-center">
                                     <div class="trainer-profile d-flex align-items-center">
-                                        <img src="{{ asset('assets/img/trainers/trainer-3-2.jpg') }}" class="img-fluid" alt="">
+                                        <img src="assets/img/trainers/trainer-6.jpg" class="img-fluid" alt="">
                                         <a href="" class="trainer-link">Aulia Rizki Alda, ST.MT</a>
-                                    </div>
-                                    <div class="trainer-rank d-flex align-items-center">
-                                        <i class="bi bi-person user-icon"></i>&nbsp;20
-                                        &nbsp;&nbsp;
-                                        <i class="bi bi-heart heart-icon"></i>&nbsp;85
                                     </div>
                                 </div>
                             </div>
@@ -380,12 +437,14 @@
 
                     <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
                         <div class="member">
-                            <img src="{{ asset('assets/img/trainers/trainer-1.jpg') }}" class="img-fluid" alt="">
+                            <img src="assets/img/trainers/trainer-2.png" class="img-fluid" alt="">
                             <div class="member-content">
-                                <h4>Doni Rahma Retno, S.Kom</h4>
-                                <span>Web Programming</span>
+                                <h4>Lora Nining Purwanti</h4>
+                                <span>Desain Grafis</span>
+                                <span>Administrasi Perkantoran</span>
                                 <p>
-                                    Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
+                                    Desain Grafis akan mempelajari pembuatan Logo, Banner, Spanduk, Platfom sosial media dan hal-hal yang berkaitan dengan percetakan.
+                                    Administrasi Perkantoran fokus pada materi perkantoran yang dibutuhkan diperusahaan.
                                 </p>
                                 <div class="social">
                                     <a href=""><i class="bi bi-twitter-x"></i></a>
@@ -399,13 +458,12 @@
 
                     <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
                         <div class="member">
-                            <img src="{{ asset('assets/img/trainers/trainer-2.png') }}" class="img-fluid" alt="">
+                            <img src="assets/img/trainers/trainer-6.jpg" class="img-fluid" alt="">
                             <div class="member-content">
-                                <h4>Lora Nining Purwanti</h4>
-                                <span>Desain Grafis</span>
-                                <span>Administrasi Perkantoran</span>
+                                <h4>Aulia Riski Alda, ST.MT</h4>
+                                <span>AutoCAD</span>
                                 <p>
-                                    Repellat fugiat adipisci nemo illum nesciunt voluptas repellendus. In architecto rerum rerum temporibus
+                                    Fokus dalam pembuatan desain gambar 3 dimensi, mulai dari mesin, bangunan, konstruksi, peta, elektro, utilitas, dan instalasi.
                                 </p>
                                 <div class="social">
                                     <a href=""><i class="bi bi-twitter-x"></i></a>
@@ -419,13 +477,14 @@
 
                     <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
                         <div class="member">
-                            <img src="{{ asset('assets/img/trainers/trainer-3.png') }}" class="img-fluid" alt="">
+                            <img src="assets/img/trainers/trainer-3.png" class="img-fluid" alt="">
                             <div class="member-content">
                                 <h4>Belin Heyo Fathia</h4>
                                 <span>Digital Marketing</span>
                                 <span>Administrasi Perkantoran</span>
                                 <p>
-                                    Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
+                                    Digital Marketing mempelajari pembuatan konten untuk pemasaran produk menggunakan teknologi digital, mengoptimalkan mesin pencarian (SEO).
+                                    Administrasi Perkantoran fokus pada materi perkantoran yang dibutuhkan diperusahaan.
                                 </p>
                                 <div class="social">
                                     <a href=""><i class="bi bi-twitter-x"></i></a>
@@ -490,8 +549,8 @@
                 </div>
 
                 <div class="col-lg-4 col-md-12 footer-newsletter">
-                    <h4>Our Newsletter</h4>
-                    <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
+                    <h4>Alamat</h4>
+                    <p>Jl. S.Parman No. 189, Ulak Karang, Padang, Sumatera Barat</p>
                     <form action="forms/newsletter.php" method="post" class="php-email-form">
                         <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
                         <div class="loading">Loading</div>
@@ -519,21 +578,18 @@
     <!-- Scroll Top -->
     <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-    <!-- Preloader
-    <div id="preloader"></div> -->
-
     <!-- Vendor JS Files -->
-    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
-    <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
-    <script src="{{ asset('assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/purecounter/purecounter_vanilla.js') }}"></script>
-    <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
     <!-- Main JS File -->
-    <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="assets/js/main.js"></script>
 
 </body>
 
-
+</html>
 @endsection

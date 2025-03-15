@@ -48,12 +48,54 @@
             <a href="index.html" class="logo d-flex align-items-center me-auto">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
                 <!-- <img src="assets/img/logo.png" alt=""> -->
-                <h1 class="sitename">Instruktur</h1>
+                <h1 class="sitename">Kontak</h1>
             </a>
 
             <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="index.html">Home<br></a></li>
+                    <li><a href="about.html">Tentang Kami</a></li>
+                    <li><a href="trainers.html">Instruktur</a></li>
+                    <li><a href="events.html">Kegiatan</a></li>
+                    <li><a href="pricing.html">Promo</a></li>
+                    <li class="dropdown"><a href="#"><span>Paket Kursus</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                        <ul>
+                            <li class="dropdown"><a href="#"><span>Reguler</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                <ul>
+                                    <li><a href="#">Administrasi Perkantoran</a></li>
+                                    <li><a href="#">Desain Grafis</a></li>
+                                    <li><a href="#">Digital Marketing</a></li>
+                                    <li><a href="#">Web Programming</a></li>
+                                    <li><a href="#">AutoCAD</a></li>
+                                    <li><a href="#">Sketchup</a></li>
+                                    <li><a href="#">Video Editing</a></li>
+                                    <li><a href="#">Akuntansi</a></li>
+                                    <li><a href="#">Teknisi Jaringan</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a href="#"><span>Paket 3 Bulan</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                <ul>
+                                    <li><a href="#">APDIGI</a></li>
+                                    <li><a href="#">APDIVI</a></li>
+                                    <li><a href="#">DIVIDI</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a href="#"><span>Paket 6 Bulan</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                <ul>
+                                    <li><a href="#">Administrasi Bisnis</a></li>
+                                    <li><a href="#">Teknik Sipil</a></li>
+                                    <li><a href="#">Teknik Elektro dan Komputer</a></li>
+                                    <li><a href="#">Sistem Informasi dan Programming</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
+
+            <a class="btn-getstarted" href="courses.html">Daftar Sekarang</a>
 
         </div>
     </header>
@@ -86,7 +128,7 @@
         <section id="contact" class="contact section">
 
             <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
-                <iframe style="border:0; width: 100%; height: 300px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe style="border:0; width: 100%; height: 300px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127658.04772268765!2d100.20548424335932!3d-0.9110088999999912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4bf3696269f21%3A0x23f892b84bf97816!2sPRIMADATA%20ACADEMY%20(Kursus%20Komputer)!5e0!3m2!1sid!2sid!4v1741691665771!5m2!1sid!2sid" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div><!-- End Google Maps -->
 
             <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -97,16 +139,16 @@
                         <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
                             <i class="bi bi-geo-alt flex-shrink-0"></i>
                             <div>
-                                <h3>Address</h3>
-                                <p>A108 Adam Street, New York, NY 535022</p>
+                                <h3>Alamat</h3>
+                                <p>Jl. S.Parman No. 189, Ulak Karang, Padang, Sumatera Barat</p>
                             </div>
                         </div><!-- End Info Item -->
 
                         <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
                             <i class="bi bi-telephone flex-shrink-0"></i>
                             <div>
-                                <h3>Call Us</h3>
-                                <p>+1 5589 55488 55</p>
+                                <h3>Kontak</h3>
+                                <p>+62 813 6374 7467</p>
                             </div>
                         </div><!-- End Info Item -->
 
@@ -114,7 +156,7 @@
                             <i class="bi bi-envelope flex-shrink-0"></i>
                             <div>
                                 <h3>Email Us</h3>
-                                <p>info@example.com</p>
+                                <p>primadata.kursus@gmail.com</p>
                             </div>
                         </div><!-- End Info Item -->
 
@@ -125,11 +167,11 @@
                             <div class="row gy-4">
 
                                 <div class="col-md-6">
-                                    <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                                    <input type="text" name="name" class="form-control" placeholder="Nama Lengkap" required="">
                                 </div>
 
                                 <div class="col-md-6 ">
-                                    <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                                    <input type="email" class="form-control" name="email" placeholder="Email" required="">
                                 </div>
 
                                 <div class="col-md-12">
@@ -159,6 +201,77 @@
         </section><!-- /Contact Section -->
 
     </main>
+
+    <footer id="footer" class="footer position-relative light-background">
+
+        <div class="container footer-top">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6 footer-about">
+                    <a href="index.html" class="logo d-flex align-items-center">
+                        <span class="sitename">Hubungi Admin</span>
+                    </a>
+                    <div class="footer-contact pt-3">
+                        <p>LKP Prima Data</p>
+                        <p>Padang, Indonesia</p>
+                        <p class="mt-3"><strong>WhatsApp :</strong> <span>+62 813 6374 7467</span></p>
+                        <p><strong>Email :</strong> <span>primadata.kursus@gmail.com</span></p>
+                    </div>
+                    <div class="social-links d-flex mt-4">
+                        <a href=""><i class="bi bi-twitter-x"></i></a>
+                        <a href=""><i class="bi bi-facebook"></i></a>
+                        <a href=""><i class="bi bi-instagram"></i></a>
+                        <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-3 footer-links">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Terms of service</a></li>
+                        <li><a href="#">Privacy policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-md-3 footer-links">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="#">Web Design</a></li>
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">Product Management</a></li>
+                        <li><a href="#">Marketing</a></li>
+                        <li><a href="#">Graphic Design</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-12 footer-newsletter">
+                    <h4>Alamat</h4>
+                    <p>Jl. S.Parman No. 189, Ulak Karang, Padang, Sumatera Barat</p>
+                    <form action="forms/newsletter.php" method="post" class="php-email-form">
+                        <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
+                        <div class="loading">Loading</div>
+                        <div class="error-message"></div>
+                        <div class="sent-message">Your subscription request has been sent. Thank you!</div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container copyright text-center mt-4">
+            <p>© <span>Copyright</span> <strong class="px-1 sitename">Prima Data Kursus</strong> <span>All Rights Reserved</span></p>
+            <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you've purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a href=“https://themewagon.com>ThemeWagon
+            </div>
+        </div>
+
+    </footer>
 
     <!-- Scroll Top -->
     <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
