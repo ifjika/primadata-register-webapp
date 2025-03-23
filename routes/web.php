@@ -5,25 +5,23 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('dashboard');
+    return redirect()->route('home');
 });
 
-// Route::get('/home', function () {
-//     return view('dashboard');
-// })->name('home');
+Route::get('/home', function () {
+    return view('dashboard');
+})->name('home');
+
 
 Route::get('/about', function () {
     return view('about');
 })->name('about');
 
-Route::get('/home', function () {
-    if (auth()->check() && auth()->user()->role === 'admin') {
+Route::get('/admin', function () {
+    if (auth()->check() && auth()->user()->role == 'admin') {
         return view('admin.dashboard');
-    } elseif (auth()->check() && auth()->user()->role === 'user') {
-        return view('user.dashboard');
     }
-    return redirect('/'); // Redirect if the user does not have a valid role
-})->middleware(['auth'])->name('home');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
