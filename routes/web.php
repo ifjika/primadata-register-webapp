@@ -5,23 +5,22 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return redirect()->route('home');
+    return view('dashboard');
 });
 
 Route::get('/home', function () {
     return view('dashboard');
 })->name('home');
 
-
 Route::get('/about', function () {
     return view('about');
 })->name('about');
 
 Route::get('/admin', function () {
-    if (auth()->check() && auth()->user()->role == 'admin') {
+    if (auth()->check() && auth()->user()->role === 'admin') {
         return view('admin.dashboard');
     }
-});
+})->middleware(['auth'])->name('admin');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -53,7 +52,6 @@ Route::get('/contact', function () {
 Route::get('/courses', function () {
     return view('courses');
 })->name('courses');
-
 
 Route::get('/class-1', function () {
     return view('class-1');
