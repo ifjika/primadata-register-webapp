@@ -53,9 +53,9 @@
           <h4>6 Bulan</h4>
           <ul>
             <li><a href="#">Administrasi Bisnis</a></li>
+            <li><a href="#">Akuntansi Perpajakan</a></li>
             <li><a href="#">Teknik Sipil</a></li>
-            <li><a href="#">Teknik ELektro dan Komputer</a></li>
-            <li><a href="#">Sistem Informasi dan Programming</a></li>
+            <li><a href="#">Web Programming</a></li>
           </ul>          
         </div>
 
@@ -63,12 +63,12 @@
     </div>
 
     <div class="social-links d-flex justify-content-center mt-4">
-          <a href=""><i class="bi bi-whatsapp"></i></a>
-          <a href=""><i class="bi bi-facebook"></i></a>
-          <a href=""><i class="bi bi-instagram"></i></a>
-          <a href=""><i class="bi bi-tiktok"></i></a>
-          <a href=""><i class="bi bi-youtube"></i></a>
+      <a href="https://wa.me/623125943879" target="_blank"><i class="bi bi-whatsapp"></i></a>
+      <a href="https://www.instagram.com/lkp_primadata" target="_blank"><i class="bi bi-instagram"></i></a>
+      <a href="https://www.tiktok.com/@primadatagroup" target="_blank"><i class="bi bi-tiktok"></i></a>
+      <a href="https://www.youtube.com/@primadatakursus4586" target="_blank"><i class="bi bi-youtube"></i></a>
     </div>
+
 
     <div class="container copyright text-center mt-2">
       <p>© <span>{{ date('Y') }}</span> <strong class="px-1 sitename">LKP Prima Data | <span>Unggul Teknologi, Muda Berkarya</span></strong></p>
