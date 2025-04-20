@@ -101,9 +101,10 @@
     <main class="main">
 
         <!-- Hero Section -->
-        <section id="hero" class="hero section dark-background">
 
-            <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
+        <section id="hero" class="hero section">
+
+            <img src="assets/img/hero-bg3.jpg" alt="" data-aos="fade-in">
 
             <div class="container">
                 <h2 data-aos="fade-up" data-aos-delay="100">Kursus Komputer<br>Bersertifikasi BNSP dan LSK-TIK</h2>
@@ -113,7 +114,7 @@
                 </div>
             </div>
 
-        </section><!-- /Hero Section -->
+        </section> <!--Hero Section -->
 
         <!-- About Section -->
         <section id="about" class="about section">
