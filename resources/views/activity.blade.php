@@ -41,13 +41,13 @@
 
 <body class="events-page">
 
-  <header id="header" class="header d-flex align-items-center sticky-top">
+  <header id="header" class="header d-flex align-items-center">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
       <a href="index.html" class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="sitename">Kegiatan</h1>
+        <!-- <h1 class="sitename">Kegiatan</h1> -->
       </a>
 
       <nav id="navmenu" class="navmenu">
@@ -63,25 +63,20 @@
 
     <!-- Page Title -->
     <div class="page-title" data-aos="fade">
-      <div class="heading">
-        <div class="container">
-          <div class="row d-flex justify-content-center text-center">
-            <div class="col-lg-8">
-              <h1>Events</h1>
-              <p class="mb-0">Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat ipsum dolorem.</p>
+            <div class="heading">
+                <div class="container">
+                    <div class="row d-flex justify-content-center text-center">
+                        <div class="col-lg-15">
+                            <h1>Kegiatan LKP Prima Data<br></h1>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <nav class="breadcrumbs">
-        <div class="container">
-          <ol>
-            <li><a href="index.html">Home</a></li>
-            <li class="current">Events</li>
-          </ol>
-        </div>
-      </nav>
-    </div><!-- End Page Title -->
+            <nav class="breadcrumbs">
+                <div class="container">
+                </div>
+            </nav>
+        </div><!-- End Page Title -->
 
     <!-- Events Section -->
     <section id="events" class="events section">

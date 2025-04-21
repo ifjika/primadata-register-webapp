@@ -41,13 +41,13 @@
 
 <body class="courses-page">
 
-    <header id="header" class="header d-flex align-items-center sticky-top">
+    <header id="header" class="header d-flex align-items-center">
         <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
             <a href="index.html" class="logo d-flex align-items-center me-auto">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
                 <!-- <img src="assets/img/logo.png" alt=""> -->
-                <h1 class="sitename">PAKET KURSUS</h1>
+                <!-- <h1 class="sitename">PAKET KURSUS</h1> -->
             </a>
 
             <nav id="navmenu" class="navmenu">
@@ -64,110 +64,150 @@
             <div class="heading">
                 <div class="container">
                     <div class="row d-flex justify-content-center text-center">
-                        <div class="col-lg-8">
-                            <h1>Courses</h1>
-                            <p class="mb-0">Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat ipsum dolorem.</p>
+                        <div class="col-lg-15">
+                            <h1>Paket Kursus LKP Prima Data<br></h1>
                         </div>
                     </div>
                 </div>
             </div>
             <nav class="breadcrumbs">
                 <div class="container">
-                    <ol>
-                        <li><a href="index.html">Home</a></li>
-                        <li class="current">Courses</li>
-                    </ol>
                 </div>
             </nav>
         </div><!-- End Page Title -->
 
         <!-- Courses Section -->
         <section id="courses" class="courses section">
-
             <div class="container">
-
                 <div class="row">
-
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                         <div class="course-item">
                             <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
                             <div class="course-content">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <p class="category">Web Development</p>
-                                    <p class="price">$169</p>
+                                    <p class="category">Administrasi Perkantoran</p>
+                                    <p class="price">Rp. 1.400.000</p>
                                 </div>
-
-                                <h3><a href="course-details.html">Website Design</a></h3>
-                                <p class="description">Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
-                                <div class="trainer d-flex justify-content-between align-items-center">
+                                <h3><a href="course-details.html">Administrasi Perkantoran</a></h3>
+                                    <p class="description">Kursus selama 16x Pertemuan, durasi 1x pertemuan 2 jam. Pendaftaran setiap jam kerja. Jadwal Senin s.d Jum'at (bisa disesuaikan).
+                                    Mahir dalam bidang Perkantoran pembuatan surat, menguasai rumus excel, kreasi persentase menarik</p>
+                                    <div class="trainer d-flex justify-content-between align-items-center">
                                     <div class="trainer-profile d-flex align-items-center">
-                                        <img src="assets/img/trainers/trainer-1-2.jpg" class="img-fluid" alt="">
-                                        <a href="" class="trainer-link">Antonio</a>
+                                        <img src="assets/img/trainers/trainer-3.png" class="img-fluid" alt="">
+                                        <a href="" class="trainer-link">Belin Heyo Fathia</a>
                                     </div>
-                                    <div class="trainer-rank d-flex align-items-center">
-                                        <i class="bi bi-person user-icon"></i>&nbsp;50
-                                        &nbsp;&nbsp;
-                                        <i class="bi bi-heart heart-icon"></i>&nbsp;65
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div> <!-- End Course Item-->
+                                </div>
+                            </div> <!-- End Course Item-->
 
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+                                <div class="course-item">
+                                    <img src="assets/img/course-2.jpg" class="img-fluid" alt="...">
+                                <div class="course-content">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <p class="category">Desain</p>
+                                        <p class="price">Rp. 2.100.000</p>
+                                    </div>
+                                    <h3><a href="course-details.html">Desain Grafis</a></h3>
+                                        <p class="description">Kursus selama 16x Pertemuan, durasi 1x pertemuan 2 jam. Pendaftaran setiap jam kerja. Jadwal Senin s.d Jum'at (bisa disesuaikan).
+                                        Desain menggunakan CorelDraw fokus dibidang percetakan dan platfom sosial media.</p>
+                                    <div class="trainer d-flex justify-content-between align-items-center">
+                                    <div class="trainer-profile d-flex align-items-center">
+                                        <img src="assets/img/trainers/trainer-2.png" class="img-fluid" alt="">
+                                        <a href="" class="trainer-link">Lora Nining Purwanti</a>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div> <!-- End Course Item-->
+
+                            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+                                <div class="course-item">
+                                <img src="assets/img/course-3.jpg" class="img-fluid" alt="...">
+                                <div class="course-content">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <p class="category">AutoCAD</p>
+                                    <p class="price">Rp. 2.100.000</p>
+                                    </div>
+
+                                    <h3><a href="course-details.html">AutoCAD 3 Dimensi</a></h3>
+                                    <p class="description">Kursus selama 16x Pertemuan, durasi 1x pertemuan 2 jam. Pendaftaran setiap jam kerja. Jadwal Senin s.d Sabtu (bisa disesuaikan).
+                                    Fokus dalam teknik pembuatan gambar desain bangunan, mesin, peta, elektro, utilitas, dan instalasi</p>
+                                    <div class="trainer d-flex justify-content-between align-items-center">
+                                    <div class="trainer-profile d-flex align-items-center">
+                                        <img src="assets/img/trainers/trainer-6.jpg" class="img-fluid" alt="">
+                                        <a href="" class="trainer-link">Aulia Rizki Alda, ST.MT</a>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div> <!-- End Course Item-->
+                
+                            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                         <div class="course-item">
-                            <img src="assets/img/course-2.jpg" class="img-fluid" alt="...">
+                            <img src="assets/img/course/course-4.jpg" class="img-fluid" alt="...">
                             <div class="course-content">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <p class="category">Marketing</p>
-                                    <p class="price">$250</p>
+                                    <p class="category">Web Programming</p>
+                                    <p class="price">Rp. 2.800.000</p>
                                 </div>
-
-                                <h3><a href="course-details.html">Search Engine Optimization</a></h3>
-                                <p class="description">Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
-                                <div class="trainer d-flex justify-content-between align-items-center">
+                                <h3><a href="course-details.html">Web Programming</a></h3>
+                                    <p class="description">Kursus selama 24x Pertemuan, durasi 1x pertemuan 2 jam. Pendaftaran setiap jam kerja. Jadwal Senin s.d Jum'at (bisa disesuaikan).
+                                    Bertujuan pembuatan website, aplikasi berbasis web</p>
+                                    <div class="trainer d-flex justify-content-between align-items-center">
                                     <div class="trainer-profile d-flex align-items-center">
-                                        <img src="assets/img/trainers/trainer-2-2.jpg" class="img-fluid" alt="">
-                                        <a href="" class="trainer-link">Lana</a>
+                                        <img src="assets/img/trainers/trainer-4.jpeg" class="img-fluid" alt="">
+                                        <a href="" class="trainer-link">Doni Rahma R, S.Kom</a>
                                     </div>
-                                    <div class="trainer-rank d-flex align-items-center">
-                                        <i class="bi bi-person user-icon"></i>&nbsp;35
-                                        &nbsp;&nbsp;
-                                        <i class="bi bi-heart heart-icon"></i>&nbsp;42
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div> <!-- End Course Item-->
+                                </div>
+                            </div> <!-- End Course Item-->
 
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+                            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                         <div class="course-item">
-                            <img src="assets/img/course-3.jpg" class="img-fluid" alt="...">
+                            <img src="assets/img/course/course-5.jpg" class="img-fluid" alt="...">
                             <div class="course-content">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <p class="category">Content</p>
-                                    <p class="price">$180</p>
+                                    <p class="category">Video Editing</p>
+                                    <p class="price">Rp. 2.100.000</p>
                                 </div>
-
-                                <h3><a href="course-details.html">Copywriting</a></h3>
-                                <p class="description">Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
-                                <div class="trainer d-flex justify-content-between align-items-center">
+                                <h3><a href="course-details.html">Video Editing</a></h3>
+                                    <p class="description">Kursus selama 14x Pertemuan, durasi 1x pertemuan 2 jam. Pendaftaran setiap jam kerja. Jadwal Senin s.d Jum'at (bisa disesuaikan).
+                                    Mahir dalam pembuatan Content, manipulasi, vlog youtube</p>
+                                    <div class="trainer d-flex justify-content-between align-items-center">
                                     <div class="trainer-profile d-flex align-items-center">
-                                        <img src="assets/img/trainers/trainer-3-2.jpg" class="img-fluid" alt="">
-                                        <a href="" class="trainer-link">Brandon</a>
+                                        <img src="assets/img/team/team-9.jpg" class="img-fluid" alt="">
+                                        <a href="" class="trainer-link">Robbi Maulana, S.Pd</a>
                                     </div>
-                                    <div class="trainer-rank d-flex align-items-center">
-                                        <i class="bi bi-person user-icon"></i>&nbsp;20
-                                        &nbsp;&nbsp;
-                                        <i class="bi bi-heart heart-icon"></i>&nbsp;85
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div> <!-- End Course Item-->
+                                </div>
+                            </div> <!-- End Course Item-->
 
+                            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="course-item">
+                            <img src="assets/img/course/course-6.jpg" class="img-fluid" alt="...">
+                            <div class="course-content">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <p class="category">Digital Marketing</p>
+                                    <p class="price">Rp. 1.400.000</p>
+                                </div>
+                                <h3><a href="course-details.html">Digital Marketing</a></h3>
+                                    <p class="description">Kursus selama 16x Pertemuan, durasi 1x pertemuan 2 jam. Pendaftaran setiap jam kerja. Jadwal Senin s.d Jum'at (bisa disesuaikan).
+                                    Fokus marketing melalui digital dengan teknologi masa kini.</p>
+                                    <div class="trainer d-flex justify-content-between align-items-center">
+                                    <div class="trainer-profile d-flex align-items-center">
+                                        <img src="assets/img/trainers/trainer-3.png" class="img-fluid" alt="">
+                                        <a href="" class="trainer-link">Belin Heyo Fathia</a>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div> <!-- End Course Item-->
+                            <br>
                 </div>
-
             </div>
 
         </section><!-- /Courses Section -->
