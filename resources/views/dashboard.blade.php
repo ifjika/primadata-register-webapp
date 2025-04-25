@@ -50,7 +50,7 @@
             </a>
 
             <nav id="navmenu" class="navmenu">
-                <ul>
+                <!-- <ul>
                     <li><a href="index.html" class="active">Home<br></a></li>
                     <li><a href="about.html">Tentang Kami</a></li>
                     <li><a href="trainers.html">Instruktur</a></li>
@@ -89,7 +89,7 @@
                         </ul>
                     </li>
                     <li><a href="contact.html">Contact</a></li>
-                </ul>
+                </ul> -->
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
 
@@ -202,9 +202,9 @@
                                 Lembaga ini juga memiliki TUK-TIK (tempat uji kompetensi) LSK TIK. Instruktur yang mengajar sudah berpengalaman di bidang nya dan bersertifikasi. Kursus di LKP Prima Data sangat nyaman karena di fasilitasi WIFI Area,
                                 parkir luas, kelas Full AC dan terletak di pusat kota.
                             </p>
-                            <div class="text-center">
+                            <!-- <div class="text-center">
                                 <a href="#" class="more-btn"><span>Learn More</span> <i class="bi bi-chevron-right"></i></a>
-                            </div>
+                            </div> -->
                         </div>
                     </div><!-- End Why Box -->
 

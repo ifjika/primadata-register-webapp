@@ -87,10 +87,9 @@
                         <div class="member-img">
                             <img src="assets/img/team/pimpinan.png" class="img-fluid" alt="">
                             <div class="social">
-                                <a href="#"><i class="bi bi-twitter-x"></i></a>
-                                <a href="#"><i class="bi bi-facebook"></i></a>
-                                <a href="#"><i class="bi bi-instagram"></i></a>
-                                <a href="#"><i class="bi bi-linkedin"></i></a>
+                                <a href="https://wa.me/621363747467" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                                <a href="https://www.facebook.com/irvan.kudus.5" target="_blank"><i class="bi bi-facebook" target="_blank"></i></a>
+                                <a href="https://www.instagram.com/irvankudus" target="_blank"><i class="bi bi-instagram"></i></a>
                             </div>
                         </div>
                         <div class="member-info text-center">
@@ -104,10 +103,9 @@
                         <div class="member-img">
                             <img src="assets/img/trainers/trainer-7.jpeg" class="img-fluid" alt="">
                             <div class="social">
-                                <a href="#"><i class="bi bi-twitter-x"></i></a>
-                                <a href="#"><i class="bi bi-facebook"></i></a>
-                                <a href="#"><i class="bi bi-instagram"></i></a>
-                                <a href="#"><i class="bi bi-linkedin"></i></a>
+                                <a href="https://wa.me/621363600073" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                                <a href="https://www.facebook.com/fitri.guswanti"><i class="bi bi-facebook" target="_blank"></i></a>
+                                <a href="https://www.instagram.com/lpk_primadata" target="_blank"><i class="bi bi-instagram"></i></a>
                             </div>
                         </div>
                         <div class="member-info text-center">
@@ -121,10 +119,9 @@
                         <div class="member-img">
                             <img src="assets/img/team/team-2.png" class="img-fluid" alt="">
                             <div class="social">
-                                <a href="#"><i class="bi bi-twitter-x"></i></a>
-                                <a href="#"><i class="bi bi-facebook"></i></a>
-                                <a href="#"><i class="bi bi-instagram"></i></a>
-                                <a href="#"><i class="bi bi-linkedin"></i></a>
+                                <a href="https://wa.me/083125943879" target="_blank"><i class="bi bi-whatsapp" ></i></a>
+                                <a href="https://www.instagram.com/loraniningpurwanti" target="_blank"><i class="bi bi-instagram"></i></a>
+                                <a href="https://www.linkedin.com/in/lora-nining-purwanti-3714552a2/" target="_blank"><i class="bi bi-linkedin"></i></a>
                             </div>
                         </div>
                         <div class="member-info text-center">
@@ -138,10 +135,9 @@
                         <div class="member-img">
                             <img src="assets/img/team/team-1.png" class="img-fluid" alt="">
                             <div class="social">
-                                <a href="#"><i class="bi bi-twitter-x"></i></a>
-                                <a href="#"><i class="bi bi-facebook"></i></a>
-                                <a href="#"><i class="bi bi-instagram"></i></a>
-                                <a href="#"><i class="bi bi-linkedin"></i></a>
+                                <a href="https://wa.me/089610172902" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                                <a href="https://www.instagram.com/belinbhf" target="_blank"><i class="bi bi-instagram"></i></a>
+                                <a href="https://www.linkedin.com/in/belin-heyo-fathia-696546230/" target="_blank"><i class="bi bi-linkedin"></i></a>
                             </div>
                         </div>
                         <div class="member-info text-center">
@@ -155,10 +151,9 @@
                         <div class="member-img">
                             <img src="assets/img/trainers/trainer-4.jpeg" class="img-fluid" alt="">
                             <div class="social">
-                                <a href="#"><i class="bi bi-twitter-x"></i></a>
-                                <a href="#"><i class="bi bi-facebook"></i></a>
-                                <a href="#"><i class="bi bi-instagram"></i></a>
-                                <a href="#"><i class="bi bi-linkedin"></i></a>
+                                <a href="https://wa.me/082386226717" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                                <a href="https://www.instagram.com/donnieputraminang" target="_blank"><i class="bi bi-instagram"></i></a>
+                                <a href="https://www.facebook.com/donnie.putraminang" target="_blank"><i class="bi bi-facebook" target="_blank"></i></a>
                             </div>
                         </div>
                         <div class="member-info text-center">
@@ -172,10 +167,9 @@
                         <div class="member-img">
                             <img src="assets/img/trainers/trainer-6.jpg" class="img-fluid" alt="">
                             <div class="social">
-                                <a href="#"><i class="bi bi-twitter-x"></i></a>
-                                <a href="#"><i class="bi bi-facebook"></i></a>
-                                <a href="#"><i class="bi bi-instagram"></i></a>
-                                <a href="#"><i class="bi bi-linkedin"></i></a>
+                                <a href="https://wa.me/082389776698" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                                <!-- <a href="https://www.instagram.com/belinbhf" target="_blank"><i class="bi bi-instagram"></i></a>
+                                <a href="https://www.linkedin.com/in/belin-heyo-fathia-696546230/" target="_blank"><i class="bi bi-linkedin"></i></a> -->
                             </div>
                         </div>
                         <div class="member-info text-center">
@@ -189,10 +183,8 @@
                         <div class="member-img">
                             <img src="assets/img/trainers/trainer-5.jpeg" class="img-fluid" alt="">
                             <div class="social">
-                                <a href="#"><i class="bi bi-twitter-x"></i></a>
-                                <a href="#"><i class="bi bi-facebook"></i></a>
-                                <a href="#"><i class="bi bi-instagram"></i></a>
-                                <a href="#"><i class="bi bi-linkedin"></i></a>
+                                <a href="https://wa.me/085274639910" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                                <a href="https://www.instagram.com/nelvifadillah" target="_blank"><i class="bi bi-instagram"></i></a>
                             </div>
                         </div>
                         <div class="member-info text-center">
@@ -206,10 +198,8 @@
                         <div class="member-img">
                             <img src="assets/img/team/team-8.png" class="img-fluid" alt="">
                             <div class="social">
-                                <a href="#"><i class="bi bi-twitter-x"></i></a>
-                                <a href="#"><i class="bi bi-facebook"></i></a>
-                                <a href="#"><i class="bi bi-instagram"></i></a>
-                                <a href="#"><i class="bi bi-linkedin"></i></a>
+                                <a href="https://wa.me/081363244776" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                                <a href="https://www.instagram.com/mrpendi27" target="_blank"><i class="bi bi-instagram"></i></a>
                             </div>
                         </div>
                         <div class="member-info text-center">
@@ -223,10 +213,9 @@
                         <div class="member-img">
                             <img src="assets/img/team/team-9.jpg" class="img-fluid" alt="">
                             <div class="social">
-                                <a href="#"><i class="bi bi-twitter-x"></i></a>
-                                <a href="#"><i class="bi bi-facebook"></i></a>
-                                <a href="#"><i class="bi bi-instagram"></i></a>
-                                <a href="#"><i class="bi bi-linkedin"></i></a>
+                                <a href="https://wa.me/081373082736" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                                <a href="https://www.instagram.com/robbimaulanaa" target="_blank"><i class="bi bi-instagram"></i></a>
+                                <a href="https://www.linkedin.com/in/robbi-maulana-19b6831b0/?originalSubdomain=id" target="_blank"><i class="bi bi-linkedin"></i></a>
                             </div>
                         </div>
                         <div class="member-info text-center">
