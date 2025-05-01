@@ -354,3 +354,41 @@ btn-close:focus {
     padding-top: 1rem;
     line-height: 1.5;
 }
+
+/* warna list centang biru */
+ body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+ul.check-list {
+    list-style: none;
+    padding-left: 0;
+    max-width: 400px;
+    margin: 0 auto;
+}
+ul.check-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #333;
+}
+/* circle background */
+ul.check-list li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    border: 2px solid #007BFF; /* blue border */
+    color: #007BFF; /* blue check */
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+/* end warna list centang biru */

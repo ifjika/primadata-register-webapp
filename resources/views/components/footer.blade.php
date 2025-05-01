@@ -43,9 +43,10 @@
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>3 Bulan</h4>
           <ul>
-            <li><a href="#">APDIVI</a></li>
-            <li><a href="#">APDIGI</a></li>
-            <li><a href="#">APDEVI</a></li>
+            <li><a href="#">APDIG</a></li>
+            <li><a href="#">APDING</a></li>
+            <li><a href="#">APDENG</a></li>
+            <li><a href="#">APSI</a></li>
           </ul>
         </div>
 
