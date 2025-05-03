@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BerkasController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('dashboard');
@@ -17,10 +19,22 @@ Route::get('/about', function () {
 })->name('about');
 
 Route::get('/admin', function () {
-    if (auth()->check() && auth()->user()->role === 'admin') {
-        return view('admin.dashboard');
+    if (!auth()->check() || auth()->user()->role !== 'admin') {
+        return redirect()->route('home')->with('error', 'You are not authorized.');
     }
-})->middleware(['auth'])->name('admin');
+
+    return view('admin.dashboard');
+})->middleware('auth')->name('admin');
+
+Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('berkas', [BerkasController::class, 'index'])->name('berkas.index');
+    Route::get('berkas/create', [BerkasController::class, 'create'])->name('berkas.create');
+    Route::post('berkas', [BerkasController::class, 'store'])->name('berkas.store');
+    Route::get('berkas/{id}', [BerkasController::class, 'show'])->name('berkas.show');
+    Route::get('berkas/{id}/edit', [BerkasController::class, 'edit'])->name('berkas.edit');
+    Route::put('berkas/{id}', [BerkasController::class, 'update'])->name('berkas.update');
+    Route::delete('berkas/{id}', [BerkasController::class, 'destroy'])->name('berkas.destroy');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

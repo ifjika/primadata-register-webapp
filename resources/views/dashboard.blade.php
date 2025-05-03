@@ -40,7 +40,7 @@
 
 <body class="index-page">
 
-    <header id="header" class="header d-flex align-items-center sticky-top">
+    <header id="header" class="header d-flex align-items-center">
         <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
             <a href="index.html" class="logo d-flex align-items-center me-auto">
@@ -143,7 +143,8 @@
 
             </div>
 
-        </section><!-- /About Section -->
+        </section>
+        <!-- About Section -->
 
         <!-- Counts Section -->
         <section id="counts" class="section counts light-background">

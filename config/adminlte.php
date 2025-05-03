@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Primadata Register Admin',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Primadata</b> Admin',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -257,7 +257,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'admin',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -311,32 +311,30 @@ return [
         ],
 
         // Sidebar items:
+        ['header' => 'ACCOUNT SETTINGS'],
         [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
-        [
-            'text' => 'blog',
-            'url' => 'admin/blog',
-            'can' => 'manage-blog',
-        ],
-        [
-            'text' => 'pages',
-            'url' => 'admin/pages',
-            'icon' => 'far fa-fw fa-file',
-            'label' => 4,
+            'text' => 'Berkas',
+            'url' => 'admin/berkas',
+            'icon' => 'fas fa-fw fa-user',
             'label_color' => 'success',
         ],
-        ['header' => 'account_settings'],
         [
-            'text' => 'profile',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'text' => 'Pembayaran',
+            'url' => 'admin/bayar',
+            'icon' => 'fas fa-fw fa-shopping-cart',
+            'label_color' => 'success',
         ],
+        ['header' => 'REPORT'],
         [
-            'text' => 'change_password',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text' => 'Report',
+            'url' => 'admin/report',
+            'icon' => 'fas fa-fw fa-file-export',
+        ],
+        ['header' => 'PAKET'],
+        [
+            'text' => 'Paket',
+            'url' => 'admin/paket',
+            'icon' => 'fas fa-box',
         ],
         [
             'text' => 'multilevel',
@@ -517,7 +515,7 @@ return [
     'iframe' => [
         'default_tab' => [
             'url' => null,
-            'title' => null,
+            'title' => "Primadata Register Admin",
         ],
         'buttons' => [
             'close' => true,
