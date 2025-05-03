@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BerkasController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
+use App\Http\Controllers\PesertaController;
 
 Route::get('/', function () {
     return view('dashboard');
@@ -34,6 +34,16 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(f
     Route::get('berkas/{id}/edit', [BerkasController::class, 'edit'])->name('berkas.edit');
     Route::put('berkas/{id}', [BerkasController::class, 'update'])->name('berkas.update');
     Route::delete('berkas/{id}', [BerkasController::class, 'destroy'])->name('berkas.destroy');
+});
+
+Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('peserta', [PesertaController::class, 'index'])->name('peserta.index');
+    Route::get('peserta/create', [PesertaController::class, 'create'])->name('peserta.create');
+    Route::post('peserta', [PesertaController::class, 'store'])->name('peserta.store');
+    Route::get('peserta/{id}', [PesertaController::class, 'show'])->name('peserta.show');
+    Route::get('peserta/{id}/edit', [PesertaController::class, 'edit'])->name('peserta.edit');
+    Route::put('peserta/{id}', [PesertaController::class, 'update'])->name('peserta.update');
+    Route::delete('peserta/{id}', [PesertaController::class, 'destroy'])->name('peserta.destroy');
 });
 
 Route::middleware('auth')->group(function () {

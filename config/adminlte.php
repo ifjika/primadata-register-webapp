@@ -315,20 +315,32 @@ return [
         [
             'text' => 'Berkas',
             'url' => 'admin/berkas',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fas fa-fw fa-archive',
             'label_color' => 'success',
         ],
         [
             'text' => 'Pembayaran',
             'url' => 'admin/bayar',
-            'icon' => 'fas fa-fw fa-shopping-cart',
+            'icon' => 'fas fa-fw fa-credit-card',
+            'label_color' => 'success',
+        ],
+        [
+            'text' => 'Pendaftaran',
+            'url' => 'admin/daftar',
+            'icon' => 'fas fa-fw fa-plus-square',
+            'label_color' => 'success',
+        ],
+        [
+            'text' => 'Peserta',
+            'url' => 'admin/peserta',
+            'icon' => 'fas fa-fw fa-user',
             'label_color' => 'success',
         ],
         ['header' => 'REPORT'],
         [
             'text' => 'Report',
             'url' => 'admin/report',
-            'icon' => 'fas fa-fw fa-file-export',
+            'icon' => 'fas fa-fw fa-book',
         ],
         ['header' => 'PAKET'],
         [
