@@ -326,7 +326,7 @@ return [
         ],
         [
             'text' => 'Pendaftaran',
-            'url' => 'admin/daftar',
+            'url' => 'admin/pendaftaran',
             'icon' => 'fas fa-fw fa-plus-square',
             'label_color' => 'success',
         ],

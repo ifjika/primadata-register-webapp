@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\BerkasController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PesertaController;
+use App\Http\Controllers\PendaftaranController;
 
 Route::get('/', function () {
     return view('dashboard');
@@ -26,6 +27,7 @@ Route::get('/admin', function () {
     return view('admin.dashboard');
 })->middleware('auth')->name('admin');
 
+// Route  Berkas
 Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('berkas', [BerkasController::class, 'index'])->name('berkas.index');
     Route::get('berkas/create', [BerkasController::class, 'create'])->name('berkas.create');
@@ -36,6 +38,7 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(f
     Route::delete('berkas/{id}', [BerkasController::class, 'destroy'])->name('berkas.destroy');
 });
 
+// Route Peserta
 Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('peserta', [PesertaController::class, 'index'])->name('peserta.index');
     Route::get('peserta/create', [PesertaController::class, 'create'])->name('peserta.create');
@@ -45,6 +48,32 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(f
     Route::put('peserta/{id}', [PesertaController::class, 'update'])->name('peserta.update');
     Route::delete('peserta/{id}', [PesertaController::class, 'destroy'])->name('peserta.destroy');
 });
+
+// Route Pendaftaran
+Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('pendaftaran', [PendaftaranController::class, 'index'])->name('pendaftaran.index');
+    Route::get('pendaftaran/create', [PendaftaranController::class, 'create'])->name('pendaftaran.create');
+    Route::post('pendaftaran', [PendaftaranController::class, 'store'])->name('pendaftaran.store');
+    Route::get('pendaftaran/{id}', [PendaftaranController::class, 'show'])->name('pendaftaran.show');
+    Route::get('pendaftaran/{id}/edit', [PendaftaranController::class, 'edit'])->name('pendaftaran.edit');
+    Route::put('pendaftaran/{id}', [PendaftaranController::class, 'update'])->name('pendaftaran.update');
+    Route::delete('pendaftaran/{id}', [PendaftaranController::class, 'destroy'])->name('pendaftaran.destroy');
+});
+
+
+// Route Paket
+use App\Http\Controllers\PaketController;
+
+Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('paket', [PaketController::class, 'index'])->name('paket.index');
+    Route::get('paket/create', [PaketController::class, 'create'])->name('paket.create');
+    Route::post('paket', [PaketController::class, 'store'])->name('paket.store');
+    Route::get('paket/{id}', [PaketController::class, 'show'])->name('paket.show');
+    Route::get('paket/{id}/edit', [PaketController::class, 'edit'])->name('paket.edit');
+    Route::put('paket/{id}', [PaketController::class, 'update'])->name('paket.update');
+    Route::delete('paket/{id}', [PaketController::class, 'destroy'])->name('paket.destroy');
+});
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

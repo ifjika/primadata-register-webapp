@@ -10,12 +10,12 @@ class PesertaController extends Controller
     public function index()
     {
         $peserta = Peserta::all();
-        return view('admin.peserta', compact('peserta'));
+        return view('admin.peserta.index', compact('peserta'));
     }
 
     public function create()
     {
-        return view('admin.peserta_create');
+        return view('admin.peserta.create');
     }
 
     public function store(Request $request)
@@ -52,7 +52,7 @@ class PesertaController extends Controller
     public function edit($id)
     {
         $peserta = Peserta::findOrFail($id);
-        return view('admin.peserta_edit', compact('peserta'));
+        return view('admin.peserta.edit', compact('peserta'));
     }
 
     public function update(Request $request, $id)

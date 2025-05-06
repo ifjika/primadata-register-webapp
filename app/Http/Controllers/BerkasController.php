@@ -10,12 +10,12 @@ class BerkasController extends Controller
     public function index()
     {
         $berkas = Berkas::all();
-        return view('admin.berkas', compact('berkas'));
+        return view('admin.berkas.index', compact('berkas'));
     }
 
     public function create()
     {
-        return view('admin.berkas_create');
+        return view('admin.berkas.create');
     }
 
     public function store(Request $request)
