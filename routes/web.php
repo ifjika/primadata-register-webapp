@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BerkasController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PaketController;
 use App\Http\Controllers\PesertaController;
 use App\Http\Controllers\PendaftaranController;
 
@@ -62,8 +63,6 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(f
 
 
 // Route Paket
-use App\Http\Controllers\PaketController;
-
 Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('paket', [PaketController::class, 'index'])->name('paket.index');
     Route::get('paket/create', [PaketController::class, 'create'])->name('paket.create');
@@ -72,6 +71,20 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(f
     Route::get('paket/{id}/edit', [PaketController::class, 'edit'])->name('paket.edit');
     Route::put('paket/{id}', [PaketController::class, 'update'])->name('paket.update');
     Route::delete('paket/{id}', [PaketController::class, 'destroy'])->name('paket.destroy');
+});
+
+
+// Route Laporan
+use App\Http\Controllers\LaporanController;
+
+Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('laporan', [LaporanController::class, 'index'])->name('laporan.index');
+    Route::get('laporan/create', [LaporanController::class, 'create'])->name('laporan.create');
+    Route::post('laporan', [LaporanController::class, 'store'])->name('laporan.store');
+    Route::get('laporan/{id}', [LaporanController::class, 'show'])->name('laporan.show');
+    Route::get('laporan/{id}/edit', [LaporanController::class, 'edit'])->name('laporan.edit');
+    Route::put('laporan/{id}', [LaporanController::class, 'update'])->name('laporan.update');
+    Route::delete('laporan/{id}', [LaporanController::class, 'destroy'])->name('laporan.destroy');
 });
 
 

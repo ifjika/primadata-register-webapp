@@ -338,8 +338,8 @@ return [
         ],
         ['header' => 'REPORT'],
         [
-            'text' => 'Report',
-            'url' => 'admin/report',
+            'text' => 'Laporan',
+            'url' => 'admin/laporan',
             'icon' => 'fas fa-fw fa-book',
         ],
         ['header' => 'PAKET'],

@@ -7,20 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Laporan extends Model
 {
     protected $table = 'laporan';
-
     protected $primaryKey = 'id_laporan';
+    protected $keyType = 'int';
 
-    public $timestamps = false;
+    public $incrementing = true;
+    public $timestamps = true;
 
     protected $fillable = [
-        'id_laporan',
         'periode',
         'jumlah_peserta',
-        'omset'
+        'omset',
     ];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'id_user');
-    }
 }
