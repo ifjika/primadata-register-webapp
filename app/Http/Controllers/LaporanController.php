@@ -15,7 +15,7 @@ class LaporanController extends Controller
 
     public function create()
     {
-        return view('laporan.create');
+        return view('admin.laporan.create');
     }
 
     public function store(Request $request)

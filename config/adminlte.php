@@ -320,7 +320,7 @@ return [
         ],
         [
             'text' => 'Pembayaran',
-            'url' => 'admin/bayar',
+            'url' => 'admin/pembayaran',
             'icon' => 'fas fa-fw fa-credit-card',
             'label_color' => 'success',
         ],
