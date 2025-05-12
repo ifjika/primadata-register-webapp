@@ -17,6 +17,8 @@ class Paket extends Model
         'nama_paket',
         'jurusan',
         'biaya',
+        'informasi_program',
+        'materi',
         'deskripsi',
     ];
 
