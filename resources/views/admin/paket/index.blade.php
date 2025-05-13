@@ -19,10 +19,11 @@
             <th style="width: 5%;">No</th>
             <th>Nama Paket</th>
             <th>Jurusan</th>
-            <th>Biaya</th>
+            <th>Biaya (Rp)</th>
             <th>Informasi Program</th>
             <th>Materi</th>
             <th>Deskripsi</th>
+            <th>Gambar</th>
             <th>Aksi</th>
         </tr>
     </thead>
@@ -37,11 +38,18 @@
             <td>{{ \Str::limit($item->materi, 50) }}</td>
             <td>{{ \Str::limit($item->deskripsi, 50) }}</td>
             <td>
-                <a href="{{ route('admin.paket.edit', $item->id_paket) }}" class="btn btn-warning btn-sm">Edit</a>
-                <form action="{{ route('admin.paket.destroy', $item->id_paket) }}" method="POST" style="display:inline;">
+                @if ($item->gambar)
+                <img src="{{ asset('storage/' . $item->gambar) }}" alt="Gambar Paket {{ $item->nama_paket }}" width="80" class="img-thumbnail" data-toggle="tooltip" title="Klik untuk melihat gambar lebih besar">
+                @else
+                <small>Tidak ada gambar</small>
+                @endif
+            </td>
+            <td>
+                <a href="{{ route('admin.paket.edit', $item->id_paket) }}" class="btn btn-warning btn-sm" data-toggle="tooltip" title="Edit Paket">Edit</a>
+                <form action="{{ route('admin.paket.destroy', $item->id_paket) }}" method="POST" style="display:inline;" onsubmit="return confirm('Yakin ingin menghapus paket ini?')">
                     @csrf
                     @method('DELETE')
-                    <button class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus paket ini?')">Hapus</button>
+                    <button class="btn btn-danger btn-sm" data-toggle="tooltip" title="Hapus Paket">Hapus</button>
                 </form>
             </td>
         </tr>
@@ -69,6 +77,9 @@
             responsive: true,
             autoWidth: false
         });
+
+        // Initialize tooltips
+        $('[data-toggle="tooltip"]').tooltip();
     });
 </script>
 @stop

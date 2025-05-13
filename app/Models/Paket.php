@@ -20,6 +20,7 @@ class Paket extends Model
         'informasi_program',
         'materi',
         'deskripsi',
+        'gambar',
     ];
 
     public $timestamps = true;

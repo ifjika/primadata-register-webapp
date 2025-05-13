@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Paket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class PaketController extends Controller
 {
@@ -24,19 +26,19 @@ class PaketController extends Controller
             'nama_paket' => 'required|string|max:50',
             'jurusan' => 'required|string|max:100',
             'biaya' => 'required|numeric',
-            'informasi_program' => 'required|array|min:1|max:4', // Menyesuaikan validasi dengan array
+            'informasi_program' => 'required|array|min:1|max:4',
             'informasi_program.*' => 'required|string|max:255',
             'materi' => 'required|array|min:1|max:9',
             'materi.*' => 'required|string|max:255',
             'deskripsi' => 'required|string',
+            'gambar' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
-        // Gabungkan informasi_program menjadi satu string dengan newline
         $info_program_array = $request->input('informasi_program');
-        $informasi_program = implode("\n", array_filter($info_program_array)); // Menggabungkan informasi program
+        $informasi_program = implode("\n", array_filter($info_program_array));
 
         $materi_array = $request->input('materi', []);
-        $materi_array = array_filter($materi_array); // buang yang kosong
+        $materi_array = array_filter($materi_array);
 
         if (count($materi_array) === 0) {
             return back()->withErrors(['materi' => 'Materi wajib diisi.'])->withInput();
@@ -44,20 +46,31 @@ class PaketController extends Controller
 
         $materi = implode("\n", $materi_array);
 
+        $gambarPath = null;
+        if ($request->hasFile('gambar')) {
+            // Membuat folder berdasarkan tahun, bulan, dan tanggal
+            $now = now();
+            $folderPath = "paket_gambar/{$now->year}/{$now->format('m')}/{$now->format('d')}";
 
-        // Simpan data dengan informasi_program yang sudah digabungkan
-        Paket::create([
+            // Membuat nama file gambar baru dengan format: GambarPaket-{jurusan}-{id}.{ext}
+            $jurusan = Str::slug($request->input('jurusan')); // Menggunakan slug untuk nama jurusan agar aman sebagai nama file
+            $fileExtension = $request->file('gambar')->getClientOriginalExtension();
+            $gambarName = "GambarPaket-{$jurusan}-" . time() . ".{$fileExtension}"; // Menggunakan time() agar nama file unik
+            $gambarPath = $request->file('gambar')->storeAs($folderPath, $gambarName, 'public');
+        }
+
+        $paket = Paket::create([
             'nama_paket' => $request->nama_paket,
             'jurusan' => $request->jurusan,
             'biaya' => $request->biaya,
-            'informasi_program' => $informasi_program, // Simpan informasi_program yang digabung
+            'informasi_program' => $informasi_program,
             'materi' => $materi,
             'deskripsi' => $request->deskripsi,
+            'gambar' => $gambarPath,
         ]);
 
         return redirect()->route('admin.paket.index')->with('success', 'Paket berhasil ditambahkan.');
     }
-
 
     public function show($id)
     {
@@ -84,14 +97,14 @@ class PaketController extends Controller
             'materi' => 'required|array|min:1|max:9',
             'materi.*' => 'required|string|max:255',
             'deskripsi' => 'required|string',
+            'gambar' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
-        // Gabungkan informasi_program menjadi satu string dengan newline
         $info_program_array = $request->input('informasi_program');
-        $informasi_program = implode("\n", array_filter($info_program_array)); // Menggabungkan informasi program
+        $informasi_program = implode("\n", array_filter($info_program_array));
 
         $materi_array = $request->input('materi', []);
-        $materi_array = array_filter($materi_array); // buang yang kosong
+        $materi_array = array_filter($materi_array);
 
         if (count($materi_array) === 0) {
             return back()->withErrors(['materi' => 'Materi wajib diisi.'])->withInput();
@@ -99,24 +112,44 @@ class PaketController extends Controller
 
         $materi = implode("\n", $materi_array);
 
+        // Menghapus gambar lama jika ada dan mengganti dengan gambar baru
+        if ($request->hasFile('gambar')) {
+            // Hapus gambar lama jika ada
+            if ($paket->gambar && Storage::disk('public')->exists($paket->gambar)) {
+                Storage::disk('public')->delete($paket->gambar);
+            }
 
-        // Update data dengan informasi_program yang sudah digabungkan
+            // Membuat nama file gambar baru dengan format: GambarPaket-{jurusan}-{id}.{ext}
+            $now = now();
+            $folderPath = "paket_gambar/{$now->year}/{$now->format('m')}/{$now->format('d')}";
+            $jurusan = Str::slug($request->input('jurusan'));
+            $fileExtension = $request->file('gambar')->getClientOriginalExtension();
+            $gambarName = "GambarPaket-{$jurusan}-" . time() . ".{$fileExtension}";
+            $gambarPath = $request->file('gambar')->storeAs($folderPath, $gambarName, 'public');
+            $paket->gambar = $gambarPath;
+        }
+
         $paket->update([
             'nama_paket' => $request->nama_paket,
             'jurusan' => $request->jurusan,
             'biaya' => $request->biaya,
-            'informasi_program' => $informasi_program, // Simpan informasi_program yang digabung
+            'informasi_program' => $informasi_program,
             'materi' => $materi,
             'deskripsi' => $request->deskripsi,
+            'gambar' => $paket->gambar,
         ]);
 
         return redirect()->route('admin.paket.index')->with('success', 'Paket berhasil diperbarui.');
     }
 
-
     public function destroy($id)
     {
         $paket = Paket::findOrFail($id);
+
+        if ($paket->gambar && Storage::disk('public')->exists($paket->gambar)) {
+            Storage::disk('public')->delete($paket->gambar);
+        }
+
         $paket->delete();
 
         return redirect()->route('admin.paket.index')->with('success', 'Paket berhasil dihapus.');
