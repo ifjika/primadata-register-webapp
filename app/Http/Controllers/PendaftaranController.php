@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Pendaftaran;
 use App\Models\Peserta;
-use App\Models\Paket; // kalau punya model Paket
+use App\Models\Paket;
 use Illuminate\Http\Request;
 
 class PendaftaranController extends Controller
 {
     public function index()
     {
+        // Ambil data pendaftaran beserta relasi peserta dan paket
         $pendaftarans = Pendaftaran::with(['peserta', 'paket'])->get();
         return view('admin.pendaftaran.index', compact('pendaftarans'));
     }
@@ -27,14 +28,13 @@ class PendaftaranController extends Controller
         $request->validate([
             'id_peserta' => 'required|exists:peserta,id_peserta',
             'id_paket' => 'required|exists:paket,id_paket',
-            'tanggal_daftar' => 'nullable|date',
             'status' => 'required|in:menunggu,sukses,batal',
         ]);
 
+        // created_at otomatis diisi oleh Laravel, tidak perlu tanggal_daftar manual
         Pendaftaran::create([
             'id_peserta' => $request->id_peserta,
             'id_paket' => $request->id_paket,
-            'tanggal_daftar' => $request->tanggal_daftar ?? now(),
             'status' => $request->status,
         ]);
 
@@ -62,14 +62,12 @@ class PendaftaranController extends Controller
         $request->validate([
             'id_peserta' => 'required|exists:peserta,id_peserta',
             'id_paket' => 'required|exists:paket,id_paket',
-            'tanggal_daftar' => 'nullable|date',
             'status' => 'required|in:menunggu,sukses,batal',
         ]);
 
         $pendaftaran->update([
             'id_peserta' => $request->id_peserta,
             'id_paket' => $request->id_paket,
-            'tanggal_daftar' => $request->tanggal_daftar ?? now(),
             'status' => $request->status,
         ]);
 
