@@ -33,7 +33,8 @@
                     <x-nav-link :href="route('activity')" :active="request()->routeIs('activity')">
                         {{ __('Kegiatan') }}
                     </x-nav-link>
-                    <x-dropdown align="right" width="48">
+                   
+                    <!-- <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             <button class="inline-flex items-center px-3 pt-6 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                                 <div>{{ __('Paket Kursus') }}</div>
@@ -53,7 +54,7 @@
                                 {{ __('Kelas 2') }}
                             </x-dropdown-link>
                         </x-slot>
-                    </x-dropdown>
+                    </x-dropdown> -->
 
                     <x-nav-link :href="route('contact')" :active="request()->routeIs('contact')">
                         {{ __('Contact Us') }}

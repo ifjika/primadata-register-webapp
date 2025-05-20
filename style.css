@@ -3,7 +3,7 @@
 }
 
 .navbar {
-    background-color: #fff;
+    background-color: #ffffff;
     height: 80px;
 }
 
@@ -360,13 +360,13 @@ btn-close:focus {
     font-family: Arial, sans-serif;
     padding: 20px;
 }
-ul.check-list {
+ul .check-list {
     list-style: none;
     padding-left: 0;
     max-width: 400px;
     margin: 0 auto;
 }
-ul.check-list li {
+ul .check-list li {
     position: relative;
     padding-left: 30px;
     margin-bottom: 15px;
@@ -374,7 +374,7 @@ ul.check-list li {
     color: #333;
 }
 /* circle background */
-ul.check-list li::before {
+ul .check-list li::before {
     content: "✔";
     position: absolute;
     left: 0;

@@ -105,14 +105,14 @@
 
         <!-- border list nama paket REGULER-->
          <!-- Courses Section -->
-         <section id="courses" class="courses section">
+         <section id="courses" class="courses section mt-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="course-item">
+                    <div class="mt-5 col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="course-item ">
                             <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
                             <div class="course-content">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="d-flex justify-content-between align-items-center mb-3">                                                                
                                     <a href="course-details.html"><p class="category">Administrasi Bisnis</p></a>
                                     <p class="price">Rp. 4.800.000</p>
                                 </div>
@@ -139,7 +139,7 @@
                             </div>
                             <!-- End Course Item-->
 
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                    <div class=" mt-5 col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                         <div class="course-item">
                             <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
                             <div class="course-content">
@@ -166,7 +166,7 @@
                             </div>
          <!-- End Course Item-->
 
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="mt-5 col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                         <div class="course-item">
                             <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
                             <div class="course-content">
@@ -193,7 +193,7 @@
                             </div>
          <!-- End Course Item-->
 
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="mt-5 col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                         <div class="course-item">
                             <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
                             <div class="course-content">
@@ -394,7 +394,7 @@
                                     <a href="course-details.html"><p class="category">Administrasi Perkantoran</p></a>
                                     <p class="price">Rp. 1.400.000</p>
                                 </div>
-                                    <ul class="check-list" >
+                                    <ul class="check-list" >                                    
                                         <li>16x Pertemuan (1x pertemuan 2 jam)</li>
                                         <li>Senin s.d Jumat</li>
                                         <li>Jadwal Fleksibel : 08.15, 10.00 dan 14.00</li>

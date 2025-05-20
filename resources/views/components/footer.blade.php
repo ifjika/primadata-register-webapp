@@ -73,7 +73,7 @@
 
     <div class="container copyright text-center mt-2">
       <p>© <span>{{ date('Y') }}</span> <strong class="px-1 sitename">LKP Prima Data | <span>Unggul Teknologi, Muda Berkarya</span></strong></p>
-      <div class="credits">
+    <div class="credits">
         
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you've purchased the pro version. -->

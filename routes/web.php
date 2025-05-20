@@ -25,6 +25,10 @@ Route::get('/home', function () {
     return redirect('/'); // Redirect if the user does not have a valid role
 })->middleware(['auth'])->name('home');
 
+Route::get('/details', function () {
+    return view('details');
+})->name('details');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
