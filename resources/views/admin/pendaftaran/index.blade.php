@@ -17,8 +17,8 @@
     <thead>
         <tr>
             <th>No</th>
-            <th>ID Peserta</th>
-            <th>ID Paket</th>
+            <th>Nama Peserta</th>
+            <th>Nama Paket</th>
             <th>Tanggal Daftar</th>
             <th>Status</th>
             <th>Aksi</th>
@@ -28,8 +28,8 @@
         @foreach ($pendaftarans as $item)
         <tr>
             <td>{{ $loop->iteration }}</td>
-            <td>{{ $item->id_peserta }}</td>
-            <td>{{ $item->id_paket }}</td>
+            <td>{{ $item->peserta->nama_peserta ?? '-' }}</td>
+            <td>{{ $item->paket->nama_paket }}</td>
             <td>{{ \Carbon\Carbon::parse($item->created_at)->format('d-m-Y') }}</td>
             <td>{{ ucfirst($item->status) }}</td>
             <td>

@@ -6,8 +6,10 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\BerkasController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\PaketController;
+use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\PesertaController;
 use App\Http\Controllers\PendaftaranController;
+
 
 Route::get('/', function () {
     return view('dashboard');
@@ -51,6 +53,7 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(f
     Route::delete('peserta/{id}', [PesertaController::class, 'destroy'])->name('peserta.destroy');
 });
 
+
 // Route Pendaftaran
 Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('pendaftaran', [PendaftaranController::class, 'index'])->name('pendaftaran.index');
@@ -60,6 +63,19 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(f
     Route::get('pendaftaran/{id}/edit', [PendaftaranController::class, 'edit'])->name('pendaftaran.edit');
     Route::put('pendaftaran/{id}', [PendaftaranController::class, 'update'])->name('pendaftaran.update');
     Route::delete('pendaftaran/{id}', [PendaftaranController::class, 'destroy'])->name('pendaftaran.destroy');
+});
+
+
+// Route Pembayaran
+Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('pembayaran', [PembayaranController::class, 'index'])->name('pembayaran.index');
+    Route::get('pembayaran/create', [PembayaranController::class, 'create'])->name('pembayaran.create');
+    Route::post('pembayaran', [PembayaranController::class, 'store'])->name('pembayaran.store');
+    Route::get('pembayaran/{id}', [PembayaranController::class, 'show'])->name('pembayaran.show');
+    Route::get('pembayaran/{id}/edit', [PembayaranController::class, 'edit'])->name('pembayaran.edit');
+    Route::put('pembayaran/{id}', [PembayaranController::class, 'update'])->name('pembayaran.update');
+    Route::delete('pembayaran/{id}', [PembayaranController::class, 'destroy'])->name('pembayaran.destroy');
+    Route::post('pembayaran/{id}/lunas', [PembayaranController::class, 'lunas'])->name('pembayaran.lunas');
 });
 
 
