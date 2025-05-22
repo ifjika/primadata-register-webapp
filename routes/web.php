@@ -75,7 +75,6 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(f
     Route::get('pembayaran/{id}/edit', [PembayaranController::class, 'edit'])->name('pembayaran.edit');
     Route::put('pembayaran/{id}', [PembayaranController::class, 'update'])->name('pembayaran.update');
     Route::delete('pembayaran/{id}', [PembayaranController::class, 'destroy'])->name('pembayaran.destroy');
-    Route::post('pembayaran/{id}/lunas', [PembayaranController::class, 'lunas'])->name('pembayaran.lunas');
 });
 
 

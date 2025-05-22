@@ -56,13 +56,6 @@
                     @method('DELETE')
                     <button class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</button>
                 </form>
-
-                @if ($item->status !== 'Lunas')
-                <form action="{{ route('admin.pembayaran.lunas', $item->id_pembayaran) }}" method="POST" style="display:inline;" onsubmit="return confirm('Yakin ingin validasi pembayaran ini dan ubah status menjadi Lunas?')">
-                    @csrf
-                    <button type="submit" class="btn btn-success btn-sm">Validasi</button>
-                </form>
-                @endif
             </td>
 
         </tr>

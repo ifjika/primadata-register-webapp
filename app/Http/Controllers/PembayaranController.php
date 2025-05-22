@@ -6,6 +6,7 @@ use App\Models\Pembayaran;
 use App\Models\Pendaftaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class PembayaranController extends Controller
 {
@@ -59,8 +60,35 @@ class PembayaranController extends Controller
     {
         $pembayaran = Pembayaran::findOrFail($id);
         $pendaftarans = Pendaftaran::all();
-        return view('pembayaran.edit', compact('pembayaran', 'pendaftarans'));
+
+        // Ambil enum values untuk kolom 'status'
+        $statusType = DB::select("SHOW COLUMNS FROM pembayaran WHERE Field = 'status'")[0]->Type;
+        preg_match("/^enum\((.*)\)$/", $statusType, $statusMatches);
+        $enumStatus = [];
+        if (isset($statusMatches[1])) {
+            $enumStatus = array_map(function ($value) {
+                return trim($value, "'");
+            }, explode(",", $statusMatches[1]));
+        }
+
+        // Ambil enum values untuk kolom 'metode_bayar'
+        $metodeType = DB::select("SHOW COLUMNS FROM pembayaran WHERE Field = 'metode_bayar'")[0]->Type;
+        preg_match("/^enum\((.*)\)$/", $metodeType, $metodeMatches);
+        $enumMetode = [];
+        if (isset($metodeMatches[1])) {
+            $enumMetode = array_map(function ($value) {
+                return trim($value, "'");
+            }, explode(",", $metodeMatches[1]));
+        }
+
+        return view('admin.pembayaran.edit', [
+            'pembayaran' => $pembayaran,
+            'pendaftarans' => $pendaftarans,
+            'enumValuesStatus' => $enumStatus,
+            'enumValuesMetode' => $enumMetode,
+        ]);
     }
+
 
     // Update data pembayaran
     public function update(Request $request, $id)
@@ -72,20 +100,21 @@ class PembayaranController extends Controller
             'metode_bayar' => 'required|string|max:255',
             'jumlah_bayar' => 'required|numeric',
             'bukti_pembayaran' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'status' => 'required|in:Lunas, Belum Lunas',
+            'status' => 'required|in:Lunas,Belum Lunas',
 
         ]);
 
         $data = $request->only(['id_pendaftaran', 'metode_bayar', 'jumlah_bayar', 'status']);
 
         if ($request->hasFile('bukti_pembayaran')) {
-            // Hapus bukti lama jika ada
             if ($pembayaran->bukti_pembayaran) {
                 Storage::disk('public')->delete($pembayaran->bukti_pembayaran);
             }
-
             $data['bukti_pembayaran'] = $request->file('bukti_pembayaran')->store('bukti_pembayaran', 'public');
+        } else {
+            $data['bukti_pembayaran'] = $pembayaran->bukti_pembayaran;
         }
+
 
         $pembayaran->update($data);
 
@@ -104,14 +133,5 @@ class PembayaranController extends Controller
         $pembayaran->delete();
 
         return redirect()->route('admin.pembayaran.index')->with('success', 'Data pembayaran berhasil dihapus.');
-    }
-
-    public function lunas($id)
-    {
-        $pembayaran = Pembayaran::findOrFail($id);
-        $pembayaran->status = 'Lunas';
-        $pembayaran->save();
-
-        return redirect()->route('admin.pembayaran.index')->with('success', 'Pembayaran berhasil divalidasi dan status diubah menjadi Lunas.');
     }
 }
