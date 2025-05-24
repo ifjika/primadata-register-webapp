@@ -20,8 +20,9 @@ class PembayaranController extends Controller
     // Tampilkan form tambah pembayaran
     public function create()
     {
-        $pendaftarans = Pendaftaran::all();
-        return view('admin.pembayaran.create', compact('pendaftarans'));
+
+        $pendaftaran = Pendaftaran::with('peserta')->get();
+        return view('admin.pembayaran.create', compact('pendaftaran'));
     }
 
     // Simpan data pembayaran baru
@@ -32,10 +33,13 @@ class PembayaranController extends Controller
             'metode_bayar' => 'required|string|max:255',
             'jumlah_bayar' => 'required|numeric',
             'bukti_pembayaran' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'status' => 'required|in:Lunas, Belum Lunas',
+            'status' => 'required|in:Lunas,Belum Lunas',
         ]);
 
-        $path = $request->file('bukti_pembayaran')->store('bukti_pembayaran', 'public');
+        $path = null;
+        if ($request->hasFile('bukti_pembayaran')) {
+            $path = $request->file('bukti_pembayaran')->store('bukti_pembayaran', 'public');
+        }
 
         Pembayaran::create([
             'id_pendaftaran' => $request->id_pendaftaran,
@@ -45,7 +49,7 @@ class PembayaranController extends Controller
             'status' => $request->status,
         ]);
 
-        return redirect()->route('pembayaran.index')->with('success', 'Data pembayaran berhasil ditambahkan.');
+        return redirect()->route('admin.pembayaran.index')->with('success', 'Data pembayaran berhasil ditambahkan.');
     }
 
     // Tampilkan detail pembayaran

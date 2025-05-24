@@ -15,7 +15,6 @@ class Pembayaran extends Model
         'id_pendaftaran',
         'metode_bayar',
         'jumlah_bayar',
-        'bukti_pembayaran',
         'status',
     ];
 
