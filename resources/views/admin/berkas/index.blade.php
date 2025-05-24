@@ -15,6 +15,7 @@
             <th>KK</th>
             <th>KTP</th>
             <th>Pas Foto</th>
+            <th>Aksi</th>
         </tr>
     </thead>
     <tbody>
@@ -45,7 +46,14 @@
                     <img src="{{ asset('storage/' . $item->pas_foto) }}" alt="Pas Foto" style="max-width: 100px; max-height: 100px; object-fit: contain;">
                 </a>
             </td>
-
+            <td>
+                <a href="{{ route('admin.berkas.edit', $item->id_berkas) }}" class="btn btn-warning btn-sm" data-toggle="tooltip" title="Edit berkas">Edit</a>
+                <form action="{{ route('admin.berkas.destroy', $item->id_berkas) }}" method="POST" style="display:inline;" onsubmit="return confirm('Yakin ingin menghapus berkas ini?')">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger btn-sm" data-toggle="tooltip" title="Hapus berkas">Hapus</button>
+                </form>
+            </td>
         </tr>
         @endforeach
     </tbody>

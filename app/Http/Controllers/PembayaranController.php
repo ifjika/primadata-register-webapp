@@ -63,7 +63,7 @@ class PembayaranController extends Controller
     public function edit($id)
     {
         $pembayaran = Pembayaran::findOrFail($id);
-        $pendaftarans = Pendaftaran::all();
+        $pendaftarans = Pendaftaran::with('peserta.user')->get();
 
         // Ambil enum values untuk kolom 'status'
         $statusType = DB::select("SHOW COLUMNS FROM pembayaran WHERE Field = 'status'")[0]->Type;
