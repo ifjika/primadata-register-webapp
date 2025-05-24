@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berkas;
+use App\Models\Peserta;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class BerkasController extends Controller
@@ -10,12 +12,14 @@ class BerkasController extends Controller
     public function index()
     {
         $berkas = Berkas::all();
-        return view('admin.berkas.index', compact('berkas'));
+        $user = User::all();
+        return view('admin.berkas.index', compact('berkas', 'user'));
     }
 
     public function create()
     {
-        return view('admin.berkas.create');
+        $peserta = Peserta::with('user')->get();
+        return view('admin.berkas.create', compact('peserta'));
     }
 
     public function store(Request $request)

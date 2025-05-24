@@ -22,8 +22,20 @@
     @csrf
 
     <div class="form-group">
-        <label for="id_user">ID User</label>
-        <input type="number" name="id_user" class="form-control" required>
+        <label for="id_peserta">Pilih Peserta</label>
+        <select id="id_peserta" name="id_peserta" class="form-control" required>
+            <option value="">-- Pilih Peserta --</option>
+            @foreach ($peserta as $p)
+            <option value="{{ $p->id_peserta }}" data-id-user="{{ $p->user->id ?? '' }}">
+                {{ $p->nama_peserta }} (ID: {{ $p->id_peserta }})
+            </option>
+            @endforeach
+        </select>
+
+    </div>
+
+    <div class="form-group">
+        <input type="text" id="id_user" name="id_user" class="form-control" readonly>
     </div>
 
     <div class="form-group">
@@ -57,6 +69,10 @@
 
 @section('js')
 <script>
-    console.log('Create Berkas page loaded');
+    document.getElementById('id_peserta').addEventListener('change', function() {
+        const selectedOption = this.options[this.selectedIndex];
+        const userId = selectedOption.getAttribute('data-id-user');
+        document.getElementById('id_user').value = userId ?? '';
+    });
 </script>
 @stop
