@@ -65,14 +65,11 @@ class PendaftaranController extends Controller
             'status' => 'required|in:menunggu,sukses,batal',
         ]);
 
-        $pendaftaran->update([
-            'id_peserta' => $request->id_peserta,
-            'id_paket' => $request->id_paket,
-            'status' => $request->status,
-        ]);
+        $pendaftaran->update($request->only('id_peserta', 'id_paket', 'status'));
 
         return redirect()->route('admin.pendaftaran.index')->with('success', 'Pendaftaran berhasil diperbarui.');
     }
+
 
     public function destroy($id)
     {
