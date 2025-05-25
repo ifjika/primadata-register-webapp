@@ -877,7 +877,7 @@ section,
   text-transform: uppercase;
 }
 
-/* centang bulek-bulek */
+/* checklist lingkaran */
 
 ul.check-list {
   list-style: none;
@@ -888,7 +888,7 @@ ul.check-list {
 ul.check-list li {
   position: relative;
   padding-left: 30px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   font-size: 18px;
   line-height: 1.5;
   color: #333;
@@ -1247,7 +1247,7 @@ ul.check-list li::before {
 }
 
 .courses .course-content .description {
-  font-size: 14px;
+  font-size: 18px;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
 }
 
