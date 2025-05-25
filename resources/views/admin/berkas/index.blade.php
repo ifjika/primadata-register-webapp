@@ -11,6 +11,7 @@
     <thead>
         <tr>
             <th>No</th>
+            <th>Nama Peserta</th>
             <th>Ijazah</th>
             <th>KK</th>
             <th>KTP</th>
@@ -24,6 +25,7 @@
         @foreach ($berkas as $item)
         <tr>
             <td>{{ $loop->iteration }}</td>
+            <td>{{ $item->user->peserta->nama_peserta ?? '-' }}</td>
 
             {{-- Ijazah --}}
             <td>

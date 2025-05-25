@@ -13,7 +13,7 @@ class BerkasController extends Controller
 {
     public function index()
     {
-        $berkas = Berkas::all();
+        $berkas = Berkas::with('user.peserta')->get();
         $user = User::all();
         return view('admin.berkas.index', compact('berkas', 'user'));
     }
