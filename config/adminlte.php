@@ -327,15 +327,15 @@ return [
         [
             'text' => 'Pendaftaran',
             'url' => 'admin/pendaftaran',
-            'icon' => 'fas fa-fw fa-plus-square',
-            'label_color' => 'success',
-        ],
-        [
-            'text' => 'Peserta',
-            'url' => 'admin/peserta',
             'icon' => 'fas fa-fw fa-user',
             'label_color' => 'success',
         ],
+        // [
+        //     'text' => 'Pendaftaran1',
+        //     'url' => 'admin/pendaftaran',
+        //     'icon' => 'fas fa-fw fa-plus-square',
+        //     'label_color' => 'success',
+        // ],
         ['header' => 'REPORT'],
         [
             'text' => 'Laporan',

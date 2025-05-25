@@ -7,8 +7,8 @@ use App\Http\Controllers\BerkasController;
 use App\Http\Controllers\LaporanKeuanganController;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\PembayaranController;
-use App\Http\Controllers\PesertaController;
-use App\Http\Controllers\PendaftaranController;
+use App\Http\Controllers\PendaftaranPesertaController;
+use App\Http\Controllers\PendaftaranPaketController;
 
 
 Route::get('/', function () {
@@ -42,27 +42,27 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(f
     Route::delete('berkas/{id}', [BerkasController::class, 'destroy'])->name('berkas.destroy');
 });
 
-// Route Peserta
+// Route Pendaftaran Peserta
 Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(function () {
-    Route::get('peserta', [PesertaController::class, 'index'])->name('peserta.index');
-    Route::get('peserta/create', [PesertaController::class, 'create'])->name('peserta.create');
-    Route::post('peserta', [PesertaController::class, 'store'])->name('peserta.store');
-    Route::get('peserta/{id}', [PesertaController::class, 'show'])->name('peserta.show');
-    Route::get('peserta/{id}/edit', [PesertaController::class, 'edit'])->name('peserta.edit');
-    Route::put('peserta/{id}', [PesertaController::class, 'update'])->name('peserta.update');
-    Route::delete('peserta/{id}', [PesertaController::class, 'destroy'])->name('peserta.destroy');
+    Route::get('pendaftaran', [PendaftaranPesertaController::class, 'index'])->name('pendaftaran.index');
+    Route::get('pendaftaran/create', [PendaftaranPesertaController::class, 'create'])->name('pendaftaran.create');
+    Route::post('pendaftaran', [PendaftaranPesertaController::class, 'store'])->name('pendaftaran.store');
+    // Route::get('peserta/{id}', [PendaftaranPesertaController::class, 'show'])->name('peserta.show');
+    Route::get('pendaftaran/{id}/edit', [PendaftaranPesertaController::class, 'edit'])->name('pendaftaran.edit');
+    // Route::put('peserta/{id}', [PendaftaranPesertaController::class, 'update'])->name('peserta.update');
+    Route::delete('pendaftaran/{id}', [PendaftaranPesertaController::class, 'destroy'])->name('pendaftaran.destroy');
 });
 
 
-// Route Pendaftaran
+// Route Pendaftaran Paket
 Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(function () {
-    Route::get('pendaftaran', [PendaftaranController::class, 'index'])->name('pendaftaran.index');
-    Route::get('pendaftaran/create', [PendaftaranController::class, 'create'])->name('pendaftaran.create');
-    Route::post('pendaftaran', [PendaftaranController::class, 'store'])->name('pendaftaran.store');
-    Route::get('pendaftaran/{id}', [PendaftaranController::class, 'show'])->name('pendaftaran.show');
-    Route::get('pendaftaran/{id}/edit', [PendaftaranController::class, 'edit'])->name('pendaftaran.edit');
-    Route::put('pendaftaran/{id}', [PendaftaranController::class, 'update'])->name('pendaftaran.update');
-    Route::delete('pendaftaran/{id}', [PendaftaranController::class, 'destroy'])->name('pendaftaran.destroy');
+    // Route::get('pendaftaran', [PendaftaranPaketController::class, 'index'])->name('pendaftaran.index');
+    Route::get('pendaftaran/paket/create', [PendaftaranPaketController::class, 'create'])->name('pendaftaran.paket.create');
+    Route::post('pendaftaran/paket', [PendaftaranPaketController::class, 'store'])->name('pendaftaran.paket.store');
+    // Route::get('pendaftaran/{id}', [PendaftaranPaketController::class, 'show'])->name('pendaftaran.show');
+    // Route::get('pendaftaran/{id}/edit', [PendaftaranPaketController::class, 'edit'])->name('pendaftaran.edit');
+    // Route::put('pendaftaran/{id}', [PendaftaranPaketController::class, 'update'])->name('pendaftaran.update');
+    // Route::delete('pendaftaran/{id}', [PendaftaranPaketController::class, 'destroy'])->name('pendaftaran.destroy');
 });
 
 

@@ -4,7 +4,7 @@
 
 @section('content_header')
 <h1>Data Pendaftaran</h1>
-<a href="{{ route('admin.pendaftaran.create') }}" class="btn btn-primary mb-3">Tambah Pendaftaran Baru</a>
+<a href="{{ route('admin.pendaftaran.paket.create') }}" class="btn btn-primary mb-3">Tambah Pendaftaran Baru</a>
 @stop
 
 @section('content')
@@ -17,10 +17,12 @@
     <thead>
         <tr>
             <th>No</th>
-            <th>Nama Peserta</th>
-            <th>Nama Paket</th>
-            <th>Tanggal Daftar</th>
-            <th>Status</th>
+            <th>Nama</th>
+            <th>TTL</th>
+            <th>Paket</th>
+            <th>Jurusan</th>
+            <th>Alamat</th>
+            <th>No. WA</th>
             <th>Aksi</th>
         </tr>
     </thead>
@@ -29,9 +31,11 @@
         <tr>
             <td>{{ $loop->iteration }}</td>
             <td>{{ $item->peserta->nama_peserta ?? '-' }}</td>
+            <td>{{ $item->peserta->tempat_lahir }}, {{ \Carbon\Carbon::parse($item->peserta->tanggal_lahir)->format('d-m-Y') }}</td>
             <td>{{ $item->paket->nama_paket }}</td>
-            <td>{{ \Carbon\Carbon::parse($item->created_at)->format('d-m-Y') }}</td>
-            <td>{{ ucfirst($item->status) }}</td>
+            <td>{{ $item->paket->jurusan }}</td>
+            <td>{{ $item->peserta->alamat}}</td>
+            <td>{{ $item->peserta->no_wa}}</td>
             <td>
                 <a href="{{ route('admin.pendaftaran.edit', $item->id_pendaftaran) }}" class="btn btn-warning btn-sm">Edit</a>
                 <form action="{{ route('admin.pendaftaran.destroy', $item->id_pendaftaran) }}" method="POST" style="display:inline;">

@@ -7,7 +7,7 @@ use App\Models\Peserta;
 use App\Models\Paket;
 use Illuminate\Http\Request;
 
-class PendaftaranController extends Controller
+class PendaftaranPaketController extends Controller
 {
     public function index()
     {
@@ -18,28 +18,41 @@ class PendaftaranController extends Controller
 
     public function create()
     {
-        $pesertas = Peserta::all();
+        $peserta = session('pendaftaran_peserta');
+        if (!$peserta) {
+            return redirect()->route('admin.pendaftaran.create')->with('error', 'Data peserta belum diisi.');
+        }
         $pakets = Paket::all();
-        return view('admin.pendaftaran.create', compact('pesertas', 'pakets'));
+
+        return view('admin.pendaftaran.paket.create', compact('peserta', 'pakets'));
     }
+
 
     public function store(Request $request)
     {
         $request->validate([
-            'id_peserta' => 'required|exists:peserta,id_peserta',
             'id_paket' => 'required|exists:paket,id_paket',
             'status' => 'required|in:menunggu,sukses,batal',
         ]);
 
-        // created_at otomatis diisi oleh Laravel, tidak perlu tanggal_daftar manual
+        $pesertaData = session('pendaftaran_peserta');
+        if (!$pesertaData) {
+            return redirect()->route('admin.pendaftaran.create')->with('error', 'Data peserta belum diisi.');
+        }
+
+        $peserta = Peserta::create($pesertaData);
+
         Pendaftaran::create([
-            'id_peserta' => $request->id_peserta,
+            'id_peserta' => $peserta->id_peserta,
             'id_paket' => $request->id_paket,
             'status' => $request->status,
         ]);
 
-        return redirect()->route('admin.pendaftaran.index')->with('success', 'Pendaftaran berhasil ditambahkan.');
+        session()->forget('pendaftaran_peserta');
+
+        return redirect()->route('admin.pendaftaran.index')->with('success', 'Pendaftaran berhasil disimpan.');
     }
+
 
     public function show($id)
     {
@@ -49,10 +62,10 @@ class PendaftaranController extends Controller
 
     public function edit($id)
     {
-        $pendaftaran = Pendaftaran::findOrFail($id);
-        $pesertas = Peserta::all();
-        $pakets = Paket::all();
-        return view('admin.pendaftaran.edit', compact('pendaftaran', 'pesertas', 'pakets'));
+        // $pendaftaran = Pendaftaran::findOrFail($id);
+        // $pesertas = Peserta::all();
+        // $pakets = Paket::all();
+        // return view('admin.pendaftaran.edit', compact('pendaftaran', 'pesertas', 'pakets'));
     }
 
     public function update(Request $request, $id)

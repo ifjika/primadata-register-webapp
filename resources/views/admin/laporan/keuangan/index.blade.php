@@ -15,11 +15,10 @@
 <table class="table table-bordered table-striped" id="laporan-table">
     <thead>
         <tr>
-            <th>No</th>
+            <th style="width: 5%;">No</th>
             <th>Periode</th>
             <th>Jumlah Peserta</th>
             <th>Omset</th>
-            <th>Dibuat Pada</th>
             <th>Aksi</th>
         </tr>
     </thead>
@@ -30,7 +29,6 @@
             <td>{{ $item->periode }}</td>
             <td>{{ $item->jumlah_peserta }}</td>
             <td>Rp {{ number_format($item->omset, 0, ',', '.') }}</td>
-            <td>{{ $item->created_at->format('d-m-Y') }}</td>
             <td>
                 <a href="{{ route('admin.laporan.keuangan.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
                 <form action="{{ route('laporan.keuangan.destroy', $item->id) }}" method="POST" style="display:inline;">
