@@ -40,7 +40,7 @@
 
 <body class="index-page">
 
-    <header id="header" class="header d-flex align-items-center sticky-top">
+    <header id="header" class="header d-flex align-items-center">
         <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
             <a href="index.html" class="logo d-flex align-items-center me-auto">
@@ -50,7 +50,7 @@
             </a>
 
             <nav id="navmenu" class="navmenu">
-                <ul>
+                <!-- <ul>
                     <li><a href="index.html" class="active">Home<br></a></li>
                     <li><a href="about.html">Tentang Kami</a></li>
                     <li><a href="trainers.html">Instruktur</a></li>
@@ -89,7 +89,7 @@
                         </ul>
                     </li>
                     <li><a href="contact.html">Contact</a></li>
-                </ul>
+                </ul> -->
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
 
@@ -101,9 +101,10 @@
     <main class="main">
 
         <!-- Hero Section -->
-        <section id="hero" class="hero section dark-background">
 
-            <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
+        <section id="hero" class="hero section">
+
+            <img src="assets/img/hero-bg3.jpg" alt="" data-aos="fade-in">
 
             <div class="container">
                 <h2 data-aos="fade-up" data-aos-delay="100">Kursus Komputer<br>Bersertifikasi BNSP dan LSK-TIK</h2>
@@ -113,7 +114,7 @@
                 </div>
             </div>
 
-        </section><!-- /Hero Section -->
+        </section> <!--Hero Section -->
 
         <!-- About Section -->
         <section id="about" class="about section">
@@ -196,14 +197,16 @@
                     <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
                         <div class="why-box">
                             <h3>Kenapa harus memilih LKP Prima Data?</h3>
+                            <div align="justify">
                             <p>
                                 LKP Prima Data merupakan Lembaga Kursus Komputer berdiri sejak tahun 1997. Lembaga ini sudah memiliki NPSN, VIN dari Kemnaker, Izin dari Kemdikbudristek RI serta sudah terakreditasi B dari BAN PNF dan LA LPK.
                                 Lembaga ini juga memiliki TUK-TIK (tempat uji kompetensi) LSK TIK. Instruktur yang mengajar sudah berpengalaman di bidang nya dan bersertifikasi. Kursus di LKP Prima Data sangat nyaman karena di fasilitasi WIFI Area,
                                 parkir luas, kelas Full AC dan terletak di pusat kota.
                             </p>
-                            <div class="text-center">
-                                <a href="#" class="more-btn"><span>Learn More</span> <i class="bi bi-chevron-right"></i></a>
                             </div>
+                            <!-- <div class="text-center">
+                                <a href="#" class="more-btn"><span>Learn More</span> <i class="bi bi-chevron-right"></i></a>
+                            </div> -->
                         </div>
                     </div><!-- End Why Box -->
 
@@ -356,225 +359,92 @@
 
                 <div class="row">
 
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="course-item">
+                            <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
+                            <div class="course-content">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <a href="course-details.html"><p class="category">Administrasi Bisnis</p></a>
+                                    <p class="price">Rp. 4.800.000</p>
+                                </div>
+                                <h3>Paket Kelas 6 Bulan</h3>
+                                <ul class="check-list" >
+                                        <li>Kursus selama 5 bulan, magang 1 bulan</li>
+                                        <li>Senin s.d Jumat</li>
+                                        <li>Jadwal : 08.15 s.d 12.00</li>
+                                        <li>Bersertifikat</li>
+                                    </ul>
+                                    <h3><b><p class="description">Materi yang akan dipelajari :</p></b></h3>
+                                    <ul class="check-list" >
+                                        <li>Computer Administrasi</li>
+                                        <li>Speed Typing</li>
+                                        <li>Desain Grafis</li>
+                                        <li>Digital Marketing</li>
+                                        <li>Akuntansi Dasar dan Perpajakan</li>
+                                        <li>Bahasa Inggris</li>
+                                        <li>Kesekretariatan</li>
+                                        <li>Motivasi dan Pengembangan Diri</li>
+                                        <li>Uji Kompetensi CLCP</li>
+                                    </ul>
+                                </div>
+                                </div>
+                            </div> <!--End Course Item -->
+
+                            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="course-item">
+                            <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
+                            <div class="course-content">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <a href="course-details.html"><p class="category">APDIG</p></a>
+                                    <p class="price">Rp. 3.500.000</p>                                   
+                                </div>
+                                <h3>Paket Kelas 3 Bulan</h3>
+                                <ul class="check-list" >
+                                        <li>Kursus selama 3 bulan</li>
+                                        <li>Senin s.d Jumat</li>
+                                        <li>Jadwal : 08.15 s.d 12.00</li>
+                                        <li>Bersertifikat</li>
+                                    </ul>
+                                    <h3><b><p class="description">Materi yang akan dipelajari :</p></b></h3>
+                                    <ul class="check-list" >
+                                        <li>Computer Administrasi</li>
+                                        <li>Speed Typing</li>
+                                        <li>Desain Grafis</li>
+                                        <li>Digital Marketing</li>                                     
+                                        <li>Motivasi dan Pengembangan Diri</li>                        
+                                    </ul>
+                                </div>
+                                </div>
+                            </div>
+                            <!-- End Course Item-->
+
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                         <div class="course-item">
                             <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
                             <div class="course-content">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <p class="category">Administrasi Perkantoran</p>
+                                    <a href="course-details.php"><p class="category">Administrasi Perkantoran</p></a>
                                     <p class="price">Rp. 1.400.000</p>
                                 </div>
-
-                                <h3><a href="course-details.html">Administrasi Perkantoran</a></h3>
-                                <p class="description">Kursus selama 16x Pertemuan, durasi 1x pertemuan 2 jam. Pendaftaran setiap jam kerja. Jadwal Senin s.d Jum'at.
-                                    Mahir dalam bidang Perkantoran pembuatan surat, menguasai rumus excel, kreasi persentase menarik</p>
-                                <div class="trainer d-flex justify-content-between align-items-center">
-                                    <div class="trainer-profile d-flex align-items-center">
-                                        <img src="assets/img/trainers/trainer-3.png" class="img-fluid" alt="">
-                                        <a href="" class="trainer-link">Belin Heyo Fathia</a>
-                                    </div>
+                                <h3>Reguler/Private</h3>
+                                </div>
+                                    <ul class="check-list" >
+                                        <li>16x Pertemuan (1x pertemuan 2 jam)</li>
+                                        <li>Senin s.d Jumat</li>
+                                        <li>Jadwal Fleksibel : 08.15, 10.00 dan 14.00</li>
+                                        <li>Bersertifikat</li>
+                                    </ul>
+                                    <div align="justify">
+                                   <p class="description">Mahir dalam bidang Perkantoran pembuatan surat, menguasai rumus excel, kreasi persentase menarik</p></div>
                                 </div>
                             </div>
                         </div>
                     </div> <!-- End Course Item-->
-
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-                        <div class="course-item">
-                            <img src="assets/img/course-2.jpg" class="img-fluid" alt="...">
-                            <div class="course-content">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <p class="category">Desain</p>
-                                    <p class="price">Rp. 2.100.000</p>
-                                </div>
-
-                                <h3><a href="course-details.html">Desain Grafis</a></h3>
-                                <p class="description">Kursus selama 16x Pertemuan, durasi 1x pertemuan 2 jam. Pendaftaran setiap jam kerja. Jadwal Senin s.d Jum'at.
-                                    Desain menggunakan CorelDraw fokus dibidang percetakan dan platfom sosial media.</p>
-                                <div class="trainer d-flex justify-content-between align-items-center">
-                                    <div class="trainer-profile d-flex align-items-center">
-                                        <img src="assets/img/trainers/trainer-2.png" class="img-fluid" alt="">
-                                        <a href="" class="trainer-link">Lora Nining Purwanti</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- End Course Item-->
-
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
-                        <div class="course-item">
-                            <img src="assets/img/course-3.jpg" class="img-fluid" alt="...">
-                            <div class="course-content">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <p class="category">AutoCAD</p>
-                                    <p class="price">Rp. 2.100.000</p>
-                                </div>
-
-                                <h3><a href="course-details.html">AutoCAD 3 Dimensi</a></h3>
-                                <p class="description">Kursus selama 16x Pertemuan, durasi 1x pertemuan 2 jam. Pendaftaran setiap jam kerja. Jadwal Senin s.d Sabtu.
-                                    Fokus dalam teknik pembuatan gambar desain bangunan, mesin, peta, elektro, utilitas, dan instalasi</p>
-                                <div class="trainer d-flex justify-content-between align-items-center">
-                                    <div class="trainer-profile d-flex align-items-center">
-                                        <img src="assets/img/trainers/trainer-6.jpg" class="img-fluid" alt="">
-                                        <a href="" class="trainer-link">Aulia Rizki Alda, ST.MT</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- End Course Item-->
-
                 </div>
-
             </div>
-
-        </section><!-- /Courses Section -->
-
-        <!-- Trainers Index Section -->
-        <section id="trainers-index" class="section trainers-index">
-
-            <div class="container">
-
-                <div class="row">
-
-                    <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
-                        <div class="member">
-                            <img src="assets/img/trainers/trainer-2.png" class="img-fluid" alt="">
-                            <div class="member-content">
-                                <h4>Lora Nining Purwanti</h4>
-                                <span>Desain Grafis</span>
-                                <span>Administrasi Perkantoran</span>
-                                <p>
-                                    Desain Grafis akan mempelajari pembuatan Logo, Banner, Spanduk, Platfom sosial media dan hal-hal yang berkaitan dengan percetakan.
-                                    Administrasi Perkantoran fokus pada materi perkantoran yang dibutuhkan diperusahaan.
-                                </p>
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter-x"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- End Team Member -->
-
-                    <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
-                        <div class="member">
-                            <img src="assets/img/trainers/trainer-6.jpg" class="img-fluid" alt="">
-                            <div class="member-content">
-                                <h4>Aulia Riski Alda, ST.MT</h4>
-                                <span>AutoCAD</span>
-                                <p>
-                                    Fokus dalam pembuatan desain gambar 3 dimensi, mulai dari mesin, bangunan, konstruksi, peta, elektro, utilitas, dan instalasi.
-                                </p>
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter-x"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- End Team Member -->
-
-                    <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
-                        <div class="member">
-                            <img src="assets/img/trainers/trainer-3.png" class="img-fluid" alt="">
-                            <div class="member-content">
-                                <h4>Belin Heyo Fathia</h4>
-                                <span>Digital Marketing</span>
-                                <span>Administrasi Perkantoran</span>
-                                <p>
-                                    Digital Marketing mempelajari pembuatan konten untuk pemasaran produk menggunakan teknologi digital, mengoptimalkan mesin pencarian (SEO).
-                                    Administrasi Perkantoran fokus pada materi perkantoran yang dibutuhkan diperusahaan.
-                                </p>
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter-x"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- End Team Member -->
-
-                </div>
-
-            </div>
-
-        </section><!-- /Trainers Index Section -->
+        </section><!-- /Courses Section -->    
 
     </main>
-
-    <footer id="footer" class="footer position-relative light-background">
-
-        <div class="container footer-top">
-            <div class="row gy-4">
-                <div class="col-lg-4 col-md-6 footer-about">
-                    <a href="index.html" class="logo d-flex align-items-center">
-                        <span class="sitename">Hubungi Admin</span>
-                    </a>
-                    <div class="footer-contact pt-3">
-                        <p>LKP Prima Data</p>
-                        <p>Padang, Indonesia</p>
-                        <p class="mt-3"><strong>WhatsApp :</strong> <span>+62 813 6374 7467</span></p>
-                        <p><strong>Email :</strong> <span>primadata.kursus@gmail.com</span></p>
-                    </div>
-                    <div class="social-links d-flex mt-4">
-                        <a href=""><i class="bi bi-twitter-x"></i></a>
-                        <a href=""><i class="bi bi-facebook"></i></a>
-                        <a href=""><i class="bi bi-instagram"></i></a>
-                        <a href=""><i class="bi bi-linkedin"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Useful Links</h4>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Terms of service</a></li>
-                        <li><a href="#">Privacy policy</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Our Services</h4>
-                    <ul>
-                        <li><a href="#">Web Design</a></li>
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">Product Management</a></li>
-                        <li><a href="#">Marketing</a></li>
-                        <li><a href="#">Graphic Design</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-4 col-md-12 footer-newsletter">
-                    <h4>Alamat</h4>
-                    <p>Jl. S.Parman No. 189, Ulak Karang, Padang, Sumatera Barat</p>
-                    <form action="forms/newsletter.php" method="post" class="php-email-form">
-                        <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
-                        <div class="loading">Loading</div>
-                        <div class="error-message"></div>
-                        <div class="sent-message">Your subscription request has been sent. Thank you!</div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="container copyright text-center mt-4">
-            <p>© <span>Copyright</span> <strong class="px-1 sitename">Prima Data Kursus</strong> <span>All Rights Reserved</span></p>
-            <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you've purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a href=“https://themewagon.com>ThemeWagon
-            </div>
-        </div>
-
-    </footer>
-
     <!-- Scroll Top -->
     <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
