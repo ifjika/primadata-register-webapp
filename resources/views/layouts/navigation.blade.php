@@ -6,9 +6,19 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('home') }}">
+<<<<<<< HEAD
                         <!-- <x-application-logo class="block h-9 w-auto fill-current text-gray-800" /> -->
+=======
+                        <img src="assets/img/logo1.jpeg" alt="logo" style="width:150px;height:50px;">
+>>>>>>> development-v1
                     </a>
                 </div>
+
+                <!-- <div class="shrink-0 flex items-center">
+                    <a href="{{ route('home') }}">
+                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                    </a>
+                </div> -->
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
@@ -27,10 +37,11 @@
                     <x-nav-link :href="route('activity')" :active="request()->routeIs('activity')">
                         {{ __('Kegiatan') }}
                     </x-nav-link>
-                    <x-dropdown align="right" width="48">
+                   
+                    <!-- <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             <button class="inline-flex items-center px-3 pt-6 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                                <div>{{ __('Kelas') }}</div>
+                                <div>{{ __('Paket Kursus') }}</div>
                                 <div class="ms-1">
                                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -47,7 +58,7 @@
                                 {{ __('Kelas 2') }}
                             </x-dropdown-link>
                         </x-slot>
-                    </x-dropdown>
+                    </x-dropdown> -->
 
                     <x-nav-link :href="route('contact')" :active="request()->routeIs('contact')">
                         {{ __('Contact Us') }}
