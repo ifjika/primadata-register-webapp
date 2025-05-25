@@ -129,6 +129,6 @@ class BerkasController extends Controller
         $berkas = Berkas::findOrFail($id);
         $berkas->delete();
 
-        return redirect()->route('admin', ['page' => 'berkas'])->with('success', 'Berkas deleted successfully.');
+        return redirect()->route('admin.berkas.index')->with('success', 'Berkas berhasil dihapus.');
     }
 }

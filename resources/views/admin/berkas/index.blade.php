@@ -19,33 +19,73 @@
         </tr>
     </thead>
     <tbody>
+        @php use Illuminate\Support\Str; @endphp
+
         @foreach ($berkas as $item)
         <tr>
             <td>{{ $loop->iteration }}</td>
 
+            {{-- Ijazah --}}
             <td>
+                @if ($item->ijazah)
+                @if (Str::endsWith($item->ijazah, '.pdf'))
+                <a href="{{ asset('storage/' . $item->ijazah) }}" target="_blank">Lihat PDF</a>
+                @else
                 <a href="{{ asset('storage/' . $item->ijazah) }}" target="_blank">
                     <img src="{{ asset('storage/' . $item->ijazah) }}" alt="Ijazah" style="max-width: 100px; max-height: 100px; object-fit: contain;">
                 </a>
+                @endif
+                @else
+                -
+                @endif
             </td>
 
+            {{-- KK --}}
             <td>
+                @if ($item->kk)
+                @if (Str::endsWith($item->kk, '.pdf'))
+                <a href="{{ asset('storage/' . $item->kk) }}" target="_blank">Lihat PDF</a>
+                @else
                 <a href="{{ asset('storage/' . $item->kk) }}" target="_blank">
                     <img src="{{ asset('storage/' . $item->kk) }}" alt="KK" style="max-width: 100px; max-height: 100px; object-fit: contain;">
                 </a>
+                @endif
+                @else
+                -
+                @endif
             </td>
 
+            {{-- KTP --}}
             <td>
+                @if ($item->ktp)
+                @if (Str::endsWith($item->ktp, '.pdf'))
+                <a href="{{ asset('storage/' . $item->ktp) }}" target="_blank">Lihat PDF</a>
+                @else
                 <a href="{{ asset('storage/' . $item->ktp) }}" target="_blank">
                     <img src="{{ asset('storage/' . $item->ktp) }}" alt="KTP" style="max-width: 100px; max-height: 100px; object-fit: contain;">
                 </a>
+                @endif
+                @else
+                -
+                @endif
             </td>
 
+            {{-- Pas Foto --}}
             <td>
+                @if ($item->pas_foto)
+                @if (Str::endsWith($item->pas_foto, '.pdf'))
+                <a href="{{ asset('storage/' . $item->pas_foto) }}" target="_blank">Lihat PDF</a>
+                @else
                 <a href="{{ asset('storage/' . $item->pas_foto) }}" target="_blank">
                     <img src="{{ asset('storage/' . $item->pas_foto) }}" alt="Pas Foto" style="max-width: 100px; max-height: 100px; object-fit: contain;">
                 </a>
+                @endif
+                @else
+                -
+                @endif
             </td>
+
+            {{-- Tombol Aksi --}}
             <td>
                 <a href="{{ route('admin.berkas.edit', $item->id_berkas) }}" class="btn btn-warning btn-sm" data-toggle="tooltip" title="Edit berkas">Edit</a>
                 <form action="{{ route('admin.berkas.destroy', $item->id_berkas) }}" method="POST" style="display:inline;" onsubmit="return confirm('Yakin ingin menghapus berkas ini?')">
@@ -56,6 +96,7 @@
             </td>
         </tr>
         @endforeach
+
     </tbody>
 
 </table>
