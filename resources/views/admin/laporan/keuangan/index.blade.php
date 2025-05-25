@@ -4,7 +4,7 @@
 
 @section('content_header')
 <h1>Laporan Keuangan</h1>
-<a href="{{ route('admin.laporan.create') }}" class="btn btn-primary mb-3">Tambah Laporan Baru</a>
+<a href="{{ route('admin.laporan.keuangan.create') }}" class="btn btn-primary mb-3">Tambah Laporan Baru</a>
 @stop
 
 @section('content')
@@ -32,8 +32,8 @@
             <td>Rp {{ number_format($item->omset, 0, ',', '.') }}</td>
             <td>{{ $item->created_at->format('d-m-Y') }}</td>
             <td>
-                <a href="{{ route('admin.laporan.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                <form action="{{ route('laporan.destroy', $item->id) }}" method="POST" style="display:inline;">
+                <a href="{{ route('admin.laporan.keuangan.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                <form action="{{ route('laporan.keuangan.destroy', $item->id) }}" method="POST" style="display:inline;">
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus laporan ini?')">Hapus</button>

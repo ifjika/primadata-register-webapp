@@ -16,12 +16,12 @@ class RoleMiddleware
      * @param  string  $role
      * @return mixed
      */
-    public function handle(Request $request, Closure $next, $role)
+    public function handle(Request $request, Closure $next, ...$roles)
     {
-        if (Auth::check() && Auth::user()->role === $role) {
+        if (Auth::check() && in_array(Auth::user()->role, $roles)) {
             return $next($request);
         }
 
-        return redirect('/'); // Redirect to home if the user does not have the required role
+        return redirect('/');
     }
 }

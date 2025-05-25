@@ -5,17 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\Laporan;
 use Illuminate\Http\Request;
 
-class LaporanController extends Controller
+class LaporanKeuanganController extends Controller
 {
     public function index()
     {
         $laporan = Laporan::orderBy('created_at', 'desc')->get();
-        return view('admin.laporan.index', compact('laporan'));
+        return view('admin.laporan.keuangan.index', compact('laporan'));
     }
 
     public function create()
     {
-        return view('admin.laporan.create');
+        return view('admin.laporan.keuangan.create');
     }
 
     public function store(Request $request)
@@ -28,13 +28,13 @@ class LaporanController extends Controller
 
         Laporan::create($request->all());
 
-        return redirect()->route('admin.laporan.index')->with('success', 'Laporan berhasil ditambahkan.');
+        return redirect()->route('admin.laporan.keuangan.index')->with('success', 'Laporan berhasil ditambahkan.');
     }
 
     public function edit($id)
     {
         $laporan = Laporan::findOrFail($id);
-        return view('admin.laporan.edit', compact('laporan'));
+        return view('admin.laporan.keuangan.edit', compact('laporan'));
     }
 
     public function update(Request $request, $id)
@@ -48,7 +48,7 @@ class LaporanController extends Controller
         $laporan = Laporan::findOrFail($id);
         $laporan->update($request->all());
 
-        return redirect()->route('admin.laporan.index')->with('success', 'Laporan berhasil diperbarui.');
+        return redirect()->route('admin.laporan.keuangan.index')->with('success', 'Laporan berhasil diperbarui.');
     }
 
     public function destroy($id)
@@ -56,6 +56,6 @@ class LaporanController extends Controller
         $laporan = Laporan::findOrFail($id);
         $laporan->delete();
 
-        return redirect()->route('admin.laporan.index')->with('success', 'Laporan berhasil dihapus.');
+        return redirect()->route('admin.laporan.keuangan.index')->with('success', 'Laporan berhasil dihapus.');
     }
 }

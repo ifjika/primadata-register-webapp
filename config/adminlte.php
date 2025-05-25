@@ -339,68 +339,24 @@ return [
         ['header' => 'REPORT'],
         [
             'text' => 'Laporan',
-            'url' => 'admin/laporan',
             'icon' => 'fas fa-fw fa-book',
+            'submenu' => [
+                [
+                    'text' => 'Laporan Keuangan',
+                    'url' => 'admin/laporan/keuangan',
+                ],
+                [
+                    'text' => 'Laporan Peserta',
+                    'url' => '#',
+                ],
+            ],
+
         ],
         ['header' => 'PAKET'],
         [
             'text' => 'Paket',
             'url' => 'admin/paket',
             'icon' => 'fas fa-box',
-        ],
-        [
-            'text' => 'multilevel',
-            'icon' => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url' => '#',
-                ],
-                [
-                    'text' => 'level_one',
-                    'url' => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                        ],
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url' => '#',
-                ],
-            ],
-        ],
-        ['header' => 'labels'],
-        [
-            'text' => 'important',
-            'icon_color' => 'red',
-            'url' => '#',
-        ],
-        [
-            'text' => 'warning',
-            'icon_color' => 'yellow',
-            'url' => '#',
-        ],
-        [
-            'text' => 'information',
-            'icon_color' => 'cyan',
-            'url' => '#',
         ],
     ],
 

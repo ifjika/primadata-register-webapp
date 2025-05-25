@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BerkasController;
-use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\LaporanKeuanganController;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\PesertaController;
@@ -90,16 +90,28 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(f
 });
 
 
-// Route Laporan
+// Route Laporan Keuangan
 Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(function () {
-    Route::get('laporan', [LaporanController::class, 'index'])->name('laporan.index');
-    Route::get('laporan/create', [LaporanController::class, 'create'])->name('laporan.create');
-    Route::post('laporan', [LaporanController::class, 'store'])->name('laporan.store');
-    Route::get('laporan/{id}', [LaporanController::class, 'show'])->name('laporan.show');
-    Route::get('laporan/{id}/edit', [LaporanController::class, 'edit'])->name('laporan.edit');
-    Route::put('laporan/{id}', [LaporanController::class, 'update'])->name('laporan.update');
-    Route::delete('laporan/{id}', [LaporanController::class, 'destroy'])->name('laporan.destroy');
+    Route::get('laporan/keuangan', [LaporanKeuanganController::class, 'index'])->name('laporan.keuangan.index');
+    Route::get('laporan/keuangan/create', [LaporanKeuanganController::class, 'create'])->name('laporan.keuangan.create');
+    Route::post('laporan/keuangan', [LaporanKeuanganController::class, 'store'])->name('laporan.keuangan.store');
+    Route::get('laporan/keuangan/{id}', [LaporanKeuanganController::class, 'show'])->name('laporan.keungan.show');
+    Route::get('laporan/keuangan/{id}/edit', [LaporanKeuanganController::class, 'edit'])->name('laporan.keuangan.edit');
+    Route::put('laporan/keuangan/{id}', [LaporanKeuanganController::class, 'update'])->name('laporan.keuangan.update');
+    Route::delete('laporan/keuangan/{id}', [LaporanKeuanganController::class, 'destroy'])->name('laporan.keuangan.destroy');
 });
+
+
+// Route Laporan Peserta
+// Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(function () {
+//     Route::get('laporan/peserta', [LaporanController::class, 'index'])->name('laporan.peserta.index');
+//     Route::get('laporan/peserta/create', [LaporanController::class, 'create'])->name('laporan.peserta.create');
+//     Route::post('laporan/peserta', [LaporanController::class, 'store'])->name('laporan.peserta.store');
+//     Route::get('laporan/peserta/{id}', [LaporanController::class, 'show'])->name('laporan.peserta.show');
+//     Route::get('laporan/peserta/{id}/edit', [LaporanController::class, 'edit'])->name('laporan.peserta.edit');
+//     Route::put('laporan/peserta/{id}', [LaporanController::class, 'update'])->name('laporan.peserta.update');
+//     Route::delete('laporan/peserta/{id}', [LaporanController::class, 'destroy'])->name('laporan.peserta.destroy');
+// });
 
 
 Route::get('/details', function () {

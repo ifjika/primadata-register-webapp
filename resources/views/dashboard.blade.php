@@ -199,11 +199,11 @@
                         <div class="why-box">
                             <h3>Kenapa harus memilih LKP Prima Data?</h3>
                             <div align="justify">
-                            <p>
-                                LKP Prima Data merupakan Lembaga Kursus Komputer berdiri sejak tahun 1997. Lembaga ini sudah memiliki NPSN, VIN dari Kemnaker, Izin dari Kemdikbudristek RI serta sudah terakreditasi B dari BAN PNF dan LA LPK.
-                                Lembaga ini juga memiliki TUK-TIK (tempat uji kompetensi) LSK TIK. Instruktur yang mengajar sudah berpengalaman di bidang nya dan bersertifikasi. Kursus di LKP Prima Data sangat nyaman karena di fasilitasi WIFI Area,
-                                parkir luas, kelas Full AC dan terletak di pusat kota.
-                            </p>
+                                <p>
+                                    LKP Prima Data merupakan Lembaga Kursus Komputer berdiri sejak tahun 1997. Lembaga ini sudah memiliki NPSN, VIN dari Kemnaker, Izin dari Kemdikbudristek RI serta sudah terakreditasi B dari BAN PNF dan LA LPK.
+                                    Lembaga ini juga memiliki TUK-TIK (tempat uji kompetensi) LSK TIK. Instruktur yang mengajar sudah berpengalaman di bidang nya dan bersertifikasi. Kursus di LKP Prima Data sangat nyaman karena di fasilitasi WIFI Area,
+                                    parkir luas, kelas Full AC dan terletak di pusat kota.
+                                </p>
                             </div>
                             <!-- <div class="text-center">
                                 <a href="#" class="more-btn"><span>Learn More</span> <i class="bi bi-chevron-right"></i></a>
@@ -360,90 +360,101 @@
 
                 <div class="row">
 
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                         <div class="course-item">
                             <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
                             <div class="course-content">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <a href="course-details.html"><p class="category">Administrasi Bisnis</p></a>
+                                    <a href="course-details.html">
+                                        <p class="category">Administrasi Bisnis</p>
+                                    </a>
                                     <p class="price">Rp. 4.800.000</p>
                                 </div>
                                 <h3>Paket Kelas 6 Bulan</h3>
-                                <ul class="check-list" >
-                                        <li>Kursus selama 5 bulan, magang 1 bulan</li>
-                                        <li>Senin s.d Jumat</li>
-                                        <li>Jadwal : 08.15 s.d 12.00</li>
-                                        <li>Bersertifikat</li>
-                                    </ul>
-                                    <h3><b><p class="description">Materi yang akan dipelajari :</p></b></h3>
-                                    <ul class="check-list" >
-                                        <li>Computer Administrasi</li>
-                                        <li>Speed Typing</li>
-                                        <li>Desain Grafis</li>
-                                        <li>Digital Marketing</li>
-                                        <li>Akuntansi Dasar dan Perpajakan</li>
-                                        <li>Bahasa Inggris</li>
-                                        <li>Kesekretariatan</li>
-                                        <li>Motivasi dan Pengembangan Diri</li>
-                                        <li>Uji Kompetensi CLCP</li>
-                                    </ul>
-                                </div>
-                                </div>
-                            </div> <!--End Course Item -->
-
-                            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="course-item">
-                            <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
-                            <div class="course-content">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <a href="course-details.html"><p class="category">APDIG</p></a>
-                                    <p class="price">Rp. 3.500.000</p>                                   
-                                </div>
-                                <h3>Paket Kelas 3 Bulan</h3>
-                                <ul class="check-list" >
-                                        <li>Kursus selama 3 bulan</li>
-                                        <li>Senin s.d Jumat</li>
-                                        <li>Jadwal : 08.15 s.d 12.00</li>
-                                        <li>Bersertifikat</li>
-                                    </ul>
-                                    <h3><b><p class="description">Materi yang akan dipelajari :</p></b></h3>
-                                    <ul class="check-list" >
-                                        <li>Computer Administrasi</li>
-                                        <li>Speed Typing</li>
-                                        <li>Desain Grafis</li>
-                                        <li>Digital Marketing</li>                                     
-                                        <li>Motivasi dan Pengembangan Diri</li>                        
-                                    </ul>
-                                </div>
-                                </div>
+                                <ul class="check-list">
+                                    <li>Kursus selama 5 bulan, magang 1 bulan</li>
+                                    <li>Senin s.d Jumat</li>
+                                    <li>Jadwal : 08.15 s.d 12.00</li>
+                                    <li>Bersertifikat</li>
+                                </ul>
+                                <h3><b>
+                                        <p class="description">Materi yang akan dipelajari :</p>
+                                    </b></h3>
+                                <ul class="check-list">
+                                    <li>Computer Administrasi</li>
+                                    <li>Speed Typing</li>
+                                    <li>Desain Grafis</li>
+                                    <li>Digital Marketing</li>
+                                    <li>Akuntansi Dasar dan Perpajakan</li>
+                                    <li>Bahasa Inggris</li>
+                                    <li>Kesekretariatan</li>
+                                    <li>Motivasi dan Pengembangan Diri</li>
+                                    <li>Uji Kompetensi CLCP</li>
+                                </ul>
                             </div>
-                            <!-- End Course Item-->
+                        </div>
+                    </div> <!--End Course Item -->
 
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                         <div class="course-item">
                             <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
                             <div class="course-content">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <a href="course-details.php"><p class="category">Administrasi Perkantoran</p></a>
+                                    <a href="course-details.html">
+                                        <p class="category">APDIG</p>
+                                    </a>
+                                    <p class="price">Rp. 3.500.000</p>
+                                </div>
+                                <h3>Paket Kelas 3 Bulan</h3>
+                                <ul class="check-list">
+                                    <li>Kursus selama 3 bulan</li>
+                                    <li>Senin s.d Jumat</li>
+                                    <li>Jadwal : 08.15 s.d 12.00</li>
+                                    <li>Bersertifikat</li>
+                                </ul>
+                                <h3><b>
+                                        <p class="description">Materi yang akan dipelajari :</p>
+                                    </b></h3>
+                                <ul class="check-list">
+                                    <li>Computer Administrasi</li>
+                                    <li>Speed Typing</li>
+                                    <li>Desain Grafis</li>
+                                    <li>Digital Marketing</li>
+                                    <li>Motivasi dan Pengembangan Diri</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Course Item-->
+
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="course-item">
+                            <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
+                            <div class="course-content">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <a href="course-details.php">
+                                        <p class="category">Administrasi Perkantoran</p>
+                                    </a>
                                     <p class="price">Rp. 1.400.000</p>
                                 </div>
                                 <h3>Reguler/Private</h3>
-                                </div>
-                                    <ul class="check-list" >
-                                        <li>16x Pertemuan (1x pertemuan 2 jam)</li>
-                                        <li>Senin s.d Jumat</li>
-                                        <li>Jadwal Fleksibel : 08.15, 10.00 dan 14.00</li>
-                                        <li>Bersertifikat</li>
-                                    </ul>
-                                    <div align="justify">
-                                   <p class="description">Mahir dalam bidang Perkantoran pembuatan surat, menguasai rumus excel, kreasi persentase menarik</p></div>
-                                </div>
+                            </div>
+                            <ul class="check-list">
+                                <li>16x Pertemuan (1x pertemuan 2 jam)</li>
+                                <li>Senin s.d Jumat</li>
+                                <li>Jadwal Fleksibel : 08.15, 10.00 dan 14.00</li>
+                                <li>Bersertifikat</li>
+                            </ul>
+                            <div align="justify">
+                                <p class="description">Mahir dalam bidang Perkantoran pembuatan surat, menguasai rumus excel, kreasi persentase menarik</p>
                             </div>
                         </div>
-                    </div> <!-- End Course Item-->
+                    </div>
                 </div>
+            </div> <!-- End Course Item-->
             </div>
-        </section><!-- /Courses Section -->    
+            </div>
+        </section><!-- /Courses Section -->
 
     </main>
     <!-- Scroll Top -->
