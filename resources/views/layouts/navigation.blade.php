@@ -6,11 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('home') }}">
-<<<<<<< HEAD
-                        <!-- <x-application-logo class="block h-9 w-auto fill-current text-gray-800" /> -->
-=======
                         <img src="assets/img/logo1.jpeg" alt="logo" style="width:150px;height:50px;">
->>>>>>> development-v1
                     </a>
                 </div>
 
@@ -37,7 +33,7 @@
                     <x-nav-link :href="route('activity')" :active="request()->routeIs('activity')">
                         {{ __('Kegiatan') }}
                     </x-nav-link>
-                   
+
                     <!-- <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             <button class="inline-flex items-center px-3 pt-6 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">

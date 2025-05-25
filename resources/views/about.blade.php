@@ -53,11 +53,7 @@
             </a>
 
             <nav id="navmenu" class="navmenu">
-<<<<<<< HEAD
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-=======
-                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>              
->>>>>>> development-v1
             </nav>
 
             <a class="btn-getstarted" href="courses.html">Daftar Sekarang</a>
@@ -96,7 +92,9 @@
                     </div>
 
                     <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
-                        <b><h3>Membangun Masa Depan Melalui Pendidikan Digital</h3></b>
+                        <b>
+                            <h3>Membangun Masa Depan Melalui Pendidikan Digital</h3>
+                        </b>
                         <p class="fst-italic">
                             LKP Prima Data adalah pusat pelatihan vokasi yang siap membekali peserta dengan keterampilan di bidang teknologi dan komputer. Dengan metode pembelajaran interaktif, instruktur profesional, serta fasilitas lengkap, kami berkomitmen menciptakan lulusan yang siap bersaing di dunia kerja.
                         </p>
@@ -106,9 +104,9 @@
                             </center>
                             Lembaga pendidikan yang terus menerus menyelaraskan kualitas pendidikan dengan kebutuhan dunia kerja dalam pembentukan sumber daya manusia yang profesional beriman dan bertaqwa.
                         </p>
-                            <center>
-                                <h4><b>Misi : </b></h4>
-                            </center>
+                        <center>
+                            <h4><b>Misi : </b></h4>
+                        </center>
                         <p>Mencetak sumber daya manusia yang siap kerja dengan kemampuan yang terampil dan profesional membentuk kepribadian sumber daya manusia yang memiliki jiwa kemampuan berwirausaha membentuk sumber daya manusia yang berakhlak muliah dan berbudi luhur.
                         </p>
                         <ul>
@@ -305,7 +303,7 @@
 
     </main>
 
-    
+
     <!-- Scroll Top -->
     <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

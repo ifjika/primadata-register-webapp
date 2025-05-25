@@ -131,8 +131,8 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
             'Laravel\\Prompts\\' => 16,
             'Laravel\\Breeze\\' => 15,
         ),
-        'J' => 
-        array (
+        'J' =>
+        array(
             'JeroenNoten\\LaravelAdminLte\\' => 28,
         ),
         'I' =>
@@ -439,21 +439,8 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         array(
             0 => __DIR__ . '/..' . '/laravel/prompts/src',
         ),
-<<<<<<< HEAD
-        'Laravel\\Breeze\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/laravel/breeze/src',
-        ),
-        'JeroenNoten\\LaravelAdminLte\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src',
-        ),
-        'Illuminate\\Support\\' => 
-        array (
-=======
         'Illuminate\\Support\\' =>
         array(
->>>>>>> development-v1
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Macroable',
             1 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Collections',
             2 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Conditionable',
