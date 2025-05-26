@@ -53,7 +53,7 @@
             <nav id="navmenu" class="navmenu">
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
-             <a class="btn-getstarted" href="courses.html">Daftar Sekarang</a>
+             <a class="btn-getstarted" href="{{ route('details')}}">Daftar Sekarang</a>
         </div>
     </header>
     <main class="main">
@@ -113,7 +113,7 @@
                             <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
                             <div class="course-content">
                                 <div class="d-flex justify-content-between align-items-center mb-3">                                                                
-                                    <a href="course-details.html"><p class="category">Administrasi Bisnis</p></a>
+                                    <a href="{{ route('details')}}"><p class="category">Administrasi Bisnis</p></a>
                                     <p class="price">Rp. 4.800.000</p>
                                 </div>
                                 <ul class="check-list" >
@@ -144,7 +144,7 @@
                             <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
                             <div class="course-content">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <a href="course-details.html"><p class="category">Akuntansi dan Perpajakan</p></a>
+                                    <a href="{{ route('details')}}"><p class="category">Akuntansi dan Perpajakan</p></a>
                                     <p class="price">Rp. 4.800.000</p>
                                 </div>
                                 <ul class="check-list" >
@@ -171,7 +171,7 @@
                             <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
                             <div class="course-content">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <a href="course-details.html"><p class="category">Web Programming</p></a>
+                                    <a href="{{ route('details')}}"><p class="category">Web Programming</p></a>
                                     <p class="price">Rp. 7.150.000</p>
                                 </div>
                                 <ul class="check-list" >
@@ -198,7 +198,7 @@
                             <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
                             <div class="course-content">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <a href="course-details.html"><p class="category">Teknik Sipil</p></a>
+                                    <a href="{{ route('details')}}"><p class="category">Teknik Sipil</p></a>
                                     <p class="price">Rp. 7.150.000</p>
                                 </div>
                                 <ul class="check-list" >
@@ -255,7 +255,7 @@
                             <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
                             <div class="course-content">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <a href="course-details.html"><p class="category">APDIG</p></a>
+                                    <a href="{{ route('details')}}"><p class="category">APDIG</p></a>
                                     <p class="price">Rp. 3.500.000</p>
                                 </div>
                                 <ul class="check-list" >
@@ -282,7 +282,7 @@
                             <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
                             <div class="course-content">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <a href="course-details.html"><p class="category">APDING</p></a>
+                                    <a href="{{ route('details')}}"><p class="category">APDING</p></a>
                                     <p class="price">Rp. 3.500.000</p>
                                 </div>
                                 <ul class="check-list" >
@@ -309,7 +309,7 @@
                             <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
                             <div class="course-content">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <a href="course-details.html"><p class="category">APDENG</p></a>
+                                    <a href="{{ route('details')}}"><p class="category">APDENG</p></a>
                                     <p class="price">Rp. 3.500.000</p>
                                 </div>
                                 <ul class="check-list" >
@@ -336,7 +336,7 @@
                             <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
                             <div class="course-content">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <a href="course-details.html"><p class="category">APSI</p></a>
+                                    <a href="{{ route('details')}}"><p class="category">APSI</p></a>
                                     <p class="price">Rp. 3.500.000</p>
                                 </div>
                                 <ul class="check-list" >
@@ -391,7 +391,7 @@
                             <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
                             <div class="course-content">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <a href="course-details.html"><p class="category">Administrasi Perkantoran</p></a>
+                                    <a href="{{ route('details')}}"><p class="category">Administrasi Perkantoran</p></a>
                                     <p class="price">Rp. 1.400.000</p>
                                 </div>
                                     <ul class="check-list" >                                    
@@ -416,7 +416,7 @@
                                     <img src="assets/img/course-2.jpg" class="img-fluid" alt="...">
                                 <div class="course-content">
                                     <div class="d-flex justify-content-between align-items-center mb-3">
-                                        <a href="course-details.html"><p class="category">Desain Grafis</p></a>
+                                        <a href="{{ route('details')}}"><p class="category">Desain Grafis</p></a>
                                         <p class="price">Rp. 2.100.000</p>
                                     </div>
                                     <ul class="check-list" >
@@ -441,7 +441,7 @@
                                 <img src="assets/img/course-3.jpg" class="img-fluid" alt="...">
                                 <div class="course-content">
                                     <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <a href="course-detail.html"><p class="category">AutoCAD 3 Dimensi</p></a>
+                                    <a href="{{ route('details')}}"><p class="category">AutoCAD 3 Dimensi</p></a>
                                     <p class="price">Rp. 2.100.000</p>
                                     </div>
                                     <ul class="check-list" >
@@ -466,7 +466,7 @@
                             <img src="assets/img/course/course-4.jpg" class="img-fluid" alt="...">
                             <div class="course-content">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <a href="course.detail.html"><p class="category">Web Programming</p></a>
+                                    <a href="{{ route('details')}}"><p class="category">Web Programming</p></a>
                                     <p class="price">Rp. 2.800.000</p>
                                 </div>
                                 <ul class="check-list" >
@@ -491,7 +491,7 @@
                             <img src="assets/img/course/course-5.jpg" class="img-fluid" alt="...">
                             <div class="course-content">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <a href="course-detail.html"><p class="category">Video Editing</p></a>
+                                    <a href="{{ route('details')}}"><p class="category">Video Editing</p></a>
                                     <p class="price">Rp. 2.100.000</p>
                                 </div>
                                 <ul class="check-list" >
@@ -516,7 +516,7 @@
                             <img src="assets/img/course/course-6.jpg" class="img-fluid" alt="...">
                             <div class="course-content">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <a href="course.detal.html"><p class="category">Digital Marketing</p></a>
+                                    <a href="{{ route('details')}}"><p class="category">Digital Marketing</p></a>
                                     <p class="price">Rp. 1.400.000</p>
                                 </div>
                                 <ul class="check-list" >

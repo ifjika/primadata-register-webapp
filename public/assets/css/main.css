@@ -581,7 +581,7 @@ h6 {
 }
 
 .footer h4 {
-  font-size: 16px;
+  font-size: 20px;
   color: var(--contrast-color);
   font-weight: bold;
   position: relative;
@@ -877,8 +877,37 @@ section,
   text-transform: uppercase;
 }
 
-/* checklist lingkaran */
+/* Start Button details courses */
+.header .heading .container .btn-getstarted:focus{
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 5;
+      background-color: #f9f9f9;
+      margin-bottom: 30px;
+      margin-top: 10px;
+}
 
+.btn-getstarted{
+    background-color: #3f72e6;
+    color: white;
+    padding: 20px 70px;
+    border: none;
+    border-radius: 40px;
+    font-size: 35px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-getstarted:hover {
+  background-color: var(--background-color);
+}
+/* End Button detail courses */
+
+/* checklist lingkaran */
 ul.check-list {
   list-style: none;
   padding-left: 0;
