@@ -330,12 +330,6 @@ return [
             'icon' => 'fas fa-fw fa-user',
             'label_color' => 'success',
         ],
-        // [
-        //     'text' => 'Pendaftaran1',
-        //     'url' => 'admin/pendaftaran',
-        //     'icon' => 'fas fa-fw fa-plus-square',
-        //     'label_color' => 'success',
-        // ],
         ['header' => 'REPORT'],
         [
             'text' => 'Laporan',
@@ -347,7 +341,7 @@ return [
                 ],
                 [
                     'text' => 'Laporan Peserta',
-                    'url' => '#',
+                    'url' => 'admin/laporan/peserta',
                 ],
             ],
 

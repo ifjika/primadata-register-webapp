@@ -8,7 +8,7 @@ use App\Models\Pendaftaran;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
-class LaporanKeuanganController extends Controller
+class LaporanController extends Controller
 {
     public function index()
     {
@@ -33,9 +33,14 @@ class LaporanKeuanganController extends Controller
         $startDate = Carbon::createFromFormat('Y-m', $periode)->startOfMonth();
         $endDate = Carbon::createFromFormat('Y-m', $periode)->endOfMonth();
 
-        $jumlah_peserta = Pendaftaran::whereBetween('created_at', [$startDate, $endDate])
-            ->distinct('id_peserta')
-            ->count('id_peserta');
+        $idPendaftaranLunas = Pembayaran::where('status', 'lunas')
+            ->whereBetween('created_at', [$startDate, $endDate])
+            ->pluck('id_pendaftaran');
+
+        $jumlah_peserta = Pendaftaran::whereIn('id_pendaftaran', $idPendaftaranLunas)
+            ->select('id_peserta')
+            ->distinct()
+            ->count();
 
 
         $omset = Pembayaran::whereBetween('created_at', [$startDate, $endDate])
