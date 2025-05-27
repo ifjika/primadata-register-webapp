@@ -17,6 +17,11 @@ class Pendaftaran extends Model
         'status',
     ];
 
+    public function pembayaran()
+    {
+        return $this->hasMany(Pembayaran::class, 'id_pendaftaran', 'id_pendaftaran');
+    }
+
     public function peserta()
     {
         return $this->belongsTo(Peserta::class, 'id_peserta', 'id_peserta');

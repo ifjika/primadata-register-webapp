@@ -33,36 +33,23 @@
         <select class="form-control" id="periode" name="periode" required>
             <option value="" disabled selected>Pilih Bulan</option>
             @for ($i = 1; $i <= $bulanSekarang; $i++)
-                <option value="{{ $namaBulan[$i] }} {{ now()->year }}"
-                {{ old('periode') == $namaBulan[$i] . ' ' . now()->year ? 'selected' : '' }}>
-                {{ $namaBulan[$i] }} {{ now()->year }}
+                @php
+                $periodeValue=now()->year . '-' . str_pad($i, 2, '0', STR_PAD_LEFT);
+                @endphp
+                <option value="{{ $periodeValue }}"
+                    {{ old('periode') == $periodeValue ? 'selected' : '' }}>
+                    {{ $namaBulan[$i] }} {{ now()->year }}
                 </option>
                 @endfor
         </select>
     </div>
 
 
-    <div class="form-group">
-        <label for="jumlah_peserta">Jumlah Peserta</label>
-        <input type="number" class="form-control" id="jumlah_peserta" name="jumlah_peserta" value="{{ old('jumlah_peserta') }}" required>
-    </div>
-
-    <div class="form-group">
-        <label for="omset">Omset</label>
-        <input type="number" class="form-control" id="omset" name="omset" value="{{ old('omset') }}" required>
-    </div>
-
     <button type="submit" class="btn btn-primary">Simpan</button>
-    <a href="{{ route('admin.laporan.keuangan.index') }}" class="btn btn-secondary">Kembali ke Daftar Laporan</a>
+    <a href="{{ route('admin.laporan.keuangan.index') }}" class="btn btn-secondary">Kembali</a>
 </form>
 @stop
 
 @section('css')
 <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-
-@section('js')
-<script>
-    console.log('Create laporan page loaded');
-</script>
 @stop

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Laporan;
+use App\Models\Pembayaran;
+use App\Models\Pendaftaran;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class LaporanKeuanganController extends Controller
 {
@@ -21,12 +24,29 @@ class LaporanKeuanganController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'periode' => 'required|string|max:100',
-            'jumlah_peserta' => 'required|integer|min:0',
-            'omset' => 'required|numeric|min:0',
+            'periode' => 'required|date_format:Y-m',
+            'omset',
         ]);
 
-        Laporan::create($request->all());
+        $periode = $request->periode;
+
+        $startDate = Carbon::createFromFormat('Y-m', $periode)->startOfMonth();
+        $endDate = Carbon::createFromFormat('Y-m', $periode)->endOfMonth();
+
+        $jumlah_peserta = Pendaftaran::whereBetween('created_at', [$startDate, $endDate])
+            ->distinct('id_peserta')
+            ->count('id_peserta');
+
+
+        $omset = Pembayaran::whereBetween('created_at', [$startDate, $endDate])
+            ->where('status', 'lunas')
+            ->sum('jumlah_bayar');
+
+        Laporan::create([
+            'periode' => $periode,
+            'jumlah_peserta' => $jumlah_peserta,
+            'omset' => $omset,
+        ]);
 
         return redirect()->route('admin.laporan.keuangan.index')->with('success', 'Laporan berhasil ditambahkan.');
     }
@@ -50,6 +70,23 @@ class LaporanKeuanganController extends Controller
 
         return redirect()->route('admin.laporan.keuangan.index')->with('success', 'Laporan berhasil diperbarui.');
     }
+
+    public function show($id)
+    {
+        $laporan = Laporan::findOrFail($id);
+        $periode = $laporan->periode;
+
+        $startDate = Carbon::createFromFormat('Y-m', $periode)->startOfMonth();
+        $endDate = Carbon::createFromFormat('Y-m', $periode)->endOfMonth();
+
+        $pembayarans = Pembayaran::with(['pendaftaran.peserta', 'pendaftaran.paket'])
+            ->where('status', 'lunas')
+            ->whereBetween('created_at', [$startDate, $endDate])
+            ->get();
+
+        return view('admin.laporan.keuangan.show', compact('laporan', 'pembayarans'));
+    }
+
 
     public function destroy($id)
     {

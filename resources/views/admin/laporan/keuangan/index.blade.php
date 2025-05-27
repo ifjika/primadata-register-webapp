@@ -30,8 +30,8 @@
             <td>{{ $item->jumlah_peserta }}</td>
             <td>Rp {{ number_format($item->omset, 0, ',', '.') }}</td>
             <td>
-                <a href="{{ route('admin.laporan.keuangan.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                <form action="{{ route('laporan.keuangan.destroy', $item->id) }}" method="POST" style="display:inline;">
+                <a href="{{ route('admin.laporan.keuangan.show', $item->id_laporan) }}" class="btn btn-warning btn-sm">Show</a>
+                <form action="{{ route('admin.laporan.keuangan.destroy', $item->id_laporan) }}" method="POST" style="display:inline;">
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus laporan ini?')">Hapus</button>

@@ -95,8 +95,8 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(f
     Route::get('laporan/keuangan', [LaporanKeuanganController::class, 'index'])->name('laporan.keuangan.index');
     Route::get('laporan/keuangan/create', [LaporanKeuanganController::class, 'create'])->name('laporan.keuangan.create');
     Route::post('laporan/keuangan', [LaporanKeuanganController::class, 'store'])->name('laporan.keuangan.store');
-    Route::get('laporan/keuangan/{id}', [LaporanKeuanganController::class, 'show'])->name('laporan.keungan.show');
-    Route::get('laporan/keuangan/{id}/edit', [LaporanKeuanganController::class, 'edit'])->name('laporan.keuangan.edit');
+    Route::get('laporan/keuangan/{id}', [LaporanKeuanganController::class, 'show'])->name('laporan.keuangan.show');
+    // Route::get('laporan/keuangan/{id}/edit', [LaporanKeuanganController::class, 'edit'])->name('laporan.keuangan.edit');
     Route::put('laporan/keuangan/{id}', [LaporanKeuanganController::class, 'update'])->name('laporan.keuangan.update');
     Route::delete('laporan/keuangan/{id}', [LaporanKeuanganController::class, 'destroy'])->name('laporan.keuangan.destroy');
 });
