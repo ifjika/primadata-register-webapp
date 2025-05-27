@@ -7,18 +7,19 @@ use App\Models\Pembayaran;
 use App\Models\Pendaftaran;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Barryvdh\DomPDF\Facade\Pdf;
 
-class LaporanController extends Controller
+class LaporanPesertaController extends Controller
 {
     public function index()
     {
         $laporan = Laporan::orderBy('created_at', 'desc')->get();
-        return view('admin.laporan.keuangan.index', compact('laporan'));
+        return view('admin.laporan.peserta.index', compact('laporan'));
     }
 
     public function create()
     {
-        return view('admin.laporan.keuangan.create');
+        return view('admin.laporan.peserta.create');
     }
 
     public function store(Request $request)
@@ -53,13 +54,13 @@ class LaporanController extends Controller
             'omset' => $omset,
         ]);
 
-        return redirect()->route('admin.laporan.keuangan.index')->with('success', 'Laporan berhasil ditambahkan.');
+        return redirect()->route('admin.laporan.peserta.index')->with('success', 'Laporan berhasil ditambahkan.');
     }
 
     public function edit($id)
     {
         $laporan = Laporan::findOrFail($id);
-        return view('admin.laporan.keuangan.edit', compact('laporan'));
+        return view('admin.laporan.peserta.edit', compact('laporan'));
     }
 
     public function update(Request $request, $id)
@@ -73,7 +74,7 @@ class LaporanController extends Controller
         $laporan = Laporan::findOrFail($id);
         $laporan->update($request->all());
 
-        return redirect()->route('admin.laporan.keuangan.index')->with('success', 'Laporan berhasil diperbarui.');
+        return redirect()->route('admin.laporan.peserta.index')->with('success', 'Laporan berhasil diperbarui.');
     }
 
     public function show($id)
@@ -89,7 +90,7 @@ class LaporanController extends Controller
             ->whereBetween('created_at', [$startDate, $endDate])
             ->get();
 
-        return view('admin.laporan.keuangan.show', compact('laporan', 'pembayarans'));
+        return view('admin.laporan.peserta.show', compact('laporan', 'pembayarans'));
     }
 
 
@@ -98,6 +99,24 @@ class LaporanController extends Controller
         $laporan = Laporan::findOrFail($id);
         $laporan->delete();
 
-        return redirect()->route('admin.laporan.keuangan.index')->with('success', 'Laporan berhasil dihapus.');
+        return redirect()->route('admin.laporan.peserta.index')->with('success', 'Laporan berhasil dihapus.');
+    }
+
+    public function cetak($id)
+    {
+        $laporan = Laporan::findOrFail($id);
+        $periode = $laporan->periode;
+
+        $startDate = Carbon::createFromFormat('Y-m', $periode)->startOfMonth();
+        $endDate = Carbon::createFromFormat('Y-m', $periode)->endOfMonth();
+
+        $pembayarans = Pembayaran::with(['pendaftaran.peserta', 'pendaftaran.paket'])
+            ->where('status', 'lunas')
+            ->whereBetween('created_at', [$startDate, $endDate])
+            ->get();
+
+        $pdf = Pdf::loadView('admin.laporan.peserta.pdf', compact('laporan', 'pembayarans'));
+
+        return $pdf->download('Laporan-Peserta-' . $laporan->periode . '.pdf');
     }
 }

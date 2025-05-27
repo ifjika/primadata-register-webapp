@@ -30,7 +30,9 @@
     </tbody>
 </table>
 
-
+<a href="{{ route('admin.laporan.keuangan.cetak', $laporan->id_laporan) }}" class="btn btn-danger mb-3" target="_blank">
+    <i class="fas fa-file-pdf"></i> Cetak PDF
+</a>
 <a href="{{ route('admin.laporan.keuangan.index') }}" class="btn btn-secondary mb-3">Kembali</a>
 @stop
 

@@ -3,8 +3,8 @@
 @section('title', 'Laporan')
 
 @section('content_header')
-<h1>Laporan Keuangan</h1>
-<a href="{{ route('admin.laporan.keuangan.create') }}" class="btn btn-primary mb-3">Tambah Laporan Baru</a>
+<h1>Laporan Peserta</h1>
+<a href="{{ route('admin.laporan.peserta.create') }}" class="btn btn-primary mb-3">Tambah Laporan Baru</a>
 @stop
 
 @section('content')
@@ -18,7 +18,6 @@
             <th style="width: 5%;">No</th>
             <th>Periode</th>
             <th>Jumlah Peserta</th>
-            <th>Omset</th>
             <th>Aksi</th>
         </tr>
     </thead>
@@ -28,10 +27,9 @@
             <td>{{ $loop->iteration }}</td>
             <td>{{ $item->periode }}</td>
             <td>{{ $item->jumlah_peserta }}</td>
-            <td>Rp {{ number_format($item->omset, 0, ',', '.') }}</td>
             <td>
-                <a href="{{ route('admin.laporan.keuangan.show', $item->id_laporan) }}" class="btn btn-warning btn-sm">Show</a>
-                <form action="{{ route('admin.laporan.keuangan.destroy', $item->id_laporan) }}" method="POST" style="display:inline;">
+                <a href="{{ route('admin.laporan.peserta.show', $item->id_laporan) }}" class="btn btn-warning btn-sm">Show</a>
+                <form action="{{ route('admin.laporan.peserta.destroy', $item->id_laporan) }}" method="POST" style="display:inline;">
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus laporan ini?')">Hapus</button>
