@@ -39,7 +39,9 @@
             <td>{{ \Str::limit($item->deskripsi, 50) }}</td>
             <td>
                 @if ($item->gambar)
-                <img src="{{ asset('storage/' . $item->gambar) }}" alt="Gambar Paket {{ $item->nama_paket }}" width="80" class="img-thumbnail" data-toggle="tooltip" title="Klik untuk melihat gambar lebih besar">
+                <a href="{{ asset('storage/' . $item->gambar) }}" target="_blank">
+                    <img src="{{ asset('storage/' . $item->gambar) }}" alt="Gambar Paket {{ $item->nama_paket }}" width="80" class="img-thumbnail" data-toggle="tooltip" style="max-width: 100px; max-height: 100px; object-fit: contain;">
+                </a>
                 @else
                 <small>Tidak ada gambar</small>
                 @endif

@@ -56,26 +56,27 @@ class PendaftaranPesertaController extends Controller
 
     public function edit($id)
     {
-        $pendaftaran = Pendaftaran::findOrFail($id);
-        $pesertas = Peserta::all();
+        $pendaftaran = Pendaftaran::with('peserta', 'paket')->findOrFail($id);
+        $peserta = $pendaftaran->peserta;
         $pakets = Paket::all();
-        return view('admin.pendaftaran.edit', compact('pendaftaran', 'pesertas', 'pakets'));
+        $users = User::where('role', 'user')->get();
+        return view('admin.pendaftaran.edit', compact('pendaftaran', 'peserta', 'pakets', 'users'));
     }
 
     public function update(Request $request, $id)
     {
         $peserta = Peserta::findOrFail($id);
 
-        $request->validate([
+        $validated = $request->validate([
             'id_user' => 'required|integer|exists:users,id',
             'nama_peserta' => 'required|string|max:255',
-            'nik_ktp' => 'required|size:16|regex:/^[0-9]+$/',
+            'nik_ktp' => 'required|digits:16',
             'tempat_lahir' => 'required|string|max:100',
             'tanggal_lahir' => 'required|date',
             'jenis_kelamin' => 'required|in:Laki-laki,Perempuan',
             'agama' => 'required|string|max:50',
             'pendidikan' => 'required|string|max:50',
-            'no_wa' => 'required|string|max:20',
+            'no_wa' => 'required|digits_between:9,13',
             'alamat' => 'required|string',
             'kelurahan' => 'required|string',
             'kecamatan' => 'required|string',
@@ -84,9 +85,15 @@ class PendaftaranPesertaController extends Controller
             'tempat_tinggal' => 'required|in:Bersama Orang Tua,Kost,Asrama,Panti Asuhan,Lainnya',
         ]);
 
-        $peserta->update($request->all());
+        session(['pendaftaran_peserta' => $validated]);
 
-        return redirect()->route('admin.peserta.index')->with('success', 'Peserta berhasil diperbarui.');
+        $pendaftaran = Pendaftaran::where('id_peserta', $peserta->id_peserta)->first();
+
+        if (!$pendaftaran) {
+            return redirect()->route('admin.pendaftaran.index')->with('error', 'Pendaftaran tidak ditemukan.');
+        }
+
+        return redirect()->route('admin.pendaftaran.paket.edit', ['id' => $pendaftaran->id_pendaftaran]);
     }
 
     public function destroy($id)

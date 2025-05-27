@@ -11,7 +11,6 @@ class PendaftaranPaketController extends Controller
 {
     public function index()
     {
-        // Ambil data pendaftaran beserta relasi peserta dan paket
         $pendaftarans = Pendaftaran::with(['peserta', 'paket'])->get();
         return view('admin.pendaftaran.index', compact('pendaftarans'));
     }
@@ -53,19 +52,41 @@ class PendaftaranPaketController extends Controller
         return redirect()->route('admin.pendaftaran.index')->with('success', 'Pendaftaran berhasil disimpan.');
     }
 
-
     public function show($id)
     {
         $pendaftaran = Pendaftaran::with(['peserta', 'paket'])->findOrFail($id);
         return view('admin.pendaftaran.show', compact('pendaftaran'));
     }
 
+
     public function edit($id)
     {
-        // $pendaftaran = Pendaftaran::findOrFail($id);
-        // $pesertas = Peserta::all();
-        // $pakets = Paket::all();
-        // return view('admin.pendaftaran.edit', compact('pendaftaran', 'pesertas', 'pakets'));
+        $pendaftaran = Pendaftaran::with('peserta')->findOrFail($id);
+
+        if (session()->has('pendaftaran_peserta')) {
+            $peserta = session('pendaftaran_peserta');
+        } else {
+            $peserta = $pendaftaran->peserta;
+        }
+
+        $pakets = Paket::all();
+        $paketsJson = json_encode($pakets);
+
+        $selectedPaket = $pakets->firstWhere('id_paket', $pendaftaran->id_paket);
+
+        $selectedJurusan = $selectedPaket->jurusan ?? '';
+        $selectedJenisPaket = $selectedPaket->nama_paket ?? '';
+        $selectedIdPaket = $pendaftaran->id_paket;
+
+        return view('admin.pendaftaran.paket.edit', compact(
+            'peserta',
+            'pakets',
+            'pendaftaran',
+            'paketsJson',
+            'selectedJurusan',
+            'selectedJenisPaket',
+            'selectedIdPaket'
+        ));
     }
 
     public function update(Request $request, $id)
@@ -78,7 +99,20 @@ class PendaftaranPaketController extends Controller
             'status' => 'required|in:menunggu,sukses,batal',
         ]);
 
-        $pendaftaran->update($request->only('id_peserta', 'id_paket', 'status'));
+        if (session()->has('pendaftaran_peserta')) {
+            $pesertaData = session('pendaftaran_peserta');
+
+            $peserta = Peserta::findOrFail($request->id_peserta);
+            $peserta->update($pesertaData);
+
+            session()->forget('pendaftaran_peserta');
+        }
+
+        $pendaftaran->update([
+            'id_peserta' => $request->id_peserta,
+            'id_paket' => $request->id_paket,
+            'status' => $request->status,
+        ]);
 
         return redirect()->route('admin.pendaftaran.index')->with('success', 'Pendaftaran berhasil diperbarui.');
     }

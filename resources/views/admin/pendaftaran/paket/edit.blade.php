@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Edit Pendaftaran')
+@section('title', 'Edit Paket & Jurusan')
 
 @section('content_header')
-<h1>Edit Pendaftaran</h1>
+<h1>Edit Pendaftaran - Pilih Paket & Jurusan</h1>
 @stop
 
 @section('content')
@@ -19,52 +19,128 @@
 </div>
 @endif
 
-<form action="{{ route('admin.pendaftaran.update', $pendaftaran->id_pendaftaran) }}" method="POST">
+{{-- Tampilkan info peserta sementara --}}
+<p><strong>Nama Peserta:</strong> {{ $peserta['nama_peserta'] ?? $peserta->nama_peserta }}</p>
+<p><strong>NIK:</strong> {{ $peserta['nik_ktp'] ?? $peserta->nik_ktp }}</p>
+
+<form action="{{ route('admin.pendaftaran.paket.update', $pendaftaran->id_pendaftaran) }}" method="POST">
     @csrf
     @method('PUT')
 
+    <select name="jenis_paket" id="jenis_paket" class="form-control" required>
+        <option value="">-- Pilih Jenis Paket --</option>
+        <option value="Reguler" {{ (old('jenis_paket', $selectedJenisPaket ?? $pendaftaran->jenis_paket) == 'Reguler') ? 'selected' : '' }}>Reguler</option>
+        <option value="3 bulan" {{ (old('jenis_paket', $selectedJenisPaket ?? $pendaftaran->jenis_paket) == '3 bulan') ? 'selected' : '' }}>3 Bulan</option>
+        <option value="6 bulan" {{ (old('jenis_paket', $selectedJenisPaket ?? $pendaftaran->jenis_paket) == '6 bulan') ? 'selected' : '' }}>6 Bulan</option>
+    </select>
+
+
     <div class="form-group">
-        <label for="id_peserta">Peserta</label>
-        <select name="id_peserta" class="form-control" required>
-            <option value="">-- Pilih Peserta --</option>
-            @foreach ($pesertas as $peserta)
-            <option value="{{ $peserta->id_peserta }}"
-                {{ (old('id_peserta') ?? $pendaftaran->id_peserta) == $peserta->id_peserta ? 'selected' : '' }}>
-                {{ $peserta->nama_peserta }} ({{ $peserta->nik_ktp }})
-            </option>
-            @endforeach
+        <label for="jurusan">Jurusan</label>
+        <select name="jurusan" id="jurusan" class="form-control" required>
+            <option value="">-- Pilih Jurusan --</option>
+            {{-- Jurusan akan diisi otomatis oleh JS --}}
         </select>
     </div>
 
-    <div class="form-group">
-        <label for="id_paket">Paket</label>
-        <select name="id_paket" class="form-control" required>
-            <option value="">-- Pilih Paket --</option>
-            @foreach ($pakets as $paket)
-            <option value="{{ $paket->id_paket }}"
-                {{ (old('id_paket') ?? $pendaftaran->id_paket) == $paket->id_paket ? 'selected' : '' }}>
-                {{ $paket->nama_paket }}
-            </option>
-            @endforeach
-        </select>
-    </div>
+    <input type="hidden" name="id_paket" id="id_paket" value="{{ old('id_paket', $selectedIdPaket ?? $pendaftaran->id_paket) }}">
+    <input type="hidden" name="id_peserta" value="{{ $pendaftaran->id_peserta }}">
 
     <div class="form-group">
         <label for="status">Status</label>
-        <select name="status" class="form-control" required>
+        <select name="status" id="status" class="form-control" required>
             <option value="">-- Pilih Status --</option>
-            <option value="menunggu" {{ (old('status') ?? $pendaftaran->status) == 'menunggu' ? 'selected' : '' }}>Menunggu</option>
-            <option value="sukses" {{ (old('status') ?? $pendaftaran->status) == 'sukses' ? 'selected' : '' }}>Sukses</option>
-            <option value="batal" {{ (old('status') ?? $pendaftaran->status) == 'batal' ? 'selected' : '' }}>Batal</option>
+            <option value="menunggu" {{ (old('status', $pendaftaran->status) == 'menunggu') ? 'selected' : '' }}>Menunggu</option>
+            <option value="sukses" {{ (old('status', $pendaftaran->status) == 'sukses') ? 'selected' : '' }}>Sukses</option>
+            <option value="batal" {{ (old('status', $pendaftaran->status) == 'batal') ? 'selected' : '' }}>Batal</option>
         </select>
     </div>
 
     <button type="submit" class="btn btn-primary">Update</button>
-    <a href="{{ route('admin.pendaftaran.index') }}" class="btn btn-secondary">Kembali</a>
+    <a href="{{ route('admin.pendaftaran.index') }}" class="btn btn-secondary">Batal</a>
 </form>
 
+<div id="paket-data"
+    data-pakets="{{ $paketsJson }}"
+    data-selected-jurusan="{{ $selectedJurusan }}"
+    data-selected-jenis-paket="{{ $selectedJenisPaket }}">
+</div>
+
+
+
 @stop
 
-@section('css')
-<link rel="stylesheet" href="/css/admin_custom.css">
-@stop
+@section('js')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const paketDataEl = document.getElementById('paket-data');
+        const paketsRaw = paketDataEl.getAttribute('data-pakets');
+        const selectedJurusan = paketDataEl.getAttribute('data-selected-jurusan');
+        const selectedJenisPaket = paketDataEl.getAttribute('data-selected-jenis-paket');
+
+        let pakets = [];
+        try {
+            pakets = JSON.parse(paketsRaw);
+        } catch (error) {
+            console.error("Gagal parsing JSON:", error);
+        }
+
+        const jenisPaketSelect = document.getElementById('jenis_paket');
+        const jurusanSelect = document.getElementById('jurusan');
+        const idPaketInput = document.getElementById('id_paket');
+
+        function filterJurusanByPaket(jenisPaket, jurusanTerpilih = null) {
+            jurusanSelect.innerHTML = '<option value="">-- Pilih Jurusan --</option>';
+            idPaketInput.value = '';
+
+            if (!jenisPaket) return;
+
+            const filteredPakets = pakets.filter(p => p.nama_paket.toLowerCase() === jenisPaket.toLowerCase());
+            const jurusanSet = new Set();
+
+            filteredPakets.forEach(p => {
+                if (!jurusanSet.has(p.jurusan)) {
+                    jurusanSet.add(p.jurusan);
+                    const option = document.createElement('option');
+                    option.value = p.jurusan;
+                    option.textContent = p.jurusan;
+
+                    if (p.jurusan === jurusanTerpilih) {
+                        option.selected = true;
+                        idPaketInput.value = p.id_paket;
+                    }
+
+                    jurusanSelect.appendChild(option);
+                }
+            });
+        }
+
+        jenisPaketSelect.addEventListener('change', function() {
+            filterJurusanByPaket(this.value);
+        });
+
+        jurusanSelect.addEventListener('change', function() {
+            const selectedJurusan = this.value;
+            const selectedJenisPaket = jenisPaketSelect.value;
+
+            if (!selectedJurusan || !selectedJenisPaket) {
+                idPaketInput.value = '';
+                return;
+            }
+
+            const paket = pakets.find(p =>
+                p.nama_paket.toLowerCase() === selectedJenisPaket.toLowerCase() &&
+                p.jurusan === selectedJurusan
+            );
+
+            idPaketInput.value = paket ? paket.id_paket : '';
+        });
+
+        // Inisialisasi saat halaman load
+        if (selectedJenisPaket) {
+            jenisPaketSelect.value = selectedJenisPaket;
+            filterJurusanByPaket(selectedJenisPaket, selectedJurusan);
+        }
+    });
+</script>
+@endsection

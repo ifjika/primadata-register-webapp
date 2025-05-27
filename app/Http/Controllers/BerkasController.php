@@ -42,12 +42,14 @@ class BerkasController extends Controller
             'pas_foto' => '',
         ]);
 
-        $folderName = "berkas/{$berkas->id}_{$request->id_user}";
+        $tanggal = now()->format('Ymd_His');
 
-        $ijazahPath   = $request->file('ijazah')->store("berkas/{$folderName}/ijazah", 'public');
-        $kkPath       = $request->file('kk')->store("berkas/{$folderName}/kk", 'public');
-        $ktpPath      = $request->file('ktp')->store("berkas/{$folderName}/ktp", 'public');
-        $fotoPath     = $request->file('pas_foto')->store("berkas/{$folderName}/pas_foto", 'public');
+        $folderName = "berkas/{$berkas->id}_{$berkas->id_user}_{$tanggal}";
+
+        $ijazahPath   = $request->file('ijazah')->store("{$folderName}/ijazah", 'public');
+        $kkPath       = $request->file('kk')->store("{$folderName}/kk", 'public');
+        $ktpPath      = $request->file('ktp')->store("{$folderName}/ktp", 'public');
+        $fotoPath     = $request->file('pas_foto')->store("{$folderName}/pas_foto", 'public');
 
         $berkas->update([
             'ijazah' => $ijazahPath,
@@ -88,8 +90,9 @@ class BerkasController extends Controller
 
         $berkas->id_user = $validated['id_user'];
 
-        // Nama folder khusus
-        $folderName = "berkas/{$berkas->id}_{$berkas->id_user}";
+        $tanggal = $berkas->created_at->format('dmY_His');
+
+        $folderName = "berkas/{$berkas->id}_{$berkas->id_user}_{$tanggal}";
 
         if ($request->hasFile('ijazah')) {
             if ($berkas->ijazah && Storage::disk('public')->exists($berkas->ijazah)) {
