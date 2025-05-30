@@ -29,11 +29,14 @@
             <td>{{ $item->jumlah_peserta }}</td>
             <td>
                 <a href="{{ route('admin.laporan.peserta.show', $item->id_laporan) }}" class="btn btn-warning btn-sm">Show</a>
+
+                @if(auth()->user()->role === 'admin')
                 <form action="{{ route('admin.laporan.peserta.destroy', $item->id_laporan) }}" method="POST" style="display:inline;">
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus laporan ini?')">Hapus</button>
                 </form>
+                @endif
             </td>
         </tr>
         @endforeach

@@ -317,18 +317,21 @@ return [
             'url' => 'admin/berkas',
             'icon' => 'fas fa-fw fa-archive',
             'label_color' => 'success',
+            'can' => 'admin',
         ],
         [
             'text' => 'Pembayaran',
             'url' => 'admin/pembayaran',
             'icon' => 'fas fa-fw fa-credit-card',
             'label_color' => 'success',
+            'can' => 'admin'
         ],
         [
             'text' => 'Pendaftaran',
             'url' => 'admin/pendaftaran',
             'icon' => 'fas fa-fw fa-user',
             'label_color' => 'success',
+            'can' => 'admin',
         ],
         ['header' => 'REPORT'],
         [
@@ -344,6 +347,7 @@ return [
                     'url' => 'admin/laporan/peserta',
                 ],
             ],
+            'can' => ['admin', 'leader']
 
         ],
         ['header' => 'PAKET'],
@@ -351,6 +355,7 @@ return [
             'text' => 'Paket',
             'url' => 'admin/paket',
             'icon' => 'fas fa-box',
+            'can' => 'admin'
         ],
     ],
 

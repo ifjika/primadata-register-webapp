@@ -7,20 +7,14 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function isAdmin()
-    {
-        return auth()->check() && auth()->user()->role === 'admin';
-    }
-
-    public function isUser()
-    {
-        return auth()->check() && auth()->user()->role === 'user';
-    }
-
     public function assignRole(Request $request, User $user)
     {
+        if (!optional(auth()->user())->isAdmin()) {
+            abort(403, 'Unauthorized');
+        }
+
         $request->validate([
-            'role' => 'required|string',
+            'role' => 'required|string|in:admin,leader,user',
         ]);
 
         $user->role = $request->role;

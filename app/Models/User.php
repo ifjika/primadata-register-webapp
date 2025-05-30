@@ -48,4 +48,19 @@ class User extends Authenticatable
     {
         return $this->hasOne(Peserta::class, 'id_user');
     }
+
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
+
+    public function isLeader()
+    {
+        return $this->role === 'leader';
+    }
+
+    public function isUser()
+    {
+        return $this->role === 'user';
+    }
 }

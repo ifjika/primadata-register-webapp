@@ -24,6 +24,7 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
+// Route Admin
 Route::get('/admin', function () {
     if (!auth()->check() || auth()->user()->role !== 'admin') {
         return redirect()->route('home')->with('error', 'You are not authorized.');
@@ -92,7 +93,7 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(f
 
 
 // Route Laporan Keuangan
-Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('laporan/keuangan', [LaporanKeuanganController::class, 'index'])->name('laporan.keuangan.index');
     Route::get('laporan/keuangan/create', [LaporanKeuanganController::class, 'create'])->name('laporan.keuangan.create');
     Route::post('laporan/keuangan', [LaporanKeuanganController::class, 'store'])->name('laporan.keuangan.store');
@@ -105,7 +106,7 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(f
 
 
 // Route Laporan Peserta
-Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('laporan/peserta', [LaporanPesertaController::class, 'index'])->name('laporan.peserta.index');
     Route::get('laporan/peserta/create', [LaporanPesertaController::class, 'create'])->name('laporan.peserta.create');
     Route::post('laporan/peserta', [LaporanPesertaController::class, 'store'])->name('laporan.peserta.store');
@@ -116,6 +117,27 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(f
     Route::get('laporan/peserta/{id}/cetak-pdf', [LaporanPesertaController::class, 'cetak'])->name('laporan.peserta.cetak');
 });
 
+
+Route::get('/leader', function () {
+    if (!auth()->check() || auth()->user()->role !== 'leader') {
+        return redirect()->route('home')->with('error', 'You are not authorized.');
+    }
+
+    return view('leader.dashboard');
+})->middleware('auth')->name('leader.dashboard');
+
+// Route Laporan Keuangan dan Peserta oleh Leader
+Route::middleware(['auth', 'role:leader'])->prefix('admin')->name('admin.')->group(function () {
+    // Laporan Keuangan (read only + cetak)
+    Route::get('laporan/keuangan', [LaporanKeuanganController::class, 'index'])->name('laporan.keuangan.index');
+    Route::get('laporan/keuangan/{id}', [LaporanKeuanganController::class, 'show'])->name('laporan.keuangan.show');
+    Route::get('laporan/keuangan/{id}/cetak-pdf', [LaporanKeuanganController::class, 'cetak'])->name('laporan.keuangan.cetak');
+
+    // Laporan Peserta (read only + cetak)
+    Route::get('laporan/peserta', [LaporanPesertaController::class, 'index'])->name('laporan.peserta.index');
+    Route::get('laporan/peserta/{id}', [LaporanPesertaController::class, 'show'])->name('laporan.peserta.show');
+    Route::get('laporan/peserta/{id}/cetak-pdf', [LaporanPesertaController::class, 'cetak'])->name('laporan.peserta.cetak');
+});
 
 Route::get('/details', function () {
     return view('details');
