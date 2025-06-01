@@ -311,7 +311,10 @@ return [
         ],
 
         // Sidebar items:
-        ['header' => 'ACCOUNT SETTINGS'],
+        [
+            'header' => 'ACCOUNT SETTINGS',
+            'can' => 'admin'
+        ],
         [
             'text' => 'Berkas',
             'url' => 'admin/berkas',
@@ -340,17 +343,20 @@ return [
             'submenu' => [
                 [
                     'text' => 'Laporan Keuangan',
-                    'url' => 'admin/laporan/keuangan',
+                    'route' => 'laporan.keuangan.redirect',
                 ],
                 [
                     'text' => 'Laporan Peserta',
-                    'url' => 'admin/laporan/peserta',
+                    'route' => 'laporan.peserta.redirect',
                 ],
             ],
             'can' => ['admin', 'leader']
 
         ],
-        ['header' => 'PAKET'],
+        [
+            'header' => 'PAKET',
+            'can' => 'admin'
+        ],
         [
             'text' => 'Paket',
             'url' => 'admin/paket',

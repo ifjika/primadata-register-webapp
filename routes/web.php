@@ -126,8 +126,9 @@ Route::get('/leader', function () {
     return view('leader.dashboard');
 })->middleware('auth')->name('leader.dashboard');
 
+
 // Route Laporan Keuangan dan Peserta oleh Leader
-Route::middleware(['auth', 'role:leader'])->prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['auth', 'role:leader'])->prefix('leader')->name('leader.')->group(function () {
     // Laporan Keuangan (read only + cetak)
     Route::get('laporan/keuangan', [LaporanKeuanganController::class, 'index'])->name('laporan.keuangan.index');
     Route::get('laporan/keuangan/{id}', [LaporanKeuanganController::class, 'show'])->name('laporan.keuangan.show');
@@ -138,6 +139,21 @@ Route::middleware(['auth', 'role:leader'])->prefix('admin')->name('admin.')->gro
     Route::get('laporan/peserta/{id}', [LaporanPesertaController::class, 'show'])->name('laporan.peserta.show');
     Route::get('laporan/peserta/{id}/cetak-pdf', [LaporanPesertaController::class, 'cetak'])->name('laporan.peserta.cetak');
 });
+
+Route::middleware('auth')->group(function () {
+    // Laporan Keuangan Redirect
+    Route::get('/laporan/keuangan', function () {
+        $role = auth()->user()->role;
+        return redirect("/$role/laporan/keuangan");
+    })->name('laporan.keuangan.redirect');
+
+    // Laporan Peserta Redirect
+    Route::get('/laporan/peserta', function () {
+        $role = auth()->user()->role;
+        return redirect("/$role/laporan/peserta");
+    })->name('laporan.peserta.redirect');
+});
+
 
 Route::get('/details', function () {
     return view('details');
@@ -152,6 +168,8 @@ Route::middleware('auth')->group(function () {
 Route::get('/check-role', function (UserController $userController) {
     if ($userController->isAdmin()) {
         return response()->json(['role' => 'admin']);
+    } elseif ($userController->isLeader()) {
+        return response()->json(['role' => 'leader']);
     } elseif ($userController->isUser()) {
         return response()->json(['role' => 'user']);
     }

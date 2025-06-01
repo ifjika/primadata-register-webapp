@@ -4,7 +4,11 @@
 
 @section('content_header')
 <h1>Laporan Peserta</h1>
-<a href="{{ route('admin.laporan.peserta.create') }}" class="btn btn-primary mb-3">Tambah Laporan Baru</a>
+
+@if(auth()->user()->role === 'admin')
+<a href="{{ route('admin.laporan.keuangan.create') }}" class="btn btn-primary mb-3">Tambah Laporan Baru</a>
+@endif
+
 @stop
 
 @section('content')
