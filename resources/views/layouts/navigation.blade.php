@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 fixed top-0 w-full z-50">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -59,8 +59,14 @@
                     <x-nav-link :href="route('contact')" :active="request()->routeIs('contact')">
                         {{ __('Contact Us') }}
                     </x-nav-link>
+
+                    <header id="header" class="header">
+                        <a class="btn-getstarted" href="{{ route('courses')}}">Daftar Sekarang</a>
+                    </header>
                 </div>
             </div>
+
+
 
             <!-- Hamburger -->
             <div class="-me-2 flex items-center sm:hidden">
@@ -83,3 +89,5 @@
             </div>
         </div>
 </nav>
+
+<div class="h-16"></div>
