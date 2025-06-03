@@ -63,12 +63,12 @@ return [
     |
     */
 
-    'logo' => '<b>Primadata</b> Admin',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-    'logo_img_class' => 'brand-image img-circle elevation-3',
+    'logo' => '<b>Admin</b> Menu',
+    'logo_img' => 'assets/img/logo-primadata.png',
+    'logo_img_class' => 'brand-image',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'Admin Logo',
+    // 'logo_img_alt' => '',
 
     /*
     |--------------------------------------------------------------------------
@@ -86,7 +86,7 @@ return [
     'auth_logo' => [
         'enabled' => false,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+            'path' => 'assets/img/logo-primadata.png',
             'alt' => 'Auth Logo',
             'class' => '',
             'width' => 50,
@@ -113,7 +113,7 @@ return [
         'enabled' => true,
         'mode' => 'fullscreen',
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+            'path' => 'assets/img/logo-primadata.png',
             'alt' => 'AdminLTE Preloader Image',
             'effect' => 'animation__shake',
             'width' => 60,
@@ -196,7 +196,7 @@ return [
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-primary elevation-4',
+    'classes_sidebar' => 'sidebar-dark-primary',
     'classes_sidebar_nav' => '',
     'classes_topnav' => 'navbar-white navbar-light',
     'classes_topnav_nav' => 'navbar-expand',
@@ -315,20 +315,7 @@ return [
             'header' => 'ACCOUNT SETTINGS',
             'can' => 'admin'
         ],
-        [
-            'text' => 'Berkas',
-            'url' => 'admin/berkas',
-            'icon' => 'fas fa-fw fa-archive',
-            'label_color' => 'success',
-            'can' => 'admin',
-        ],
-        [
-            'text' => 'Pembayaran',
-            'url' => 'admin/pembayaran',
-            'icon' => 'fas fa-fw fa-credit-card',
-            'label_color' => 'success',
-            'can' => 'admin'
-        ],
+
         [
             'text' => 'Pendaftaran',
             'url' => 'admin/pendaftaran',
@@ -336,7 +323,31 @@ return [
             'label_color' => 'success',
             'can' => 'admin',
         ],
-        ['header' => 'REPORT'],
+
+        [
+            'text' => 'Berkas',
+            'url' => 'admin/berkas',
+            'icon' => 'fas fa-fw fa-archive',
+            'label_color' => 'success',
+            'can' => 'admin',
+        ],
+
+        [
+            'text' => 'Pembayaran',
+            'url' => 'admin/pembayaran',
+            'icon' => 'fas fa-fw fa-credit-card',
+            'label_color' => 'success',
+            'can' => 'admin'
+        ],
+
+        [
+            'text' => 'Paket',
+            'url' => 'admin/paket',
+            'icon' => 'fas fa-box',
+            'can' => 'admin'
+        ],
+
+        ['header' => 'LAPORAN'],
         [
             'text' => 'Laporan',
             'icon' => 'fas fa-fw fa-book',
@@ -352,16 +363,6 @@ return [
             ],
             'can' => ['admin', 'leader']
 
-        ],
-        [
-            'header' => 'PAKET',
-            'can' => 'admin'
-        ],
-        [
-            'text' => 'Paket',
-            'url' => 'admin/paket',
-            'icon' => 'fas fa-box',
-            'can' => 'admin'
         ],
     ],
 
