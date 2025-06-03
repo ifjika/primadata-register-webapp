@@ -54,7 +54,7 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="{{ route('courses')}}">Daftar Sekarang</a>
+      <!-- <a class="btn-getstarted" href="{{ route('courses')}}">Daftar Sekarang</a> -->
 
     </div>
   </header>
@@ -63,20 +63,20 @@
 
     <!-- Page Title -->
     <div class="page-title" data-aos="fade">
-            <div class="heading">
-                <div class="container">
-                    <div class="row d-flex justify-content-center text-center">
-                        <div class="col-lg-15">
-                            <h1>Kegiatan LKP Prima Data<br></h1>
-                        </div>
-                    </div>
-                </div>
+      <div class="heading">
+        <div class="container">
+          <div class="row d-flex justify-content-center text-center">
+            <div class="col-lg-15">
+              <h1>Kegiatan LKP Prima Data<br></h1>
             </div>
-            <nav class="breadcrumbs">
-                <div class="container">
-                </div>
-            </nav>
-        </div><!-- End Page Title -->
+          </div>
+        </div>
+      </div>
+      <nav class="breadcrumbs">
+        <div class="container">
+        </div>
+      </nav>
+    </div><!-- End Page Title -->
 
     <!-- Events Section -->
     <section id="events" class="events section">
@@ -84,7 +84,7 @@
       <div class="container" data-aos="fade-up">
 
         <div class="row">
-        <div class="col-md-4 d-flex align-items-stretch">
+          <div class="col-md-4 d-flex align-items-stretch">
             <div class="card">
               <div class="card-img">
                 <img src="assets\img\events\event1.jpg" alt="">
@@ -115,7 +115,7 @@
               </div>
               <div class="card-body">
                 <h5 class="card-title"><a href="">Pelatihan Instruktur Practical Office Advanced</a></h5>
-                <p class="fst-italic text-center">26 Februari - 8 Maret 2024,  BBPVP Medan</p>
+                <p class="fst-italic text-center">26 Februari - 8 Maret 2024, BBPVP Medan</p>
                 <p class="card-text">Upgrading Instruktur LKP Prima Data atas nama Lora Nining Purwanti kejuruan Teknologi Informasi dan Komunikasi. Kegiatan ini di adakan oleh Kementerian Ketenagakerjaan RI bertujuan untuk menambah skill dan sertifikasi mengajar materi Administrasi Perkantoran.</p>
               </div>
             </div>
@@ -127,7 +127,7 @@
               </div>
               <div class="card-body">
                 <h5 class="card-title"><a href="">Pelatihan Metodologi Instruktur</a></h5>
-                <p class="fst-italic text-center">11 - 22 Maret 2024,  BBPVP Bandung</p>
+                <p class="fst-italic text-center">11 - 22 Maret 2024, BBPVP Bandung</p>
                 <p class="card-text">Pelatihan Metodologi Instruktur LKP Prima Data atas nama Belin Heyo Fathia kejuruan Teknologi Informasi dan Komunikasi. Kegiatan ini di adakan oleh Kementerian Ketenagakerjaan RI dilaksanakan di Bandung, Jawa Barat. Pelatihan ini bertujuan untuk sertifikasi mengajar.</p>
               </div>
             </div>
@@ -139,7 +139,7 @@
               </div>
               <div class="card-body">
                 <h5 class="card-title"><a href="">Pelatihan Content Creator</a></h5>
-                <p class="fst-italic text-center">5 - 10 Mei 2024,  The ZHM Premier Hotel Padang</p>
+                <p class="fst-italic text-center">5 - 10 Mei 2024, The ZHM Premier Hotel Padang</p>
                 <p class="card-text">Pelatihan Content Creator Instruktur LKP Prima Data atas nama Belin Heyo Fathia. Kegiatan ini diadakan oleh DIT Bina Intala Kemdikbudristek RI.</p>
               </div>
             </div>

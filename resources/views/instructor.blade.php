@@ -53,7 +53,7 @@
             <nav id="navmenu" class="navmenu">
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
-            <a class="btn-getstarted" href="{{ route('courses')}}">Daftar Sekarang</a>
+            <!-- <a class="btn-getstarted" href="{{ route('courses')}}">Daftar Sekarang</a> -->
         </div>
     </header>
 
@@ -119,7 +119,7 @@
                         <div class="member-img">
                             <img src="assets/img/team/team-2.png" class="img-fluid" alt="">
                             <div class="social">
-                                <a href="https://wa.me/083125943879" target="_blank"><i class="bi bi-whatsapp" ></i></a>
+                                <a href="https://wa.me/083125943879" target="_blank"><i class="bi bi-whatsapp"></i></a>
                                 <a href="https://www.instagram.com/loraniningpurwanti" target="_blank"><i class="bi bi-instagram"></i></a>
                                 <a href="https://www.linkedin.com/in/lora-nining-purwanti-3714552a2/" target="_blank"><i class="bi bi-linkedin"></i></a>
                             </div>

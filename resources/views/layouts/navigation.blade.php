@@ -10,12 +10,6 @@
                     </a>
                 </div>
 
-                <!-- <div class="shrink-0 flex items-center">
-                    <a href="{{ route('home') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
-                    </a>
-                </div> -->
-
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
@@ -60,9 +54,17 @@
                         {{ __('Contact Us') }}
                     </x-nav-link>
 
-                    <header id="header" class="header">
-                        <a class="btn-getstarted" href="{{ route('courses')}}">Daftar Sekarang</a>
-                    </header>
+                    <x-nav-link :href="route('courses')" :active="request()->routeIs('courses')">
+                        {{ __('Daftar Sekarang') }}
+                    </x-nav-link>
+
+                    <!-- <header id="header" class="header">
+                        <x-nav-link :href="route('courses')" :active="request()->routeIs('courses')" class="btn-getstarted">
+                            {{ __('Daftar Sekarang') }}
+                        </x-nav-link>
+                    </header> -->
+
+
                 </div>
             </div>
 
