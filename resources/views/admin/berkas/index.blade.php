@@ -3,6 +3,7 @@
 @section('title', 'Berkas')
 
 @section('content_header')
+<h1>Data Berkas</h1>
 <a href="{{ route('admin.berkas.create') }}" class="btn btn-primary mb-3">Create Berkas Baru</a>
 @stop
 
