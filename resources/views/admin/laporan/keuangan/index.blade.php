@@ -5,10 +5,13 @@
 @section('content_header')
 <h1>Laporan Keuangan</h1>
 
-@if(auth()->user()->role === 'admin')
-<a href="{{ route('admin.laporan.keuangan.create') }}" class="btn btn-primary mb-3">Tambah Laporan Baru</a>
-@endif
+@php
+$rolePrefix = auth()->user()->role; // hasilnya 'admin' atau 'leader'
+@endphp
 
+@if(auth()->user()->role === 'admin')
+<a href="{{ route($rolePrefix . '.laporan.keuangan.create') }}" class="btn btn-primary mb-3">Tambah Laporan Baru</a>
+@endif
 @stop
 
 @section('content')
@@ -34,10 +37,10 @@
             <td>{{ $item->jumlah_peserta }}</td>
             <td>Rp {{ number_format($item->omset, 0, ',', '.') }}</td>
             <td>
-                <a href="{{ route('admin.laporan.keuangan.show', $item->id_laporan) }}" class="btn btn-warning btn-sm">Show</a>
+                <a href="{{ route($rolePrefix . '.laporan.keuangan.show', $item->id_laporan) }}" class="btn btn-warning btn-sm">Show</a>
 
                 @if(auth()->user()->role === 'admin')
-                <form action="{{ route('admin.laporan.keuangan.destroy', $item->id_laporan) }}" method="POST" style="display:inline;">
+                <form action="{{ route($rolePrefix . '.laporan.keuangan.destroy', $item->id_laporan) }}" method="POST" style="display:inline;">
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus laporan ini?')">Hapus</button>
