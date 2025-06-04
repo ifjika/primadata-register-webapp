@@ -153,6 +153,8 @@
                     </div>
                     <!-- End Course Item-->
 
+
+
                     <div class=" mt-5 col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                         <div class="course-item">
                             <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
@@ -214,6 +216,58 @@
                         </div>
                     </div>
                     <!-- End Course Item-->
+
+
+
+                    @foreach ($paket as $item)
+                    <div class="mt-5 col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="course-item">
+                            <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
+                            <div class="course-content">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+
+                                    @php
+                                    if (strpos($item->jurusan, '(') !== false) {
+                                    $singkatan = trim(substr($item->jurusan, 0, strpos($item->jurusan, '(')));
+                                    } else {
+                                    $singkatan = $item->jurusan;
+                                    }
+                                    @endphp
+
+                                    <a href="{{ route('details', ['id' => $item->id_paket]) }}" class="category">
+                                        {{ $singkatan }}
+                                    </a>
+
+                                    <p class="price">Rp. {{ number_format($item->biaya, 0, ',', '.') }}</p>
+                                </div>
+
+                                {{-- Informasi program --}}
+                                <ul class="check-list">
+                                    @foreach(explode("\n", trim($item->informasi_program)) as $line)
+                                    <li>{{ trim($line) }}</li>
+                                    @endforeach
+                                </ul>
+
+                                <h3><b>
+                                        <p class="description">Materi yang akan dipelajari :</p>
+                                    </b></h3>
+
+                                @php
+                                $materiList = preg_split('/\r\n|\r|\n/', trim($item->materi));
+                                @endphp
+
+                                <ul class="check-list">
+                                    @foreach ($materiList as $materi)
+                                    <li>{{ trim($materi) }}</li>
+                                    @endforeach
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+
+
 
                     <div class="mt-5 col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                         <div class="course-item">
