@@ -29,6 +29,12 @@ class Peserta extends Model
         'tempat_tinggal'
     ];
 
+    public function pendaftaran()
+    {
+        return $this->hasOne(Pendaftaran::class, 'id_peserta');
+    }
+
+
     public function user()
     {
         return $this->belongsTo(User::class, 'id_user');

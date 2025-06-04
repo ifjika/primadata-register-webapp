@@ -12,6 +12,8 @@
         <tr>
             <th>No</th>
             <th>Nama Peserta</th>
+            <th>Paket</th>
+            <th>Jurusan</th>
             <th>Ijazah</th>
             <th>KK</th>
             <th>KTP</th>
@@ -26,6 +28,8 @@
         <tr>
             <td>{{ $loop->iteration }}</td>
             <td>{{ $item->user->peserta->nama_peserta ?? '-' }}</td>
+            <td>{{ $item->pendaftaran->paket->nama_paket ?? '-' }}</td>
+            <td>{{ $item->pendaftaran->paket->jurusan ?? '-' }}</td>
 
             {{-- Ijazah --}}
             <td>

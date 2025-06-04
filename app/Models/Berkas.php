@@ -14,6 +14,7 @@ class Berkas extends Model
 
     protected $fillable = [
         'id_user',
+        'id_pendaftaran',
         'ijazah',
         'kk',
         'ktp',
@@ -23,5 +24,10 @@ class Berkas extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'id_user');
+    }
+
+    public function pendaftaran()
+    {
+        return $this->belongsTo(Pendaftaran::class, 'id_pendaftaran');
     }
 }

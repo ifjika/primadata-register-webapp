@@ -13,10 +13,11 @@ class BerkasController extends Controller
 {
     public function index()
     {
-        $berkas = Berkas::with('user.peserta')->get();
-        $user = User::all();
-        return view('admin.berkas.index', compact('berkas', 'user'));
+        $berkas = Berkas::with(['user.peserta', 'pendaftaran.paket'])->get();
+
+        return view('admin.berkas.index', compact('berkas'));
     }
+
 
     public function create()
     {
