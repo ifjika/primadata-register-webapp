@@ -81,70 +81,45 @@
         <section id="contact" class="contact section">
 
             <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
-                <iframe style="border:0; width: 100%; height: 300px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127658.04772268765!2d100.20548424335932!3d-0.9110088999999912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4bf3696269f21%3A0x23f892b84bf97816!2sPRIMADATA%20ACADEMY%20(Kursus%20Komputer)!5e0!3m2!1sid!2sid!4v1741691665771!5m2!1sid!2sid" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe style="border:0; width: 100%; height: 500px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127658.04772268765!2d100.20548424335932!3d-0.9110088999999912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4bf3696269f21%3A0x23f892b84bf97816!2sPRIMADATA%20ACADEMY%20(Kursus%20Komputer)!5e0!3m2!1sid!2sid!4v1741691665771!5m2!1sid!2sid" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div><!-- End Google Maps -->
 
-            <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-                <div class="row gy-4">
-
-                    <div class="col-lg-4">
-                        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-                            <i class="bi bi-geo-alt flex-shrink-0"></i>
-                            <div>
-                                <h3>Alamat</h3>
-                                <p>Jl. S.Parman No. 189, Ulak Karang, Padang, Sumatera Barat</p>
-                            </div>
-                        </div><!-- End Info Item -->
-
-                        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                            <i class="bi bi-telephone flex-shrink-0"></i>
-                            <div>
-                                <h3>Kontak</h3>
-                                <p>+62 813 6374 7467</p>
-                            </div>
-                        </div><!-- End Info Item -->
-
-                        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
-                            <i class="bi bi-envelope flex-shrink-0"></i>
-                            <div>
-                                <h3>Email Us</h3>
-                                <p>primadata.kursus@gmail.com</p>
-                            </div>
-                        </div><!-- End Info Item -->
-
+            <div class="row justify-content-center">
+                <div class="col-lg-4">
+                    <!-- Alamat -->
+                    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+                    <i class="bi bi-geo-alt flex-shrink-0 ms-4"></i>
+                    <div>
+                        <h3>Alamat</h3>
+                        <p>Jl. S.Parman No. 189, Ulak Karang, Padang, Sumatera Barat</p>
                     </div>
+                    </div>
+                </div>
 
-                    <div class="col-lg-8">
-                        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-                            <div class="row gy-4">
+                <div class="col-lg-4">
+                    <!-- Kontak -->
+                    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+                    <i class="bi bi-telephone flex-shrink-0"></i>
+                    <div>
+                        <h3>Kontak</h3>
+                        <p>+62 813 6374 7467</p>
+                    </div>
+                    </div>
+                </div>
 
-                                <div class="col-md-6">
-                                    <input type="text" name="name" class="form-control" placeholder="Nama Lengkap" required="">
-                                </div>
-
-                                <div class="col-md-6 ">
-                                    <input type="email" class="form-control" name="email" placeholder="Email" required="">
-                                </div>
-
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                                </div>
-
-                                <div class="col-md-12">
-                                    <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-                                </div>
-
-                                <div class="col-md-12 text-center">
-                                    <div class="loading">Loading</div>
-                                    <div class="error-message"></div>
-                                    <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                                    <button type="submit">Send Message</button>
-                                </div>
-
-                            </div>
-                        </form>
+                <div class="col-lg-4">
+                    <!-- Email -->
+                    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
+                    <i class="bi bi-envelope flex-shrink-0 ms-4"></i>
+                    <div>
+                        <h3>Email Us</h3>
+                        <p>primadata.kursus@gmail.com</p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                </div>
+        </form>
                     </div><!-- End Contact Form -->
 
                 </div>

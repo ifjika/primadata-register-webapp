@@ -54,16 +54,9 @@
                         {{ __('Contact Us') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('courses')" :active="request()->routeIs('courses')">
-                        {{ __('Daftar Sekarang') }}
-                    </x-nav-link>
-
-                    <!-- <header id="header" class="header">
-                        <x-nav-link :href="route('courses')" :active="request()->routeIs('courses')" class="btn-getstarted">
-                            {{ __('Daftar Sekarang') }}
-                        </x-nav-link>
-                    </header> -->
-
+                    <div class="text-center mt-2">
+                        <a href="{{route('courses')}}" class="btn btn-primary btn-lg rounded-pill">Daftar Sekarang</a>
+                    </div>
 
                 </div>
             </div>
