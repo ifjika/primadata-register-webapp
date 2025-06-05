@@ -3,6 +3,7 @@
 @section('title', 'Berkas')
 
 @section('content_header')
+<h1>Data Berkas</h1>
 <a href="{{ route('admin.berkas.create') }}" class="btn btn-primary mb-3">Create Berkas Baru</a>
 @stop
 
@@ -12,6 +13,8 @@
         <tr>
             <th>No</th>
             <th>Nama Peserta</th>
+            <th>Paket</th>
+            <th>Jurusan</th>
             <th>Ijazah</th>
             <th>KK</th>
             <th>KTP</th>
@@ -26,6 +29,8 @@
         <tr>
             <td>{{ $loop->iteration }}</td>
             <td>{{ $item->user->peserta->nama_peserta ?? '-' }}</td>
+            <td>{{ $item->pendaftaran->paket->nama_paket ?? '-' }}</td>
+            <td>{{ $item->pendaftaran->paket->jurusan ?? '-' }}</td>
 
             {{-- Ijazah --}}
             <td>
