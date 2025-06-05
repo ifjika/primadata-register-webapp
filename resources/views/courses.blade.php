@@ -122,7 +122,8 @@
                     @if ($item->nama_paket == '6 Bulan')
                     <div class="mt-5 col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                         <div class="course-item">
-                            <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
+                            <img src="{{ asset('storage/' . str_replace('\\', '/', $item->gambar)) }}" class="img-fluid" alt="Gambar Paket">
+
                             <div class="course-content">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
 
@@ -212,7 +213,7 @@
                                 @if ($item->nama_paket == '3 Bulan')
                                 <div class="mt-5 col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                                     <div class="course-item">
-                                        <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
+                                        <img src="{{ asset('storage/' . str_replace('\\', '/', $item->gambar)) }}" class="img-fluid" alt="Gambar Paket">
                                         <div class="course-content">
                                             <div class="d-flex justify-content-between align-items-center mb-3">
 
@@ -299,6 +300,87 @@
                                 <section id="courses" class="courses section">
                                     <div class="container">
                                         <div class="row">
+
+
+                                            @php
+                                            $imgCounter = 1;
+                                            $namaTrainer = [
+                                            1 => 'Belin Heyo Fathia',
+                                            2 => 'Lora Nining Purwanti',
+                                            3 => 'Aulia Rizki Alda ST.MT',
+                                            4 => 'Doni Rahma R, S.Kom',
+                                            5 => 'Robbi Maulana S.Pd',
+                                            ];
+                                            @endphp
+
+                                            @foreach ($paket as $item)
+                                            @continue ($item->nama_paket !== 'Reguler')
+
+                                            @php
+                                            $imgIndex = $imgCounter;
+                                            $trainerName = $namaTrainer[$imgIndex];
+                                            $imgCounter = $imgCounter % 5 + 1;
+                                            @endphp
+
+                                            <div class="mt-5 col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                                                <div class="course-item">
+                                                    <img src="{{ asset('storage/' . str_replace('\\', '/', $item->gambar)) }}" class="img-fluid" alt="Gambar Paket">
+                                                    <div class="course-content">
+                                                        <div class="d-flex justify-content-between align-items-center mb-3">
+
+                                                            @php
+                                                            if (strpos($item->jurusan, '(') !== false) {
+                                                            $singkatan = trim(substr($item->jurusan, 0, strpos($item->jurusan, '(')));
+                                                            } else {
+                                                            $singkatan = $item->jurusan;
+                                                            }
+                                                            @endphp
+
+                                                            <a href="{{ route('details', ['id' => $item->id_paket]) }}" class="category">
+                                                                {{ $singkatan }}
+                                                            </a>
+
+                                                            <p class="price">Rp. {{ number_format($item->biaya, 0, ',', '.') }}</p>
+                                                        </div>
+
+                                                        {{-- Informasi program --}}
+                                                        <ul class="check-list">
+                                                            @foreach(explode("\n", trim($item->informasi_program)) as $line)
+                                                            <li>{{ trim($line) }}</li>
+                                                            @endforeach
+                                                        </ul>
+
+                                                        <h3><b>
+                                                                <p class="description">Materi yang akan dipelajari :</p>
+                                                            </b></h3>
+
+                                                        @php
+                                                        $materiList = preg_split('/\r\n|\r|\n/', trim($item->materi));
+                                                        @endphp
+
+                                                        <ul class="check-list">
+                                                            @foreach ($materiList as $materi)
+                                                            <li>{{ trim($materi) }}</li>
+                                                            @endforeach
+                                                        </ul>
+
+                                                        <p class="description">{{ $item->deskripsi }}</p>
+
+                                                        <div class="trainer d-flex justify-content-between align-items-center">
+                                                            <div class="trainer-profile d-flex align-items-center">
+                                                                <img src="{{ asset('assets/img/trainers/trainer-' . $imgIndex . '.png') }}" class="img-fluid" alt="trainer-{{ $imgIndex }}">
+                                                                <a href="#" class="trainer-link">{{ $trainerName }}</a>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @endforeach
+
+                                            <!-- End Reguler Course Item-->
+
+
                                             <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                                                 <div class="course-item">
                                                     <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
@@ -318,7 +400,7 @@
                                                         <p class="description">Mahir dalam bidang Perkantoran pembuatan surat, menguasai rumus excel, kreasi persentase menarik</p>
                                                         <div class="trainer d-flex justify-content-between align-items-center">
                                                             <div class="trainer-profile d-flex align-items-center">
-                                                                <img src="assets/img/trainers/trainer-3.png" class="img-fluid" alt="">
+                                                                <img src="assets/img/trainers/trainer-1.png" class="img-fluid" alt="">
                                                                 <a href="" class="trainer-link">Belin Heyo Fathia</a>
                                                             </div>
                                                         </div>
