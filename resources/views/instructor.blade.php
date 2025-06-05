@@ -101,7 +101,7 @@
 
                     <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="200">
                         <div class="member-img">
-                            <img src="assets/img/trainers/trainer-7.jpeg" class="img-fluid" alt="">
+                            <img src="assets/img/team/wakil.jpeg" class="img-fluid" alt="">
                             <div class="social">
                                 <a href="https://wa.me/621363600073" target="_blank"><i class="bi bi-whatsapp"></i></a>
                                 <a href="https://www.facebook.com/fitri.guswanti"><i class="bi bi-facebook" target="_blank"></i></a>
