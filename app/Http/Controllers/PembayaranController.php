@@ -13,15 +13,20 @@ class PembayaranController extends Controller
     // Tampilkan semua data pembayaran
     public function index()
     {
-        $pembayaran = Pembayaran::with('pendaftaran.peserta')->latest()->get();
+        $pembayaran = Pembayaran::with('pendaftaran.peserta', 'pendaftaran.paket')
+            ->latest()
+            ->get()
+            ->unique('id_pendaftaran');
+
         return view('admin.pembayaran.index', compact('pembayaran'));
     }
+
 
     // Tampilkan form tambah pembayaran
     public function create()
     {
 
-        $pendaftaran = Pendaftaran::with('peserta')->get();
+        $pendaftaran = Pendaftaran::with('peserta', 'paket')->get();
         return view('admin.pembayaran.create', compact('pendaftaran'));
     }
 
@@ -52,12 +57,18 @@ class PembayaranController extends Controller
         return redirect()->route('admin.pembayaran.index')->with('success', 'Data pembayaran berhasil ditambahkan.');
     }
 
-    // Tampilkan detail pembayaran
     public function show($id)
     {
-        $pembayaran = Pembayaran::with('pendaftaran')->findOrFail($id);
-        return view('admin.pembayaran.show', compact('pembayaran'));
+        $pembayaran = Pembayaran::with('pendaftaran.peserta', 'pendaftaran.paket')->findOrFail($id);
+
+        $pembayarans = Pembayaran::with('pendaftaran.peserta', 'pendaftaran.paket')
+            ->where('id_pendaftaran', $pembayaran->id_pendaftaran)
+            ->get();
+
+        return view('admin.pembayaran.show', compact('pembayaran', 'pembayarans'));
     }
+
+
 
     // Tampilkan form edit pembayaran
     public function edit($id)
