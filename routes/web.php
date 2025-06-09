@@ -22,6 +22,11 @@ Route::get('/home', function () {
     return view('dashboard');
 })->name('home');
 
+
+Route::get('/', [PaketController::class, 'dashboard']);
+Route::get('/home', [PaketController::class, 'dashboard'])->name('home');
+
+
 Route::get('/about', function () {
     return view('about');
 })->name('about');

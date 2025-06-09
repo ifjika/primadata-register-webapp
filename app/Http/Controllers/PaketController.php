@@ -154,4 +154,11 @@ class PaketController extends Controller
 
         return redirect()->route('admin.paket.index')->with('success', 'Paket berhasil dihapus.');
     }
+
+    public function dashboard()
+    {
+        $paket = Paket::all();
+
+        return view('dashboard', compact('paket'));
+    }
 }

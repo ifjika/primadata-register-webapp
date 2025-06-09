@@ -128,27 +128,22 @@
             }
         };
 
-        // Ambil elemen input hidden
         const idPendaftaranElem = document.getElementById('id_pendaftaran');
         const jenis = idPendaftaranElem.getAttribute('data-nama_paket');
         const jurusan = idPendaftaranElem.getAttribute('data-jurusan');
         const jumlahCicilan = parseInt(idPendaftaranElem.getAttribute('data-jumlah_cicilan')) || 0;
         const cicilanKe = jumlahCicilan + 1;
 
-        // Update field cicilan ke
         document.getElementById('cicilan_ke').value = cicilanKe;
 
-        // Ambil array cicilan sesuai paket dan jurusan
         const cicilanArray =
             (paketCicilan[jenis] && (paketCicilan[jenis][jurusan] || paketCicilan[jenis]['default'])) || [];
 
-        // Hitung jumlah bayar sesuai cicilan ke
         let jumlahBayar = 0;
         if (cicilanKe >= 1 && cicilanKe <= cicilanArray.length) {
             jumlahBayar = cicilanArray[cicilanKe - 1];
         }
 
-        // Format Rupiah
         const formatRupiah = (num) => {
             return new Intl.NumberFormat('id-ID', {
                 style: 'currency',
@@ -156,11 +151,9 @@
             }).format(num);
         };
 
-        // Tampilkan rincian cicilan
         let rincian = "<strong>Cicilan:</strong><br>" + cicilanArray.map((val, idx) => `Cicilan ${idx + 1} : ${formatRupiah(val)}`).join('<br>');
         document.getElementById('cicilan-info').innerHTML = rincian;
 
-        // Isi jumlah bayar jika kosong (agar tidak override input user)
         const jumlahBayarInput = document.getElementById('jumlah_bayar');
         if (!jumlahBayarInput.value) {
             jumlahBayarInput.value = jumlahBayar;

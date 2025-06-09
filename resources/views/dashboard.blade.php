@@ -319,97 +319,66 @@
             <div class="container">
 
                 <div class="row">
+                    @php
+                    $shownMajors = [];
+                    @endphp
 
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                    @foreach ($paket as $item)
+                    @if (in_array($item->nama_paket, ['6 Bulan', '3 Bulan', 'Reguler']))
+                    @php
+                    // Ambil jurusan tanpa isi dalam tanda kurung
+                    if (strpos($item->jurusan, '(') !== false) {
+                    $singkatan = trim(substr($item->jurusan, 0, strpos($item->jurusan, '(')));
+                    } else {
+                    $singkatan = $item->jurusan;
+                    }
+
+                    $paketKey = $item->nama_paket;
+                    @endphp
+
+                    @if (!in_array($paketKey, $shownMajors))
+                    @php
+                    $shownMajors[] = $paketKey;
+                    @endphp
+
+                    {{-- Hanya menampilkan jurusan pertama dari masing-masing paket --}}
+                    <div class="mt-5 col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                         <div class="course-item">
-                            <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
+                            <img src="{{ asset('storage/' . str_replace('\\', '/', $item->gambar)) }}" class="img-fluid" alt="Gambar Paket">
+
                             <div class="course-content">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <a href="course-details.html">
-                                        <p class="category">Administrasi Bisnis</p>
+                                    <a href="{{ route('details', ['id' => $item->id_paket]) }}" class="category">
+                                        {{ $singkatan }}
                                     </a>
-                                    <p class="price">Rp. 4.800.000</p>
+                                    <p class="price">Rp. {{ number_format($item->biaya, 0, ',', '.') }}</p>
                                 </div>
-                                <h3>Paket Kelas 6 Bulan</h3>
+
                                 <ul class="check-list">
-                                    <li>Kursus selama 5 bulan, magang 1 bulan</li>
-                                    <li>Senin s.d Jumat</li>
-                                    <li>Jadwal : 08.15 s.d 12.00</li>
-                                    <li>Bersertifikat</li>
+                                    @foreach(explode("\n", trim($item->informasi_program)) as $line)
+                                    <li>{{ trim($line) }}</li>
+                                    @endforeach
                                 </ul>
+
                                 <h3><b>
                                         <p class="description">Materi yang akan dipelajari :</p>
                                     </b></h3>
-                                <ul class="check-list">
-                                    <li>Computer Administrasi</li>
-                                    <li>Speed Typing</li>
-                                    <li>Desain Grafis</li>
-                                    <li>Digital Marketing</li>
-                                    <li>Akuntansi Dasar dan Perpajakan</li>
-                                    <li>Bahasa Inggris</li>
-                                    <li>Kesekretariatan</li>
-                                    <li>Motivasi dan Pengembangan Diri</li>
-                                    <li>Uji Kompetensi CLCP</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div> <!--End Course Item -->
 
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="course-item">
-                            <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
-                            <div class="course-content">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <a href="course-details.html">
-                                        <p class="category">APDIG</p>
-                                    </a>
-                                    <p class="price">Rp. 3.500.000</p>
-                                </div>
-                                <h3>Paket Kelas 3 Bulan</h3>
+                                @php
+                                $materiList = preg_split('/\r\n|\r|\n/', trim($item->materi));
+                                @endphp
+
                                 <ul class="check-list">
-                                    <li>Kursus selama 3 bulan</li>
-                                    <li>Senin s.d Jumat</li>
-                                    <li>Jadwal : 08.15 s.d 12.00</li>
-                                    <li>Bersertifikat</li>
-                                </ul>
-                                <h3><b>
-                                        <p class="description">Materi yang akan dipelajari :</p>
-                                    </b></h3>
-                                <ul class="check-list">
-                                    <li>Computer Administrasi</li>
-                                    <li>Speed Typing</li>
-                                    <li>Desain Grafis</li>
-                                    <li>Digital Marketing</li>
-                                    <li>Motivasi dan Pengembangan Diri</li>
+                                    @foreach ($materiList as $materi)
+                                    <li>{{ trim($materi) }}</li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <!-- End Course Item-->
-
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="course-item">
-                            <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
-                            <div class="course-content">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <a href="course-details.php">
-                                        <p class="category">Administrasi Perkantoran</p>
-                                    </a>
-                                    <p class="price">Rp. 1.400.000</p>
-                                </div>
-                                <h3>Reguler/Private</h3>
-                            </div>
-                            <ul class="check-list">
-                                <li>16x Pertemuan (1x pertemuan 2 jam)</li>
-                                <li>Senin s.d Jumat</li>
-                                <li>Jadwal Fleksibel : 08.15, 10.00 dan 14.00</li>
-                                <li>Bersertifikat</li>
-                            </ul>
-                            <div align="justify">
-                                <p class="description">Mahir dalam bidang Perkantoran pembuatan surat, menguasai rumus excel, kreasi persentase menarik</p>
-                            </div>
-                        </div>
-                    </div>
+                    @endif
+                    @endif
+                    @endforeach
                 </div>
             </div> <!-- End Course Item-->
             </div>
