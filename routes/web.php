@@ -26,6 +26,10 @@ Route::get('/home', function () {
 Route::get('/', [PaketController::class, 'dashboard']);
 Route::get('/home', [PaketController::class, 'dashboard'])->name('home');
 
+Route::get('/details/{id}', [PaketController::class, 'detail'])->name('details');
+Route::get('/detailss', function () {
+    return view('detailss');
+})->name('detailss');
 
 Route::get('/about', function () {
     return view('about');
@@ -162,9 +166,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::get('/details', function () {
-    return view('details');
-})->name('details');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

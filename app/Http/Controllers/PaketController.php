@@ -161,4 +161,11 @@ class PaketController extends Controller
 
         return view('dashboard', compact('paket'));
     }
+
+    public function detail($id)
+    {
+        $paket = Paket::findOrFail($id);
+
+        return view('details', compact('paket'));
+    }
 }
