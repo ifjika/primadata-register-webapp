@@ -3,11 +3,11 @@
 @section('title', 'Detail Laporan')
 
 @section('content_header')
-<h1>Detail Laporan Periode {{ $laporan->periode }}</h1>
+<h1>Detail Laporan Peserta Periode {{ $laporan->periode }}</h1>
 @stop
 
 @php
-$rolePrefix = auth()->user()->role; // hasilnya 'admin' atau 'leader'
+$rolePrefix = auth()->user()->role;
 @endphp
 
 @section('content')

@@ -31,9 +31,18 @@ class AuthServiceProvider extends ServiceProvider
             return $user->role === 'leader';
         });
 
-        // Jika ingin bisa pake array misal admin atau leader
+        Gate::define('user', function ($user) {
+            return $user->role === 'user';
+        });
+
+        // Jika ingin bisa akses oleh admin atau leader
         Gate::define('admin_or_leader', function ($user) {
             return in_array($user->role, ['admin', 'leader']);
+        });
+
+        // Contoh: jika ingin bisa akses oleh semua role
+        Gate::define('admin_user_leader', function ($user) {
+            return in_array($user->role, ['admin', 'leader', 'user']);
         });
     }
 }

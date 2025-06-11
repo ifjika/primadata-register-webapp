@@ -19,6 +19,7 @@ return array(
     'App\\Http\\Controllers\\Auth\\VerifyEmailController' => $baseDir . '/app/Http/Controllers/Auth/VerifyEmailController.php',
     'App\\Http\\Controllers\\BerkasController' => $baseDir . '/app/Http/Controllers/BerkasController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\CourseController' => $baseDir . '/app/Http/Controllers/CourseController.php',
     'App\\Http\\Controllers\\LaporanKeuanganController' => $baseDir . '/app/Http/Controllers/LaporanKeuanganController.php',
     'App\\Http\\Controllers\\LaporanPesertaController' => $baseDir . '/app/Http/Controllers/LaporanPesertaController.php',
     'App\\Http\\Controllers\\PaketController' => $baseDir . '/app/Http/Controllers/PaketController.php',

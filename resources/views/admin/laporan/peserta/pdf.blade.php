@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Laporan Keuangan {{ $laporan->periode }}</title>
+    <title>Laporan Peserta {{ $laporan->periode }}</title>
     <style>
         table {
             width: 100%;
@@ -30,7 +30,7 @@
 </head>
 
 <body>
-    <h2>Laporan Keuangan - Periode {{ $laporan->periode }}</h2>
+    <h2>Laporan Peserta - Periode {{ $laporan->periode }}</h2>
     <table>
         <thead>
             <tr>

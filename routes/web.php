@@ -10,16 +10,21 @@ use App\Http\Controllers\PaketController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\PendaftaranPesertaController;
 use App\Http\Controllers\PendaftaranPaketController;
-
+use App\Http\Controllers\UserBerkasController;
+use App\Http\Controllers\UserPembayaranController;
+use App\Http\Controllers\UserPendaftaranPaketController;
+use App\Http\Controllers\UserPendaftaranPesertaController;
 use App\Models\Paket;
 
 
+#####===== Route For No-Login Menu =====#####
+
 Route::get('/', function () {
-    return view('dashboard');
+    return view('home');
 });
 
 Route::get('/home', function () {
-    return view('dashboard');
+    return view('home');
 })->name('home');
 
 
@@ -27,15 +32,40 @@ Route::get('/', [PaketController::class, 'dashboard']);
 Route::get('/home', [PaketController::class, 'dashboard'])->name('home');
 
 Route::get('/details/{id}', [PaketController::class, 'detail'])->name('details');
-Route::get('/detailss', function () {
-    return view('detailss');
-})->name('detailss');
 
 Route::get('/about', function () {
     return view('about');
 })->name('about');
 
-// Route Admin
+Route::get('/instructor', function () {
+    return view('instructor');
+})->name('instructor');
+
+Route::get('/activity', function () {
+    return view('activity');
+})->name('activity');
+
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+
+Route::get('/courses', function () {
+    $paket = Paket::all();
+    return view('courses', compact('paket'));
+})->name('courses');
+
+Route::get('/class-1', function () {
+    return view('class-1');
+})->name('class-1');
+
+Route::get('/class-2', function () {
+    return view('class-2');
+})->name('class-2');
+
+######====================#####
+
+
+#####===== Route Admin =====#####
 Route::get('/admin', function () {
     if (!auth()->check() || auth()->user()->role !== 'admin') {
         return redirect()->route('home')->with('error', 'You are not authorized.');
@@ -44,16 +74,6 @@ Route::get('/admin', function () {
     return view('admin.dashboard');
 })->middleware('auth')->name('admin');
 
-// Route  Berkas
-Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(function () {
-    Route::get('berkas', [BerkasController::class, 'index'])->name('berkas.index');
-    Route::get('berkas/create', [BerkasController::class, 'create'])->name('berkas.create');
-    Route::post('berkas', [BerkasController::class, 'store'])->name('berkas.store');
-    Route::get('berkas/{id}', [BerkasController::class, 'show'])->name('berkas.show');
-    Route::get('berkas/{id}/edit', [BerkasController::class, 'edit'])->name('berkas.edit');
-    Route::put('berkas/{id}', [BerkasController::class, 'update'])->name('berkas.update');
-    Route::delete('berkas/{id}', [BerkasController::class, 'destroy'])->name('berkas.destroy');
-});
 
 // Route Pendaftaran Peserta
 Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(function () {
@@ -76,6 +96,18 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(f
     Route::get('pendaftaran/paket/{id}/edit', [PendaftaranPaketController::class, 'edit'])->name('pendaftaran.paket.edit');
     Route::put('pendaftaran/paket/{id}', [PendaftaranPaketController::class, 'update'])->name('pendaftaran.paket.update');
     // Route::delete('pendaftaran/{id}', [PendaftaranPaketController::class, 'destroy'])->name('pendaftaran.destroy');
+});
+
+
+// Route  Berkas
+Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('berkas', [BerkasController::class, 'index'])->name('berkas.index');
+    Route::get('berkas/create', [BerkasController::class, 'create'])->name('berkas.create');
+    Route::post('berkas', [BerkasController::class, 'store'])->name('berkas.store');
+    Route::get('berkas/{id}', [BerkasController::class, 'show'])->name('berkas.show');
+    Route::get('berkas/{id}/edit', [BerkasController::class, 'edit'])->name('berkas.edit');
+    Route::put('berkas/{id}', [BerkasController::class, 'update'])->name('berkas.update');
+    Route::delete('berkas/{id}', [BerkasController::class, 'destroy'])->name('berkas.destroy');
 });
 
 
@@ -128,7 +160,10 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     Route::get('laporan/peserta/{id}/cetak-pdf', [LaporanPesertaController::class, 'cetak'])->name('laporan.peserta.cetak');
 });
 
+######====================#####
 
+
+#####===== Route For Leader =====#####
 Route::get('/leader', function () {
     if (!auth()->check() || auth()->user()->role !== 'leader') {
         return redirect()->route('home')->with('error', 'You are not authorized.');
@@ -166,13 +201,67 @@ Route::middleware('auth')->group(function () {
 });
 
 
+######====================#####
 
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+#####===== Route For User =====#####
+Route::get('/user', function () {
+    if (!auth()->check() || auth()->user()->role !== 'user') {
+        return redirect()->route('home')->with('error', 'You are not authorized.');
+    }
+
+    return view('user.dashboard');
+})->middleware('auth')->name('user.dashboard');
+
+
+// Route Pendaftaran Peserta
+Route::middleware(['auth', 'role:user'])->prefix('user')->name('user.')->group(function () {
+    Route::get('pendaftaran', [UserPendaftaranPesertaController::class, 'index'])->name('pendaftaran.index');
+    Route::get('pendaftaran/create', [UserPendaftaranPesertaController::class, 'create'])->name('pendaftaran.create');
+    Route::post('pendaftaran', [UserPendaftaranPesertaController::class, 'store'])->name('pendaftaran.store');
+    // Route::get('peserta/{id}', [UserPendaftaranPesertaController::class, 'show'])->name('peserta.show');
+    Route::get('pendaftaran/{id}/edit', [UserPendaftaranPesertaController::class, 'edit'])->name('pendaftaran.edit');
+    Route::put('pendaftaran/{id}', [UserPendaftaranPesertaController::class, 'update'])->name('pendaftaran.update');
+    Route::delete('pendaftaran/{id}', [UserPendaftaranPesertaController::class, 'destroy'])->name('pendaftaran.destroy');
 });
+
+// Route Pendaftaran Paket
+Route::middleware(['auth', 'role:user'])->prefix('user')->name('user.')->group(function () {
+    // Route::get('pendaftaran', [UserPendaftaranPaketController::class, 'index'])->name('pendaftaran.index');
+    Route::get('pendaftaran/paket/create', [UserPendaftaranPaketController::class, 'create'])->name('pendaftaran.paket.create');
+    Route::post('pendaftaran/paket', [UserPendaftaranPaketController::class, 'store'])->name('pendaftaran.paket.store');
+    // Route::get('pendaftaran/{id}', [UserPendaftaranPaketController::class, 'show'])->name('pendaftaran.show');
+    Route::get('pendaftaran/paket/{id}/edit', [UserPendaftaranPaketController::class, 'edit'])->name('pendaftaran.paket.edit');
+    Route::put('pendaftaran/paket/{id}', [UserPendaftaranPaketController::class, 'update'])->name('pendaftaran.paket.update');
+    // Route::delete('pendaftaran/{id}', [UserPendaftaranPaketController::class, 'destroy'])->name('pendaftaran.destroy');
+});
+
+
+// Route  Berkas
+Route::middleware(['auth', 'role:user'])->prefix('user')->name('user.')->group(function () {
+    Route::get('berkas', [UserBerkasController::class, 'index'])->name('berkas.index');
+    Route::get('berkas/create', [UserBerkasController::class, 'create'])->name('berkas.create');
+    Route::post('berkas', [UserBerkasController::class, 'store'])->name('berkas.store');
+    Route::get('berkas/{id}', [UserBerkasController::class, 'show'])->name('berkas.show');
+    Route::get('berkas/{id}/edit', [UserBerkasController::class, 'edit'])->name('berkas.edit');
+    Route::put('berkas/{id}', [UserBerkasController::class, 'update'])->name('berkas.update');
+    Route::delete('berkas/{id}', [UserBerkasController::class, 'destroy'])->name('berkas.destroy');
+});
+
+// Route Pembayaran
+Route::middleware(['auth', 'role:user'])->prefix('user')->name('user.')->group(function () {
+    Route::get('pembayaran', [UserPembayaranController::class, 'index'])->name('pembayaran.index');
+    Route::get('pembayaran/create', [UserPembayaranController::class, 'create'])->name('pembayaran.create');
+    Route::post('pembayaran', [UserPembayaranController::class, 'store'])->name('pembayaran.store');
+    Route::get('pembayaran/{id}', [UserPembayaranController::class, 'show'])->name('pembayaran.show');
+    Route::get('pembayaran/{id}/edit', [UserPembayaranController::class, 'edit'])->name('pembayaran.edit');
+    Route::put('pembayaran/{id}', [UserPembayaranController::class, 'update'])->name('pembayaran.update');
+    Route::delete('pembayaran/{id}', [UserPembayaranController::class, 'destroy'])->name('pembayaran.destroy');
+});
+
+
+#####====================#####
+
 
 Route::get('/check-role', function (UserController $userController) {
     if ($userController->isAdmin()) {
@@ -185,29 +274,10 @@ Route::get('/check-role', function (UserController $userController) {
     return response()->json(['role' => 'guest']);
 })->middleware(['auth']);
 
-Route::get('/instructor', function () {
-    return view('instructor');
-})->name('instructor');
-
-Route::get('/activity', function () {
-    return view('activity');
-})->name('activity');
-
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');
-
-Route::get('/courses', function () {
-    $paket = Paket::all();
-    return view('courses', compact('paket'));
-})->name('courses');
-
-Route::get('/class-1', function () {
-    return view('class-1');
-})->name('class-1');
-
-Route::get('/class-2', function () {
-    return view('class-2');
-})->name('class-2');
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
 require __DIR__ . '/auth.php';

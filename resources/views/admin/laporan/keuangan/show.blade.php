@@ -3,7 +3,7 @@
 @section('title', 'Detail Laporan')
 
 @section('content_header')
-<h1>Detail Laporan Periode {{ $laporan->periode }}</h1>
+<h1>Detail Laporan Keuangan Periode {{ $laporan->periode }}</h1>
 @stop
 
 @php

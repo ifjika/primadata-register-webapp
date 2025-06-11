@@ -98,9 +98,15 @@ class PendaftaranPesertaController extends Controller
 
     public function destroy($id)
     {
-        $peserta = Peserta::findOrFail($id);
-        $peserta->delete();
+        $pendaftaran = Pendaftaran::findOrFail($id);
+        $peserta = $pendaftaran->peserta;
 
-        return redirect()->route('admin.peserta.index')->with('success', 'Peserta berhasil dihapus.');
+        $pendaftaran->delete();
+
+        if ($peserta && $peserta->pendaftarans()->count() === 0) {
+            $peserta->delete();
+        }
+
+        return redirect()->route('admin.pendaftaran.index')->with('success', 'Pendaftaran berhasil dihapus.');
     }
 }

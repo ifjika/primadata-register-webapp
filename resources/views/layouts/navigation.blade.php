@@ -61,7 +61,22 @@
                 </div>
             </div>
 
+            @auth
 
+            @if (Auth::user()->role === 'admin')
+            <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.*')">
+                {{ __('Admin Panel') }}
+            </x-nav-link>
+            @elseif (Auth::user()->role === 'leader')
+            <x-nav-link :href="route('leader.dashboard')" :active="request()->routeIs('leader.*')">
+                {{ __('Leader Panel') }}
+            </x-nav-link>
+            @elseif (Auth::user()->role === 'user')
+            <x-nav-link :href="route('user.dashboard')" :active="request()->routeIs('user.*')">
+                {{ __('User Panel') }}
+            </x-nav-link>
+            @endif
+            @endauth
 
             <!-- Hamburger -->
             <div class="-me-2 flex items-center sm:hidden">

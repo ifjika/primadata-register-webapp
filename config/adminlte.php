@@ -310,10 +310,10 @@ return [
             'topnav_right' => true,
         ],
 
-        // Sidebar items:
+        // Sidebar items Admin
         [
             'header' => 'ACCOUNT SETTINGS',
-            'can' => 'admin'
+            'can' => ['admin', 'user']
         ],
 
         [
@@ -330,6 +330,7 @@ return [
             'icon' => 'fas fa-fw fa-archive',
             'label_color' => 'success',
             'can' => 'admin',
+
         ],
 
         [
@@ -344,10 +345,41 @@ return [
             'text' => 'Paket',
             'url' => 'admin/paket',
             'icon' => 'fas fa-box',
-            'can' => 'admin'
+            'can' => 'admin',
         ],
 
-        ['header' => 'LAPORAN'],
+        // Sidebar items User
+        [
+            'text' => 'Pendaftaran',
+            'url' => 'user/pendaftaran',
+            'icon' => 'fas fa-fw fa-user',
+            'label_color' => 'success',
+            'can' => 'user'
+        ],
+
+        [
+            'text' => 'Berkas',
+            'url' => 'user/berkas',
+            'icon' => 'fas fa-fw fa-archive',
+            'label_color' => 'success',
+            'can' => 'user'
+
+        ],
+
+        [
+            'text' => 'Pembayaran',
+            'url' => 'user/pembayaran',
+            'icon' => 'fas fa-fw fa-credit-card',
+            'label_color' => 'success',
+            'can' => 'user'
+        ],
+
+        [
+            'header' => 'LAPORAN',
+            'can' => 'admin',
+            'leader'
+        ],
+
         [
             'text' => 'Laporan',
             'icon' => 'fas fa-fw fa-book',
@@ -362,7 +394,6 @@ return [
                 ],
             ],
             'can' => ['admin', 'leader']
-
         ],
     ],
 

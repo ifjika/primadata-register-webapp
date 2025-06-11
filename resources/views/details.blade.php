@@ -94,7 +94,13 @@
           <div class="col-lg-4">
             <div class="course-info d-flex justify-content-between align-items-center">
               <h5>Durasi</h5>
-              <p>{{ $paket->nama_paket }}</p>
+              <p>
+                @if($paket->nama_paket == 'Reguler')
+                16x Pertemuan
+                @else
+                {{ $paket->nama_paket ?? 'Durasi tidak tersedia' }}
+                @endif
+              </p>
             </div>
 
             <div class="course-info d-flex justify-content-between align-items-center">

@@ -26,6 +26,11 @@
         h2 {
             text-align: center;
         }
+
+        tfoot td {
+            font-weight: bold;
+            background-color: #f0f0f0;
+        }
     </style>
 </head>
 
@@ -42,7 +47,9 @@
             </tr>
         </thead>
         <tbody>
+            @php $totalPembayaran = 0; @endphp
             @foreach ($pembayarans as $index => $pembayaran)
+            @php $totalPembayaran += $pembayaran->jumlah_bayar; @endphp
             <tr>
                 <td>{{ $index + 1 }}</td>
                 <td>{{ $pembayaran->pendaftaran->peserta->nama_peserta ?? '-' }}</td>
@@ -52,6 +59,12 @@
             </tr>
             @endforeach
         </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">Total Pembayaran</td>
+                <td colspan="2">Rp {{ number_format($totalPembayaran, 0, ',', '.') }}</td>
+            </tr>
+        </tfoot>
     </table>
 </body>
 

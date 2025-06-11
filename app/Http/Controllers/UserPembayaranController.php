@@ -8,26 +8,30 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 
-class PembayaranController extends Controller
+class UserPembayaranController extends Controller
 {
     // Tampilkan semua data pembayaran
     public function index()
     {
+        $userId = auth()->id();
+
         $pembayaran = Pembayaran::with('pendaftaran.peserta', 'pendaftaran.paket')
+            ->whereHas('pendaftaran.peserta', function ($query) use ($userId) {
+                $query->where('id_user', $userId);
+            })
             ->latest()
             ->get()
             ->unique('id_pendaftaran');
 
-        return view('admin.pembayaran.index', compact('pembayaran'));
+        return view('user.pembayaran.index', compact('pembayaran'));
     }
-
 
     // Tampilkan form tambah pembayaran
     public function create()
     {
 
         $pendaftaran = Pendaftaran::with('peserta', 'paket')->get();
-        return view('admin.pembayaran.create', compact('pendaftaran'));
+        return view('user.pembayaran.create', compact('pendaftaran'));
     }
 
     public function store(Request $request)
@@ -58,7 +62,7 @@ class PembayaranController extends Controller
             ]);
         }
 
-        return redirect()->route('admin.pembayaran.index')->with('success', 'Data pembayaran berhasil ditambahkan.');
+        return redirect()->route('user.pembayaran.index')->with('success', 'Data pembayaran berhasil ditambahkan.');
     }
 
     public function show($id)
@@ -69,7 +73,7 @@ class PembayaranController extends Controller
             ->where('id_pendaftaran', $pembayaran->id_pendaftaran)
             ->get();
 
-        return view('admin.pembayaran.show', compact('pembayaran', 'pembayarans'));
+        return view('user.pembayaran.show', compact('pembayaran', 'pembayarans'));
     }
 
     public function edit($id)
@@ -95,7 +99,7 @@ class PembayaranController extends Controller
             }, explode(",", $metodeMatches[1]));
         }
 
-        return view('admin.pembayaran.edit', [
+        return view('user.pembayaran.edit', [
             'pembayaran' => $pembayaran,
             'pendaftarans' => $pendaftarans,
             'enumValuesStatus' => $enumStatus,
@@ -135,7 +139,7 @@ class PembayaranController extends Controller
 
         $pembayaran->update($data);
 
-        return redirect()->route('admin.pembayaran.index')->with('success', 'Data pembayaran berhasil diperbarui.');
+        return redirect()->route('user.pembayaran.index')->with('success', 'Data pembayaran berhasil diperbarui.');
     }
 
 
@@ -150,6 +154,6 @@ class PembayaranController extends Controller
 
         $pembayaran->delete();
 
-        return redirect()->route('admin.pembayaran.index')->with('success', 'Data pembayaran berhasil dihapus.');
+        return redirect()->route('user.pembayaran.index')->with('success', 'Data pembayaran berhasil dihapus.');
     }
 }
