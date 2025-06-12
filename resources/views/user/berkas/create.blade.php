@@ -18,7 +18,7 @@
 </div>
 @endif
 
-<form action="{{ url('admin/berkas') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ url('user/berkas') }}" method="POST" enctype="multipart/form-data">
     @csrf
 
     <div class="form-group">
@@ -29,7 +29,7 @@
             <option value="{{ $p->id_pendaftaran }}"
                 data-id-peserta="{{ $p->id_peserta }}"
                 data-id-user="{{ $p->peserta->id_user ?? '' }}">
-                ID: {{ $p->id_pendaftaran }} - {{ $p->peserta->nama_peserta ?? '-' }}
+                ID: {{ $p->id_pendaftaran }} - {{ $p->peserta->nama_peserta ?? '-' }} - Paket: {{ $p->paket->nama_paket ?? '-' }}
             </option>
             @endforeach
         </select>
@@ -62,7 +62,7 @@
     </div>
 
     <button type="submit" class="btn btn-success">Simpan</button>
-    <a href="{{ url('admin/berkas') }}" class="btn btn-secondary">Kembali</a>
+    <a href="{{ url('user/berkas') }}" class="btn btn-secondary">Kembali</a>
 </form>
 @stop
 

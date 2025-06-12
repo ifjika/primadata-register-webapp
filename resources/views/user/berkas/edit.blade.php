@@ -18,7 +18,7 @@
 </div>
 @endif
 
-<form action="{{ url('admin/berkas/' . $berkas->id_berkas) }}" method="POST" enctype="multipart/form-data">
+<form action="{{ url('user/berkas/' . $berkas->id_berkas) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
 
@@ -112,7 +112,7 @@
     </div>
 
     <button type="submit" class="btn btn-success">Update</button>
-    <a href="{{ url('admin/berkas') }}" class="btn btn-secondary">Kembali</a>
+    <a href="{{ url('user/berkas') }}" class="btn btn-secondary">Kembali</a>
 </form>
 @stop
 

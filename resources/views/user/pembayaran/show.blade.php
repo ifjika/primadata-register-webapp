@@ -7,7 +7,7 @@
 @endsection
 
 @php
-$rolePrefix = auth()->user()->role ?? 'admin';
+$rolePrefix = auth()->user()->role ?? 'user';
 
 if (!function_exists('toRoman')) {
 function toRoman($num) {
@@ -68,8 +68,8 @@ if ($num <= 0) return '-' ;
                     @endif
                 </td>
                 <td>
-                    <a href="{{ route('admin.pembayaran.edit', $item->id_pembayaran) }}" class="btn btn-warning btn-sm">Edit</a>
-                    <form action="{{ route('admin.pembayaran.destroy', $item->id_pembayaran) }}" method="POST" style="display:inline;">
+                    <a href="{{ route('user.pembayaran.edit', $item->id_pembayaran) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <form action="{{ route('user.pembayaran.destroy', $item->id_pembayaran) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</button>

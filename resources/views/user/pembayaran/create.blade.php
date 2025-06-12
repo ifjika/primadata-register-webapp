@@ -19,7 +19,7 @@
 </div>
 @endif
 
-<form action="{{ route('admin.pembayaran.store') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('user.pembayaran.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
 
     <div class="form-group">
@@ -68,18 +68,15 @@
     </div>
 
     <div class="form-group">
-        <label for="status">Status Pembayaran</label>
-        <select name="status" id="status" class="form-control" required>
-            <option value="" disabled selected>-- Pilih Status --</option>
-            <option value="Lunas">Lunas</option>
-            <option value="Belum Lunas">Belum Lunas</option>
-        </select>
+        <label for="status">Status Pembayaran -- Akan divalidasi Kelunasannya oleh Admin</label>
+        <input type="text" name="status" id="status" class="form-control" value="Belum Lunas" readonly>
     </div>
+
 
     {{-- Submit dan kembali --}}
     <div class="form-group">
         <button type="submit" class="btn btn-primary">Simpan</button>
-        <a href="{{ route('admin.pembayaran.index') }}" class="btn btn-secondary">Kembali</a>
+        <a href="{{ route('user.pembayaran.index') }}" class="btn btn-secondary">Kembali</a>
     </div>
 </form>
 

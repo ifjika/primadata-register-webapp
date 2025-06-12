@@ -29,7 +29,7 @@
             <option value="{{ $p->id_pendaftaran }}"
                 data-id-peserta="{{ $p->id_peserta }}"
                 data-id-user="{{ $p->peserta->id_user ?? '' }}">
-                ID: {{ $p->id_pendaftaran }} - {{ $p->peserta->nama_peserta ?? '-' }}
+                ID: {{ $p->id_pendaftaran }} - {{ $p->peserta->nama_peserta ?? '-' }} - Paket: {{ $p->paket->nama_paket ?? '-' }}
             </option>
             @endforeach
         </select>
