@@ -22,7 +22,6 @@
     @csrf
     @method('PUT')
 
-    {{-- Dropdown pilih pendaftaran --}}
     <div class="form-group">
         <label for="id_pendaftaran">Pendaftaran</label>
         <select name="id_pendaftaran" id="id_pendaftaran" class="form-control" required>
@@ -32,13 +31,13 @@
                 data-id-peserta="{{ $p->id_peserta }}"
                 data-id-user="{{ $p->peserta->id_user ?? '' }}"
                 {{ old('id_pendaftaran', $berkas->id_pendaftaran ?? '') == $p->id_pendaftaran ? 'selected' : '' }}>
-                ID: {{ $p->id_pendaftaran }} - {{ $p->peserta->nama_peserta ?? '-' }} - Paket: {{ $p->paket->nama_paket ?? '-' }}
+                ID: {{ $p->id_pendaftaran }} - {{ $p->peserta->nama_peserta ?? '-' }}
             </option>
             @endforeach
         </select>
     </div>
 
-    {{-- Input ID User, otomatis terisi dan readonly --}}
+    {{-- ID User yang akan otomatis terisi --}}
     <div class="form-group">
         <label for="id_user">ID User</label>
         <input type="text" name="id_user" id="id_user"
@@ -47,7 +46,6 @@
     </div>
 
     @php
-    // Fungsi untuk mengecek apakah file adalah gambar
     if (!function_exists('isImage')) {
     function isImage($filename) {
     $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
@@ -56,7 +54,8 @@
     }
     @endphp
 
-    {{-- File Ijazah --}}
+
+    {{-- Ijazah --}}
     <div class="form-group">
         <label for="ijazah">Ijazah (PDF / Gambar)</label><br>
         @if($berkas->ijazah)
@@ -70,7 +69,7 @@
         <small>Kosongkan jika tidak ingin mengganti file</small>
     </div>
 
-    {{-- File Kartu Keluarga --}}
+    {{-- KK --}}
     <div class="form-group">
         <label for="kk">Kartu Keluarga (PDF / Gambar)</label><br>
         @if($berkas->kk)
@@ -84,7 +83,7 @@
         <small>Kosongkan jika tidak ingin mengganti file</small>
     </div>
 
-    {{-- File KTP --}}
+    {{-- KTP --}}
     <div class="form-group">
         <label for="ktp">KTP (PDF / Gambar)</label><br>
         @if($berkas->ktp)
@@ -98,7 +97,7 @@
         <small>Kosongkan jika tidak ingin mengganti file</small>
     </div>
 
-    {{-- File Pas Foto --}}
+    {{-- Pas Foto --}}
     <div class="form-group">
         <label for="pas_foto">Pas Foto (JPG / PNG)</label><br>
         @if($berkas->pas_foto)
@@ -124,16 +123,16 @@
 @section('js')
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const pendaftaranSelect = document.getElementById('id_pendaftaran');
+        const pesertaSelect = document.getElementById('id_peserta');
         const idUserInput = document.getElementById('id_user');
 
-        const selectedOption = pendaftaranSelect.options[pendaftaranSelect.selectedIndex];
+        const selectedOption = pesertaSelect.options[pesertaSelect.selectedIndex];
         const initialIdUser = selectedOption?.getAttribute('data-id-user');
         if (initialIdUser) {
             idUserInput.value = initialIdUser;
         }
 
-        pendaftaranSelect.addEventListener('change', function() {
+        pesertaSelect.addEventListener('change', function() {
             const selected = this.options[this.selectedIndex];
             const userId = selected.getAttribute('data-id-user');
             idUserInput.value = userId ?? '';

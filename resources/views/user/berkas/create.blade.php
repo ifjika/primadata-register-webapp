@@ -22,20 +22,23 @@
     @csrf
 
     <div class="form-group">
+        <label for="id_pendaftaran">Pendaftaran</label>
         <select name="id_pendaftaran" id="id_pendaftaran" class="form-control" required>
             <option value="">-- Pilih Pendaftar --</option>
             @foreach ($pendaftaran as $p)
-            <option value="{{ $p->id_pendaftaran }}">
-                ID: {{ $p->id_pendaftaran }} - {{ $p->peserta->nama_peserta }} - Paket: {{ $p->paket->nama_paket ?? '-' }}
+            <option value="{{ $p->id_pendaftaran }}"
+                data-id-peserta="{{ $p->id_peserta }}"
+                data-id-user="{{ $p->peserta->id_user ?? '' }}">
+                ID: {{ $p->id_pendaftaran }} - {{ $p->peserta->nama_peserta ?? '-' }}
             </option>
             @endforeach
         </select>
     </div>
 
+
     <div class="form-group">
-        <label for="id_user_display">ID User</label>
-        <input type="text" id="id_user_display" class="form-control" value="{{ auth()->user()->id }}" readonly>
-        <input type="hidden" name="id_user" id="id_user" value="{{ auth()->user()->id }}">
+        <label for="id_user">ID User</label>
+        <input type="text" id="id_user" name="id_user" class="form-control" readonly required>
     </div>
 
     <div class="form-group">
