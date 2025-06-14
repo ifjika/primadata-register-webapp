@@ -124,7 +124,7 @@
 
     <!-- CTA -->
     <center>
-      <a class="btn-getstarted" href="{{ route('courses') }}">Daftar Sekarang</a>
+      <a class="btn-getstarted" href="{{ route('register') }}">Daftar Sekarang</a>
     </center>
     <br>
 
