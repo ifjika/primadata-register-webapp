@@ -9,7 +9,7 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        <form action="{{ route('admin.pembayaran.update', $pembayaran->id_pembayaran) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('user.pembayaran.update', $pembayaran->id_pembayaran) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -93,7 +93,7 @@
             {{-- Submit dan kembali --}}
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Update Pembayaran</button>
-                <a href="{{ route('admin.pembayaran.index') }}" class="btn btn-secondary">Kembali</a>
+                <a href="{{ route('user.pembayaran.index') }}" class="btn btn-secondary">Kembali</a>
             </div>
 
         </form>

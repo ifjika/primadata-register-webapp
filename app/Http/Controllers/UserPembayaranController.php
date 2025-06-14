@@ -29,10 +29,17 @@ class UserPembayaranController extends Controller
     // Tampilkan form tambah pembayaran
     public function create()
     {
+        $userId = auth()->id();
 
-        $pendaftaran = Pendaftaran::with('peserta', 'paket')->get();
+        $pendaftaran = Pendaftaran::with(['peserta', 'paket'])
+            ->whereHas('peserta', function ($query) use ($userId) {
+                $query->where('id_user', $userId);
+            })
+            ->get();
+
         return view('user.pembayaran.create', compact('pendaftaran'));
     }
+
 
     public function store(Request $request)
     {

@@ -48,7 +48,6 @@ class UserBerkasController extends Controller
 
         $pendaftaran = Pendaftaran::with('peserta.user')->findOrFail($request->id_pendaftaran);
 
-        // Pastikan pendaftaran yang dipilih adalah milik user yang login
         if ($pendaftaran->peserta->id_user !== auth()->id()) {
             abort(403, 'Akses tidak diizinkan.');
         }

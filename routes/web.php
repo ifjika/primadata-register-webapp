@@ -72,7 +72,7 @@ Route::get('/admin', function () {
     }
 
     return view('admin.dashboard');
-})->middleware('auth')->name('admin');
+})->middleware('auth')->name('admin.dashboard');
 
 
 // Route Pendaftaran Peserta

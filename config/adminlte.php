@@ -309,6 +309,12 @@ return [
             'type' => 'fullscreen-widget',
             'topnav_right' => true,
         ],
+        [
+            'text' => 'Course',
+            'topnav_right' => true,
+            'icon' => 'fas fa-home',
+            'url'  => '/home'
+        ],
 
         // Sidebar items Admin
         [
