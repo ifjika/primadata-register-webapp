@@ -60,10 +60,6 @@
                         </div>
                     </x-nav-link>
 
-                    <!-- <div class="text-center mt-2">
-                        <a href="{{route('courses')}}" class="btn btn-primary btn-lg rounded-pill" style="font-size: 1rem;">Daftar Sekarang</a>
-                    </div> -->
-
                     @auth
 
                     @if (Auth::user()->role === 'admin')
