@@ -54,29 +54,36 @@
                         {{ __('Contact Us') }}
                     </x-nav-link>
 
-                    <div class="text-center mt-2">
-                        <a href="{{route('courses')}}" class="btn btn-primary btn-lg rounded-pill">Daftar Sekarang</a>
-                    </div>
+                    <x-nav-link :href="route('courses')" :active="request()->routeIs('courses')">
+                        <div class="text-center mb-2">
+                            <span class="btn btn-primary btn-lg rounded-pill" style="font-size: 0.9rem;">Daftar Sekarang</span>
+                        </div>
+                    </x-nav-link>
 
+                    <!-- <div class="text-center mt-2">
+                        <a href="{{route('courses')}}" class="btn btn-primary btn-lg rounded-pill" style="font-size: 1rem;">Daftar Sekarang</a>
+                    </div> -->
+
+                    @auth
+
+                    @if (Auth::user()->role === 'admin')
+                    <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.*')">
+                        {{ __('Admin Panel') }}
+                    </x-nav-link>
+                    @elseif (Auth::user()->role === 'leader')
+                    <x-nav-link :href="route('leader.dashboard')" :active="request()->routeIs('leader.*')">
+                        {{ __('Leader Panel') }}
+                    </x-nav-link>
+                    @elseif (Auth::user()->role === 'user')
+                    <x-nav-link :href="route('user.dashboard')" :active="request()->routeIs('user.*')">
+                        <div class="text-center mb-2">
+                            <span class="btn btn-danger btn-lg rounded-pill" style="font-size: 0.9rem;">Lanjutkan Pendaftaran</span>
+                        </div>
+                    </x-nav-link>
+                    @endif
+                    @endauth
                 </div>
             </div>
-
-            @auth
-
-            @if (Auth::user()->role === 'admin')
-            <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.*')">
-                {{ __('Admin Panel') }}
-            </x-nav-link>
-            @elseif (Auth::user()->role === 'leader')
-            <x-nav-link :href="route('leader.dashboard')" :active="request()->routeIs('leader.*')">
-                {{ __('Leader Panel') }}
-            </x-nav-link>
-            @elseif (Auth::user()->role === 'user')
-            <x-nav-link :href="route('user.dashboard')" :active="request()->routeIs('user.*')">
-                {{ __('User Panel') }}
-            </x-nav-link>
-            @endif
-            @endauth
 
             <!-- Hamburger -->
             <div class="-me-2 flex items-center sm:hidden">

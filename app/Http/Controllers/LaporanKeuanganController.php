@@ -101,7 +101,6 @@ class LaporanKeuanganController extends Controller
         return redirect()->route('admin.laporan.keuangan.index')->with('success', 'Laporan berhasil dihapus.');
     }
 
-
     public function cetak($id)
     {
         $laporan = Laporan::findOrFail($id);
@@ -110,12 +109,32 @@ class LaporanKeuanganController extends Controller
         $startDate = Carbon::createFromFormat('Y-m', $periode)->startOfMonth();
         $endDate = Carbon::createFromFormat('Y-m', $periode)->endOfMonth();
 
-        $pembayarans = Pembayaran::with(['pendaftaran.peserta', 'pendaftaran.paket'])
+        $allPembayarans = Pembayaran::with(['pendaftaran.paket'])
             ->where('status', 'lunas')
             ->whereBetween('created_at', [$startDate, $endDate])
             ->get();
 
-        $pdf = Pdf::loadView('admin.laporan.keuangan.pdf', compact('laporan', 'pembayarans'));
+        $paketPrioritas = ['6 Bulan', '3 Bulan', 'Reguler'];
+        $sortedPembayarans = collect();
+
+        foreach ($paketPrioritas as $paketNama) {
+            $filtered = $allPembayarans->filter(function ($item) use ($paketNama) {
+                return ($item->pendaftaran->paket->nama_paket ?? '') === $paketNama;
+            });
+
+            $groupedByJurusan = $filtered->groupBy(function ($item) {
+                return $item->pendaftaran->paket->jurusan ?? 'Lainnya';
+            })->sortKeys();
+
+            foreach ($groupedByJurusan as $items) {
+                $sortedPembayarans = $sortedPembayarans->merge($items);
+            }
+        }
+
+        $pdf = Pdf::loadView('admin.laporan.keuangan.pdf', [
+            'laporan' => $laporan,
+            'pembayarans' => $sortedPembayarans,
+        ]);
 
         return $pdf->download('Laporan-Keuangan-' . $laporan->periode . '.pdf');
     }

@@ -32,8 +32,8 @@
             <td>{{ $loop->iteration }}</td>
             <td>{{ $item->peserta->nama_peserta ?? '-' }}</td>
             <td>{{ $item->peserta->tempat_lahir }}, {{ \Carbon\Carbon::parse($item->peserta->tanggal_lahir)->format('d-m-Y') }}</td>
-            <td>{{ $item->paket->nama_paket }}</td>
-            <td>{{ $item->paket->jurusan }}</td>
+            <td>{{ $item->paket->nama_paket ?? '-' }}</td>
+            <td>{{ $item->paket->jurusan ?? '-'}}</td>
             <td>{{ $item->peserta->alamat}}</td>
             <td>{{ $item->peserta->no_wa}}</td>
             <td>

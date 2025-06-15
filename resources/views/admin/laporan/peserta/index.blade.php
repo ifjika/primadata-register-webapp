@@ -36,7 +36,9 @@ $rolePrefix = auth()->user()->role; // hasilnya 'admin' atau 'leader'
             <td>{{ $item->periode }}</td>
             <td>{{ $item->jumlah_peserta }}</td>
             <td>
-                <a href="{{ route($rolePrefix . '.laporan.peserta.show', $item->id_laporan) }}" class="btn btn-warning btn-sm">Show</a>
+                <!-- <a href="{{ route($rolePrefix . '.laporan.peserta.show', $item->id_laporan) }}" class="btn btn-warning btn-sm">Show</a> -->
+                <a href="{{ route($rolePrefix . '.laporan.peserta.cetak', $item->id_laporan) }}" class="btn btn-warning btn-sm">Cetak</a>
+
 
                 @if(auth()->user()->role === 'admin')
                 <form action="{{ route($rolePrefix . '.laporan.peserta.destroy', $item->id_laporan) }}" method="POST" style="display:inline;">

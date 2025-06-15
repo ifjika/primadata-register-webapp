@@ -110,13 +110,71 @@ class LaporanPesertaController extends Controller
         $startDate = Carbon::createFromFormat('Y-m', $periode)->startOfMonth();
         $endDate = Carbon::createFromFormat('Y-m', $periode)->endOfMonth();
 
+        // Ambil semua pembayaran lunas pada periode
         $pembayarans = Pembayaran::with(['pendaftaran.peserta', 'pendaftaran.paket'])
             ->where('status', 'lunas')
             ->whereBetween('created_at', [$startDate, $endDate])
             ->get();
 
-        $pdf = Pdf::loadView('admin.laporan.peserta.pdf', compact('laporan', 'pembayarans'));
+        $kategoriPaket = ['6 bulan', '3 bulan', 'reguler'];
+        $blokPesertaData = [];
+        $pembayaransTerurut = collect(); // koleksi baru untuk menyimpan data pembayaran urut dan unik
 
-        return $pdf->download('Laporan-Peserta-' . $laporan->periode . '.pdf');
+        foreach ($kategoriPaket as $kategori) {
+            // Filter pembayaran sesuai kategori paket (case insensitive)
+            $filtered = $pembayarans->filter(function ($pembayaran) use ($kategori) {
+                $namaPaket = strtolower($pembayaran->pendaftaran->paket->nama_paket ?? '');
+                return str_contains($namaPaket, strtolower($kategori));
+            });
+
+            // Kelompokkan berdasarkan jurusan dan nama peserta unik
+            $pesertaUnikPerJurusan = [];
+
+            foreach ($filtered as $pembayaran) {
+                $jurusan = $pembayaran->pendaftaran->paket->jurusan ?? '';
+                $namaPeserta = $pembayaran->pendaftaran->peserta->nama ?? '';
+
+                if (!isset($pesertaUnikPerJurusan[$jurusan])) {
+                    $pesertaUnikPerJurusan[$jurusan] = [];
+                }
+
+                // Simpan hanya pembayaran pertama dari peserta unik per jurusan
+                if (!array_key_exists($namaPeserta, $pesertaUnikPerJurusan[$jurusan])) {
+                    $pesertaUnikPerJurusan[$jurusan][$namaPeserta] = $pembayaran;
+                }
+            }
+
+            // Urutkan jurusan berdasarkan abjad
+            ksort($pesertaUnikPerJurusan);
+
+            // Untuk setiap jurusan, urutkan peserta berdasarkan nama abjad
+            $jumlahPerJurusan = [];
+            foreach ($pesertaUnikPerJurusan as $jurusan => $pesertas) {
+                ksort($pesertas);
+
+                $jumlahPerJurusan[$jurusan] = count($pesertas);
+
+                // Tambahkan peserta unik terurut ke koleksi $pembayaransTerurut
+                foreach ($pesertas as $pembayaran) {
+                    $pembayaransTerurut->push($pembayaran);
+                }
+            }
+
+            // Simpan jumlah peserta per jurusan ke blok data dengan key kategori paket
+            $blokPesertaData[$kategori] = $jumlahPerJurusan;
+        }
+
+        // Hitung total peserta unik (distinct id_user) untuk periode dan status lunas
+        $totalPeserta = Pembayaran::where('status', 'lunas')
+            ->whereBetween('created_at', [$startDate, $endDate])
+            ->distinct('id_pendaftaran')
+            ->count('id_pendaftaran');
+
+        return Pdf::loadView('admin.laporan.peserta.pdf', [
+            'laporan' => $laporan,
+            'pembayarans' => $pembayaransTerurut,
+            'blokPesertaData' => $blokPesertaData,
+            'totalPeserta' => $totalPeserta,
+        ])->download('Laporan-Peserta-' . $laporan->periode . '.pdf');
     }
 }
