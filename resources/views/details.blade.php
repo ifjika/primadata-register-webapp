@@ -116,6 +116,16 @@
               <h5>Jadwal</h5>
               <p>{{ $paket->jadwal ?? '08.00 - 12.00' }}</p>
             </div>
+
+            <div class="course-info d-flex justify-content-between align-items-center">
+              <h5>Bayar :</h5>
+              <p>1008 02100 3036-2</p>              
+            </div>
+
+             <div class="course-info d-flex justify-content-between align-items-center">
+              <h5>Bank :</h5>
+              <p>Bank Nagari/LKP PRIMA DATA</p>
+            </div>
           </div>
         </div>
       </div>

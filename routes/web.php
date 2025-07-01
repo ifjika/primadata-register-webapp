@@ -41,6 +41,10 @@ Route::get('/instructor', function () {
     return view('instructor');
 })->name('instructor');
 
+Route::get('/fasilitas', function () {
+    return view('fasilitas');
+})->name('fasilitas');
+
 Route::get('/activity', function () {
     return view('activity');
 })->name('activity');

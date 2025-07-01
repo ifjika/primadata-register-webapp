@@ -163,6 +163,10 @@
 
         </section><!-- /Counts Section -->
 
+        <div class="container section-title" data-aos="fade-up">              
+                <p>Fasilitas di LKP Prima Data :</p>
+        </div>
+        
         <!-- Testimonials Section -->
         <section id="testimonials" class="testimonials section">
 

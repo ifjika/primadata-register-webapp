@@ -47,7 +47,7 @@
         <label for="metode_bayar">Metode Bayar</label>
         <select name="metode_bayar" id="metode_bayar" class="form-control" required>
             <option value="">-- Pilih Metode --</option>
-            <option value="transfer" {{ old('metode_bayar') == 'transfer' ? 'selected' : '' }}>Transfer</option>
+            <option value="transfer" {{ old('metode_bayar') == 'transfer' ? 'selected' : '' }}>Transfer - 1008 02100 3036-2 - Bank Nagari - LPK Prima Data</option>
             <option value="tunai" {{ old('metode_bayar') == 'tunai' ? 'selected' : '' }}>Tunai</option>
         </select>
     </div>
