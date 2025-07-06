@@ -25,15 +25,19 @@
     21 => 'Illuminate\\View\\ViewServiceProvider',
     22 => 'Barryvdh\\DomPDF\\ServiceProvider',
     23 => 'JeroenNoten\\LaravelAdminLte\\AdminLteServiceProvider',
-    24 => 'Laravel\\Sanctum\\SanctumServiceProvider',
-    25 => 'Laravel\\Tinker\\TinkerServiceProvider',
-    26 => 'Carbon\\Laravel\\ServiceProvider',
-    27 => 'Termwind\\Laravel\\TermwindServiceProvider',
-    28 => 'Spatie\\Permission\\PermissionServiceProvider',
-    29 => 'App\\Providers\\AppServiceProvider',
-    30 => 'App\\Providers\\AuthServiceProvider',
-    31 => 'App\\Providers\\EventServiceProvider',
-    32 => 'App\\Providers\\RouteServiceProvider',
+    24 => 'Laravel\\Breeze\\BreezeServiceProvider',
+    25 => 'Laravel\\Sail\\SailServiceProvider',
+    26 => 'Laravel\\Sanctum\\SanctumServiceProvider',
+    27 => 'Laravel\\Tinker\\TinkerServiceProvider',
+    28 => 'Carbon\\Laravel\\ServiceProvider',
+    29 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
+    30 => 'Termwind\\Laravel\\TermwindServiceProvider',
+    31 => 'Spatie\\LaravelIgnition\\IgnitionServiceProvider',
+    32 => 'Spatie\\Permission\\PermissionServiceProvider',
+    33 => 'App\\Providers\\AppServiceProvider',
+    34 => 'App\\Providers\\AuthServiceProvider',
+    35 => 'App\\Providers\\EventServiceProvider',
+    36 => 'App\\Providers\\RouteServiceProvider',
   ),
   'eager' => 
   array (
@@ -51,12 +55,14 @@
     11 => 'JeroenNoten\\LaravelAdminLte\\AdminLteServiceProvider',
     12 => 'Laravel\\Sanctum\\SanctumServiceProvider',
     13 => 'Carbon\\Laravel\\ServiceProvider',
-    14 => 'Termwind\\Laravel\\TermwindServiceProvider',
-    15 => 'Spatie\\Permission\\PermissionServiceProvider',
-    16 => 'App\\Providers\\AppServiceProvider',
-    17 => 'App\\Providers\\AuthServiceProvider',
-    18 => 'App\\Providers\\EventServiceProvider',
-    19 => 'App\\Providers\\RouteServiceProvider',
+    14 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
+    15 => 'Termwind\\Laravel\\TermwindServiceProvider',
+    16 => 'Spatie\\LaravelIgnition\\IgnitionServiceProvider',
+    17 => 'Spatie\\Permission\\PermissionServiceProvider',
+    18 => 'App\\Providers\\AppServiceProvider',
+    19 => 'App\\Providers\\AuthServiceProvider',
+    20 => 'App\\Providers\\EventServiceProvider',
+    21 => 'App\\Providers\\RouteServiceProvider',
   ),
   'deferred' => 
   array (
@@ -199,6 +205,9 @@
     'validator' => 'Illuminate\\Validation\\ValidationServiceProvider',
     'validation.presence' => 'Illuminate\\Validation\\ValidationServiceProvider',
     'Illuminate\\Contracts\\Validation\\UncompromisedVerifier' => 'Illuminate\\Validation\\ValidationServiceProvider',
+    'Laravel\\Breeze\\Console\\InstallCommand' => 'Laravel\\Breeze\\BreezeServiceProvider',
+    'Laravel\\Sail\\Console\\InstallCommand' => 'Laravel\\Sail\\SailServiceProvider',
+    'Laravel\\Sail\\Console\\PublishCommand' => 'Laravel\\Sail\\SailServiceProvider',
     'command.tinker' => 'Laravel\\Tinker\\TinkerServiceProvider',
   ),
   'when' => 
@@ -237,6 +246,12 @@
     array (
     ),
     'Illuminate\\Validation\\ValidationServiceProvider' => 
+    array (
+    ),
+    'Laravel\\Breeze\\BreezeServiceProvider' => 
+    array (
+    ),
+    'Laravel\\Sail\\SailServiceProvider' => 
     array (
     ),
     'Laravel\\Tinker\\TinkerServiceProvider' => 
