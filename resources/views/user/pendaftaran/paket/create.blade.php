@@ -46,7 +46,7 @@
 
     <input type="hidden" name="id_paket" id="id_paket" value="">
 
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label for="status">Status</label>
         <select name="status" id="status" class="form-control" required>
             <option value="">-- Pilih Status --</option>
@@ -54,7 +54,7 @@
             <option value="sukses">Sukses</option>
             <option value="batal">Batal</option>
         </select>
-    </div>
+    </div> -->
 
 
     <button type="submit" class="btn btn-primary">Simpan</button>
