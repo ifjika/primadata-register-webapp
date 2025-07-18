@@ -50,11 +50,11 @@ if ($num <= 0) return '-' ;
             @foreach ($pembayarans as $index => $item)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ toRoman($loop->iteration) }}</td>
-                <td>Rp{{ number_format($item->jumlah_bayar?? 0, 0, ',', '.') }}</td>
+                <td>{{ toRoman($item->cicilan_ke ?? $loop->iteration) }}</td>
+                <td>Rp{{ number_format($item->jumlah_bayar ?? 0, 0, ',', '.') }}</td>
                 <td>{{ \Carbon\Carbon::parse($item->updated_at)->format('d-m-Y') }}</td>
                 <td>
-                    @if($item->status == 'Lunas')
+                    @if($item->status === 'Lunas')
                     <span class="badge badge-success">Lunas</span>
                     @else
                     <span class="badge badge-danger">Belum Lunas</span>

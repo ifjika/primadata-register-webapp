@@ -13,33 +13,30 @@
             @csrf
             @method('PUT')
 
-            {{-- ID Pendaftaran (hidden dengan data atribut) --}}
             <input type="hidden" name="id_pendaftaran" id="id_pendaftaran"
                 value="{{ $pembayaran->id_pendaftaran }}"
                 data-nama_paket="{{ $pembayaran->pendaftaran->paket->nama_paket ?? '' }}"
                 data-jurusan="{{ $pembayaran->pendaftaran->paket->jurusan ?? '' }}"
                 data-jumlah_cicilan="{{ $totalCicilan }}">
 
-
-            {{-- Tampilkan ID Pendaftaran (readonly) --}}
+            {{-- ID Pendaftaran --}}
             <div class="form-group">
-                <label for="id_pendaftaran_display">ID Pendaftaran</label>
-                <input type="text" id="id_pendaftaran_display" class="form-control"
-                    value="{{ $pembayaran->id_pendaftaran ?? '-' }}" disabled>
+                <label>ID Pendaftaran</label>
+                <input type="text" class="form-control" value="{{ $pembayaran->id_pendaftaran ?? '-' }}" disabled>
             </div>
 
-            {{-- Nama Peserta (readonly) --}}
+            {{-- Nama Peserta --}}
             <div class="form-group">
-                <label for="nama_peserta">Nama Peserta</label>
-                <input type="text" id="nama_peserta" class="form-control"
-                    value="{{ $pembayaran->pendaftaran->peserta->nama_peserta ?? '-' }}" readonly>
+                <label>Nama Peserta</label>
+                <input type="text" class="form-control" value="{{ $pembayaran->pendaftaran->peserta->nama_peserta ?? '-' }}" readonly>
             </div>
 
-            {{-- Cicilan Ke (readonly) --}}
+            {{-- Cicilan Ke --}}
             <div class="form-group">
                 <label for="cicilan_ke">Cicilan Ke</label>
-                <input type="text" name="cicilan_ke" id="cicilan_ke" class="form-control" readonly
+                <input type="number" name="cicilan_ke" id="cicilan_ke" class="form-control" readonly
                     value="{{ old('cicilan_ke', $cicilanKe) }}">
+                <div id="cicilan-info" class="text-muted mt-2"></div>
             </div>
 
             {{-- Metode Bayar --}}
@@ -92,12 +89,11 @@
                 </select>
             </div>
 
-            {{-- Submit dan kembali --}}
+            {{-- Submit --}}
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Update Pembayaran</button>
                 <a href="{{ route('admin.pembayaran.index') }}" class="btn btn-secondary">Kembali</a>
             </div>
-
         </form>
     </div>
 </div>
@@ -134,47 +130,29 @@
         const jenis = idPendaftaranElem.getAttribute('data-nama_paket');
         const jurusan = idPendaftaranElem.getAttribute('data-jurusan');
         const cicilanKe = parseInt("{{ $cicilanKe }}") || 1;
-        const totalCicilan = parseInt("{{ $totalCicilan }}") || 1;
+        const rincianElem = document.getElementById('cicilan-info');
+        const jumlahBayarInput = document.getElementById('jumlah_bayar');
 
-        document.addEventListener('DOMContentLoaded', function() {
-            // Asumsikan variabel cicilanKe, jenis, jurusan sudah didefinisikan sebelumnya
+        const cicilanArray =
+            (paketCicilan[jenis] && (paketCicilan[jenis][jurusan] || paketCicilan[jenis]['default'])) || [];
 
-            // Set nilai cicilan_ke input
-            const cicilanKeInput = document.getElementById('cicilan_ke');
-            if (cicilanKeInput) {
-                cicilanKeInput.value = cicilanKe;
-            }
+        const formatRupiah = (num) => {
+            return new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR'
+            }).format(num);
+        };
 
-            // Ambil array cicilan sesuai paket dan jurusan
-            const cicilanArray =
-                (paketCicilan[jenis] && (paketCicilan[jenis][jurusan] || paketCicilan[jenis]['default'])) || [];
+        // Tampilkan rincian cicilan
+        if (rincianElem) {
+            rincianElem.innerHTML = "<strong>Rincian Cicilan:</strong><br>" +
+                cicilanArray.map((val, idx) => `Cicilan ${idx + 1} : ${formatRupiah(val)}`).join('<br>');
+        }
 
-            const rincianElem = document.getElementById('cicilan-info');
-
-            const formatRupiah = (num) => {
-                return new Intl.NumberFormat('id-ID', {
-                    style: 'currency',
-                    currency: 'IDR'
-                }).format(num);
-            };
-
-            let jumlahBayar = 0;
-            if (cicilanKe >= 1 && cicilanKe <= cicilanArray.length) {
-                jumlahBayar = cicilanArray[cicilanKe - 1];
-            }
-
-            if (rincianElem) {
-                const rincianHtml = "<strong>Cicilan:</strong><br>" +
-                    cicilanArray.map((val, idx) => `Cicilan ${idx + 1} : ${formatRupiah(val)}`).join('<br>');
-                rincianElem.innerHTML = rincianHtml;
-            }
-
-            const jumlahBayarInput = document.getElementById('jumlah_bayar');
-            if (jumlahBayarInput && !jumlahBayarInput.value) {
-                jumlahBayarInput.value = jumlahBayar;
-            }
-        });
-
+        // Set nilai default jumlah bayar
+        if (jumlahBayarInput && !jumlahBayarInput.value && cicilanArray.length >= cicilanKe) {
+            jumlahBayarInput.value = cicilanArray[cicilanKe - 1];
+        }
     });
 </script>
 @stop
