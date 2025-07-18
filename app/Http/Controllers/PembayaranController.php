@@ -21,15 +21,14 @@ class PembayaranController extends Controller
         return view('admin.pembayaran.index', compact('pembayaran'));
     }
 
-
     // Tampilkan form tambah pembayaran
     public function create()
     {
-
         $pendaftaran = Pendaftaran::with('peserta', 'paket')->get();
         return view('admin.pembayaran.create', compact('pendaftaran'));
     }
 
+    // Simpan data pembayaran baru
     public function store(Request $request)
     {
         $request->validate([
@@ -40,9 +39,12 @@ class PembayaranController extends Controller
             'status' => 'required|in:Lunas,Belum Lunas',
         ]);
 
+        $lastCicilan = Pembayaran::where('id_pendaftaran', $request->id_pendaftaran)->count();
+        $cicilanKe = $lastCicilan + 1;
 
         $pembayaran = Pembayaran::create([
             'id_pendaftaran' => $request->id_pendaftaran,
+            'cicilan_ke' => $cicilanKe,
             'metode_bayar' => $request->metode_bayar,
             'jumlah_bayar' => $request->jumlah_bayar,
             'bukti_pembayaran' => null,
@@ -61,48 +63,51 @@ class PembayaranController extends Controller
         return redirect()->route('admin.pembayaran.index')->with('success', 'Data pembayaran berhasil ditambahkan.');
     }
 
+    // Tampilkan detail pembayaran berdasarkan pendaftaran
     public function show($id)
     {
         $pembayaran = Pembayaran::with('pendaftaran.peserta', 'pendaftaran.paket')->findOrFail($id);
 
         $pembayarans = Pembayaran::with('pendaftaran.peserta', 'pendaftaran.paket')
             ->where('id_pendaftaran', $pembayaran->id_pendaftaran)
+            ->orderBy('cicilan_ke')
             ->get();
 
         return view('admin.pembayaran.show', compact('pembayaran', 'pembayarans'));
     }
 
+    // Tampilkan form edit pembayaran
     public function edit($id)
     {
         $pembayaran = Pembayaran::findOrFail($id);
         $pendaftarans = Pendaftaran::with('peserta.user')->get();
 
+        $daftarPembayaran = Pembayaran::where('id_pendaftaran', $pembayaran->id_pendaftaran)
+            ->orderBy('created_at')
+            ->get();
+
+        $cicilanIndex = $daftarPembayaran->search(function ($item) use ($pembayaran) {
+            return $item->id_pembayaran == $pembayaran->id_pembayaran;
+        });
+        $cicilanKe = ($cicilanIndex !== false) ? $cicilanIndex + 1 : null;
+
         $statusType = DB::select("SHOW COLUMNS FROM pembayaran WHERE Field = 'status'")[0]->Type;
-        preg_match("/^enum\((.*)\)$/", $statusType, $statusMatches);
-        $enumStatus = [];
-        if (isset($statusMatches[1])) {
-            $enumStatus = array_map(function ($value) {
-                return trim($value, "'");
-            }, explode(",", $statusMatches[1]));
-        }
+        preg_match("/^enum\\((.*)\)\$/", $statusType, $statusMatches);
+        $enumStatus = isset($statusMatches[1]) ? array_map(fn($v) => trim($v, "'"), explode(",", $statusMatches[1])) : [];
 
         $metodeType = DB::select("SHOW COLUMNS FROM pembayaran WHERE Field = 'metode_bayar'")[0]->Type;
-        preg_match("/^enum\((.*)\)$/", $metodeType, $metodeMatches);
-        $enumMetode = [];
-        if (isset($metodeMatches[1])) {
-            $enumMetode = array_map(function ($value) {
-                return trim($value, "'");
-            }, explode(",", $metodeMatches[1]));
-        }
+        preg_match("/^enum\\((.*)\)\$/", $metodeType, $metodeMatches);
+        $enumMetode = isset($metodeMatches[1]) ? array_map(fn($v) => trim($v, "'"), explode(",", $metodeMatches[1])) : [];
 
         return view('admin.pembayaran.edit', [
             'pembayaran' => $pembayaran,
             'pendaftarans' => $pendaftarans,
             'enumValuesStatus' => $enumStatus,
             'enumValuesMetode' => $enumMetode,
+            'cicilanKe' => $cicilanKe,
+            'totalCicilan' => $daftarPembayaran->count(),
         ]);
     }
-
 
     // Update data pembayaran
     public function update(Request $request, $id)
@@ -119,14 +124,17 @@ class PembayaranController extends Controller
 
         $data = $request->only(['id_pendaftaran', 'metode_bayar', 'jumlah_bayar', 'status']);
 
-        // Tangani file upload jika ada
+        // Tetapkan ulang cicilan_ke jika id_pendaftaran berubah
+        if ($request->id_pendaftaran != $pembayaran->id_pendaftaran) {
+            $lastCicilan = Pembayaran::where('id_pendaftaran', $request->id_pendaftaran)->count();
+            $data['cicilan_ke'] = $lastCicilan + 1;
+        }
+
         if ($request->hasFile('bukti_pembayaran')) {
-            // Hapus file lama jika ada
             if ($pembayaran->bukti_pembayaran) {
                 Storage::disk('public')->delete($pembayaran->bukti_pembayaran);
             }
 
-            // Simpan file ke folder: id_pendaftaran_id_pembayaran
             $folderName = $request->id_pendaftaran . '_' . $pembayaran->id_pembayaran;
             $filePath = $request->file('bukti_pembayaran')->store("bukti_pembayaran/{$folderName}", 'public');
 
@@ -137,7 +145,6 @@ class PembayaranController extends Controller
 
         return redirect()->route('admin.pembayaran.index')->with('success', 'Data pembayaran berhasil diperbarui.');
     }
-
 
     // Hapus data pembayaran
     public function destroy($id)

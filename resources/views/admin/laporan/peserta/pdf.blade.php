@@ -58,6 +58,7 @@
 <body>
     <div class="container signature-container">
         <h2>Laporan Peserta LKP Primadata - Periode {{ \Carbon\Carbon::parse($laporan->periode . '-01')->translatedFormat('F Y') }}</h2>
+        <h5>Jumlah Peserta</h5>
         <table>
             <thead>
                 <tr>
@@ -93,15 +94,35 @@
             </tfoot>
         </table>
 
-        <!-- Print Date, Admin, and Name in the bottom-right corner -->
-        <div class="bottom-right">
-            <!-- Print Date Section (using PHP for current date) -->
+        <h5>Jumlah Peserta per Jurusan</h5>
+
+        @foreach ($blokPesertaData as $kategori => $jurusanData)
+        <h6>Kategori: {{ ucfirst($kategori) }}</h6>
+        <table>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Jurusan</th>
+                    <th>Jumlah Peserta</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($jurusanData as $jurusan => $jumlah)
+                <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $jurusan }}</td>
+                    <td>{{ $jumlah }}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+        <br>
+        @endforeach
+
+        <br><br>
+        <div style="text-align: right;">
             <p>Padang, {{ \Carbon\Carbon::now()->locale('id')->isoFormat('D MMMM YYYY') }}</p>
-
-            <!-- 5 Line Breaks (Empty lines) before Admin -->
             <br><br><br><br><br>
-
-            <!-- Admin and Name Section -->
             <p><strong>Admin</strong></p>
             <p>Lora Nining Purwanti</p>
         </div>
