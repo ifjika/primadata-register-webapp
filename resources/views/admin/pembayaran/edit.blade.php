@@ -18,7 +18,8 @@
                 value="{{ $pembayaran->id_pendaftaran }}"
                 data-nama_paket="{{ $pembayaran->pendaftaran->paket->nama_paket ?? '' }}"
                 data-jurusan="{{ $pembayaran->pendaftaran->paket->jurusan ?? '' }}"
-                data-jumlah_cicilan="{{ $pembayaran->pendaftaran->pembayaran->count() ?? 0 }}">
+                data-jumlah_cicilan="{{ $totalCicilan }}">
+
 
             {{-- Tampilkan ID Pendaftaran (readonly) --}}
             <div class="form-group">
@@ -37,7 +38,8 @@
             {{-- Cicilan Ke (readonly) --}}
             <div class="form-group">
                 <label for="cicilan_ke">Cicilan Ke</label>
-                <input type="text" name="cicilan_ke" id="cicilan_ke" class="form-control" readonly>
+                <input type="text" name="cicilan_ke" id="cicilan_ke" class="form-control" readonly
+                    value="{{ old('cicilan_ke', $cicilanKe) }}">
             </div>
 
             {{-- Metode Bayar --}}
@@ -131,33 +133,48 @@
         const idPendaftaranElem = document.getElementById('id_pendaftaran');
         const jenis = idPendaftaranElem.getAttribute('data-nama_paket');
         const jurusan = idPendaftaranElem.getAttribute('data-jurusan');
-        const jumlahCicilan = parseInt(idPendaftaranElem.getAttribute('data-jumlah_cicilan')) || 0;
-        const cicilanKe = jumlahCicilan + 1;
+        const cicilanKe = parseInt("{{ $cicilanKe }}") || 1;
+        const totalCicilan = parseInt("{{ $totalCicilan }}") || 1;
 
-        document.getElementById('cicilan_ke').value = cicilanKe;
+        document.addEventListener('DOMContentLoaded', function() {
+            // Asumsikan variabel cicilanKe, jenis, jurusan sudah didefinisikan sebelumnya
 
-        const cicilanArray =
-            (paketCicilan[jenis] && (paketCicilan[jenis][jurusan] || paketCicilan[jenis]['default'])) || [];
+            // Set nilai cicilan_ke input
+            const cicilanKeInput = document.getElementById('cicilan_ke');
+            if (cicilanKeInput) {
+                cicilanKeInput.value = cicilanKe;
+            }
 
-        let jumlahBayar = 0;
-        if (cicilanKe >= 1 && cicilanKe <= cicilanArray.length) {
-            jumlahBayar = cicilanArray[cicilanKe - 1];
-        }
+            // Ambil array cicilan sesuai paket dan jurusan
+            const cicilanArray =
+                (paketCicilan[jenis] && (paketCicilan[jenis][jurusan] || paketCicilan[jenis]['default'])) || [];
 
-        const formatRupiah = (num) => {
-            return new Intl.NumberFormat('id-ID', {
-                style: 'currency',
-                currency: 'IDR'
-            }).format(num);
-        };
+            const rincianElem = document.getElementById('cicilan-info');
 
-        let rincian = "<strong>Cicilan:</strong><br>" + cicilanArray.map((val, idx) => `Cicilan ${idx + 1} : ${formatRupiah(val)}`).join('<br>');
-        document.getElementById('cicilan-info').innerHTML = rincian;
+            const formatRupiah = (num) => {
+                return new Intl.NumberFormat('id-ID', {
+                    style: 'currency',
+                    currency: 'IDR'
+                }).format(num);
+            };
 
-        const jumlahBayarInput = document.getElementById('jumlah_bayar');
-        if (!jumlahBayarInput.value) {
-            jumlahBayarInput.value = jumlahBayar;
-        }
+            let jumlahBayar = 0;
+            if (cicilanKe >= 1 && cicilanKe <= cicilanArray.length) {
+                jumlahBayar = cicilanArray[cicilanKe - 1];
+            }
+
+            if (rincianElem) {
+                const rincianHtml = "<strong>Cicilan:</strong><br>" +
+                    cicilanArray.map((val, idx) => `Cicilan ${idx + 1} : ${formatRupiah(val)}`).join('<br>');
+                rincianElem.innerHTML = rincianHtml;
+            }
+
+            const jumlahBayarInput = document.getElementById('jumlah_bayar');
+            if (jumlahBayarInput && !jumlahBayarInput.value) {
+                jumlahBayarInput.value = jumlahBayar;
+            }
+        });
+
     });
 </script>
 @stop

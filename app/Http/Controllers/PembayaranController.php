@@ -77,6 +77,16 @@ class PembayaranController extends Controller
         $pembayaran = Pembayaran::findOrFail($id);
         $pendaftarans = Pendaftaran::with('peserta.user')->get();
 
+        $daftarPembayaran = Pembayaran::where('id_pendaftaran', $pembayaran->id_pendaftaran)
+            ->orderBy('created_at')
+            ->get();
+
+        $cicilanIndex = $daftarPembayaran->search(function ($item) use ($pembayaran) {
+            return $item->id_pembayaran == $pembayaran->id_pembayaran;
+        });
+        $cicilanKe = ($cicilanIndex !== false) ? $cicilanIndex + 1 : null;
+
+
         $statusType = DB::select("SHOW COLUMNS FROM pembayaran WHERE Field = 'status'")[0]->Type;
         preg_match("/^enum\((.*)\)$/", $statusType, $statusMatches);
         $enumStatus = [];
@@ -100,8 +110,11 @@ class PembayaranController extends Controller
             'pendaftarans' => $pendaftarans,
             'enumValuesStatus' => $enumStatus,
             'enumValuesMetode' => $enumMetode,
+            'cicilanKe' => $cicilanKe,
+            'totalCicilan' => $daftarPembayaran->count(),
         ]);
     }
+
 
 
     // Update data pembayaran
